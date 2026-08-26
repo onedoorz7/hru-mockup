@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>תוצאות חיפוש - איך את.ה?</title>
+<meta name="description" content="תוצאות חיפוש: מידע מקצועי, מדריכים וכלים שיכולים לעזור - לפי מה שכתבתם. פרויקט מבית קולקטיב עיקר.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@700;800&family=Noto+Sans+Hebrew:wght@400;600&display=swap">
+<link rel="stylesheet" href="css/b.css">
+<style>
+/* ---------- search.html page styles ---------- */
+
+/* results hero - light tinted band, the search stays on top */
+.results-hero {
+  position: relative; overflow: hidden;
+  border-bottom: 1px solid var(--line);
+  padding-block: clamp(52px, 7vw, 88px) clamp(48px, 6.5vw, 78px);
+}
+.results-air {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(42rem 26rem at 84% -12%, rgba(76, 196, 210, 0.14), transparent 66%),
+    radial-gradient(34rem 22rem at 8% 116%, rgba(110, 110, 146, 0.1), transparent 62%);
+}
+.results-hero .container {
+  position: relative; display: grid; gap: 16px;
+  max-width: 860px; text-align: center; justify-items: center;
+}
+.results-hero h1 {
+  font-size: clamp(1.9rem, 5.2vw, 3rem);
+  font-weight: 800; letter-spacing: -0.01em;
+}
+.results-query { color: var(--ink-soft); font-size: 1.02rem; }
+.results-query b { color: var(--ink); }
+.results-query .count { color: var(--lilac); }
+.results-hero .search-form { width: 100%; max-width: 720px; margin-top: 6px; }
+
+/* layout: filters beside the results */
+.results-section { padding-block: clamp(40px, 5.5vw, 66px) clamp(52px, 7vw, 88px); }
+.results-layout {
+  display: grid; grid-template-columns: 272px minmax(0, 1fr);
+  gap: clamp(28px, 4vw, 48px); align-items: start;
+}
+.results-list { display: grid; gap: clamp(36px, 5vw, 52px); min-width: 0; }
+.result-block { display: grid; gap: 20px; }
+.result-block header { display: grid; gap: 4px; }
+.result-block h2 { font-size: 1.4rem; letter-spacing: -0.01em; }
+.block-sub { color: var(--ink-soft); font-size: 0.95rem; }
+
+/* filters */
+.filters-fold summary { display: none; }
+.filter-panel {
+  display: grid; gap: 24px;
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--r); padding: 26px 24px;
+}
+.filters-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.filters-head h2 { font-size: 1.02rem; }
+.link-btn {
+  background: none; border: 0; padding: 0;
+  color: var(--teal-ink); font-weight: 600; font-size: 0.88rem;
+  text-decoration: underline; text-underline-offset: 3px;
+}
+.filter-group { display: grid; gap: 10px; }
+.filter-group h3 {
+  font-family: var(--f-body); font-weight: 600;
+  font-size: 0.82rem; color: var(--lilac); letter-spacing: 0.02em;
+}
+.filter-opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.filter-opt {
+  background: var(--card); color: var(--ink-soft);
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 6px 14px; font-size: 0.88rem; font-weight: 600;
+  transition: border-color .12s ease, background .12s ease, color .12s ease;
+}
+.filter-opt:hover { border-color: var(--teal-ink); color: var(--teal-ink); }
+.filter-opt[aria-pressed="true"] { background: var(--teal-ink); border-color: var(--teal-ink); color: #fff; }
+.filter-note { color: var(--lilac); font-size: 0.85rem; line-height: 1.6; }
+.sum-note { color: var(--lilac); font-weight: 600; font-size: 0.85rem; margin-inline-start: auto; }
+
+/* recommended - horizontal result rows */
+.rec-card { position: relative; flex-direction: row; align-items: stretch; overflow: visible; }
+.rec-card .card-art {
+  flex: 0 0 216px; height: auto; min-height: 172px;
+  border-bottom: 0; border-inline-end: 1px solid var(--line);
+  border-start-start-radius: var(--r); border-end-start-radius: var(--r);
+  overflow: hidden;
+}
+.rec-card .card-art svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.rec-card .card-body { padding: 20px 24px 22px; }
+.rec-flag {
+  position: absolute; top: -12px; inset-inline-start: 22px; z-index: 1;
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--card); color: var(--teal-ink);
+  border: 1px solid rgba(20, 112, 126, 0.45); border-radius: 999px;
+  padding: 2px 14px; font-size: 0.78rem; font-weight: 600;
+}
+.rec-flag::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--amber); flex-shrink: 0;
+}
+
+/* compact secondary result rows */
+.mini-card { flex-direction: row; align-items: center; gap: 18px; padding: 16px 18px; }
+.mini-art {
+  width: 78px; height: 78px; flex: 0 0 78px; align-self: flex-start;
+  border-radius: 16px; overflow: hidden; border: 1px solid var(--line);
+  display: grid;
+}
+.mini-art svg { width: 100%; height: 100%; }
+.mini-card .card-body { padding: 0; gap: 5px; }
+.mini-card h3 { font-size: 1.08rem; }
+.mini-card .excerpt { font-size: 0.92rem; }
+.mini-cta {
+  color: var(--teal-ink); font-weight: 600; font-size: 1.2rem;
+  padding-inline-start: 4px; flex-shrink: 0;
+}
+
+/* related searches */
+.related-row {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+  color: var(--ink-soft); font-size: 0.95rem; font-weight: 600;
+}
+.related-row .chip { padding: 7px 16px; font-size: 0.9rem; }
+
+/* routing strip to help + partners */
+.help-strip {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 18px 28px; flex-wrap: wrap;
+  padding: clamp(24px, 3.4vw, 36px) clamp(24px, 3.6vw, 38px);
+}
+.help-strip h2 { font-size: 1.35rem; }
+.help-strip .txt { display: grid; gap: 6px; flex: 1 1 22em; max-width: 36em; }
+.help-strip .btn { flex-shrink: 0; }
+
+/* design-state demos: empty state + sensitive query */
+.demo-section { padding-block: 0 clamp(52px, 7vw, 88px); }
+.demo-wrap { max-width: 800px; margin-inline: auto; display: grid; gap: 22px; }
+.demo-divider {
+  display: flex; align-items: center; gap: 16px; text-align: center;
+  color: var(--lilac); font-weight: 600; font-size: 0.85rem;
+}
+.demo-divider::before, .demo-divider::after {
+  content: ""; flex: 1; height: 1px; background: var(--line);
+}
+.noresults { padding: clamp(28px, 4vw, 40px) clamp(24px, 4vw, 40px); }
+.noresults h2 { font-size: 1.45rem; }
+.noresults > p { max-width: 42em; }
+.noresults .chip-row { justify-content: flex-start; gap: 8px; }
+.noresults .chip { padding: 8px 16px; font-size: 0.9rem; }
+.nr-lead { font-weight: 600; color: var(--ink); font-size: 0.95rem; }
+.nr-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; margin-top: 4px; }
+.nr-actions a { font-weight: 600; }
+
+/* sensitive query state - safety beats style purity: amber, with ink text */
+.sensitive {
+  border-color: rgba(253, 186, 43, 0.8);
+  background: linear-gradient(0deg, rgba(253, 186, 43, 0.08), rgba(253, 186, 43, 0.08)), var(--card);
+}
+.btn-amber { background: var(--amber); color: var(--ink); }
+.btn-amber:hover { background: #f3ad14; box-shadow: 0 8px 22px rgba(253, 186, 43, 0.35); }
+.btn-outline {
+  background: var(--card); color: var(--teal-ink);
+  border: 1px solid rgba(20, 112, 126, 0.4);
+}
+.btn-outline:hover { border-color: var(--teal-ink); background: rgba(76, 196, 210, 0.08); }
+
+/* responsive */
+@media (max-width: 960px) {
+  .results-layout { grid-template-columns: 1fr; }
+  .filters-fold {
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 20px;
+  }
+  .filters-fold summary {
+    display: flex; align-items: center; gap: 12px;
+    padding: 15px 20px; font-weight: 600; cursor: pointer; list-style: none;
+  }
+  .filters-fold summary::-webkit-details-marker { display: none; }
+  .filters-fold .chev { color: var(--ink-soft); flex-shrink: 0; transition: transform .15s ease; }
+  .filters-fold[open] .chev { transform: rotate(180deg); }
+  .filter-panel { background: transparent; border: 0; border-radius: 0; padding: 2px 20px 20px; gap: 20px; }
+  .filters-head { justify-content: flex-end; }
+  .filters-head h2 { display: none; }
+}
+@media (max-width: 720px) {
+  .rec-card { flex-direction: column; }
+  .rec-card .card-art {
+    flex: initial; height: 128px; min-height: 0;
+    border-inline-end: 0; border-bottom: 1px solid var(--line);
+    border-radius: var(--r) var(--r) 0 0;
+  }
+  .mini-art { width: 62px; height: 62px; flex-basis: 62px; }
+  .mini-cta { display: none; }
+}
+</style>
+</head>
+<body>
+<!-- SHELL:HEADER START -->
+<a class="skip-link" href="#main">דילוג לתוכן</a>
+<header class="topbar">
+  <div class="container">
+    <a class="brand" href="index.html"><span class="brand-name">איך את.ה<span class="brand-q">?</span></span> <small>מבית קולקטיב עיקר</small></a>
+    <nav class="topnav" aria-label="ניווט ראשי">
+      <a href="index.html#topics">נושאים</a>
+      <a href="index.html#featured">מאמרים וכלים</a>
+      <a href="partners.html">הארגונים השותפים</a>
+      <a href="about.html">על הפרויקט</a>
+    </nav>
+    <div class="topbar-side">
+      <div class="lang-switch" role="group" aria-label="בחירת שפה (עברית, ערבית, אנגלית)" title="האתר יתמוך בעברית, ערבית ואנגלית; המעבר בין השפות ייבנה בשלב הפיתוח">
+        <span aria-current="true">עב</span><span lang="ar">ع</span><span lang="en">EN</span>
+      </div>
+      <a class="btn btn-teal" href="help.html">קבלת עזרה</a>
+      <button class="menu-toggle" data-menu-toggle aria-controls="mobileNav" aria-expanded="false" aria-label="פתיחת תפריט">
+        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="ניווט ראשי - מובייל">
+    <a href="index.html#topics">נושאים</a>
+    <a href="index.html#featured">מאמרים וכלים</a>
+    <a href="partners.html">הארגונים השותפים</a>
+    <a href="about.html">על הפרויקט</a>
+    <a href="help.html">קבלת עזרה</a>
+  </nav>
+</header>
+<!-- SHELL:HEADER END -->
+
+<main id="main" data-page="search">
+
+  <!-- results hero: the search stays on top, with the query preserved -->
+  <section class="results-hero">
+    <div class="results-air" aria-hidden="true"></div>
+    <div class="hero-rings" aria-hidden="true">
+      <svg style="inset-inline-end:-70px; top:30px;" width="200" height="200" viewBox="0 0 200 200" fill="none">
+        <circle cx="100" cy="100" r="98" stroke="#4cc4d2" stroke-width="1.5" opacity=".45"/>
+      </svg>
+      <svg style="inset-inline-start:-56px; bottom:-40px;" width="170" height="170" viewBox="0 0 170 170" fill="none">
+        <circle cx="85" cy="85" r="83" stroke="#6e6e92" stroke-width="1.5" opacity=".28"/>
+      </svg>
+    </div>
+    <div class="container">
+      <h1>מצאנו מידע שעשוי <span class="u-amber">לעזור</span></h1>
+      <p class="results-query">תוצאות עבור: <b>״אני לא מצליח לישון״</b> <span class="count">· 8 תוצאות</span></p>
+      <form class="search-form" action="search.html" method="get" role="search">
+        <div class="search-box">
+          <input type="text" name="q" value="אני לא מצליח לישון"
+                 aria-label="מה עובר עליכם? אפשר לשנות את הניסוח ולחפש שוב">
+          <button class="btn btn-teal" type="submit">מצאו לי מידע</button>
+        </div>
+        <p class="search-hint">לא מדויק? אפשר לנסח מחדש במילים שלכם - החיפוש אנונימי.</p>
+      </form>
+    </div>
+  </section>
+
+  <section class="section results-section">
+    <div class="container">
+      <div class="results-layout">
+
+        <!-- filters -->
+        <aside class="filters" aria-label="סינון תוצאות">
+          <details class="filters-fold" open>
+            <summary>
+              <span>סינון תוצאות</span>
+              <span class="sum-note">פעילים: שינה · עברית</span>
+              <svg class="chev" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 6l5 5 5-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </summary>
+            <div class="filter-panel">
+              <div class="filters-head">
+                <h2>סינון תוצאות</h2>
+                <button class="link-btn" type="button">ניקוי הסינון</button>
+              </div>
+              <div class="filter-group">
+                <h3>נושא</h3>
+                <div class="filter-opts">
+                  <button class="filter-opt" type="button" aria-pressed="true">שינה</button>
+                  <button class="filter-opt" type="button" aria-pressed="false">חרדה ולחץ</button>
+                  <button class="filter-opt" type="button" aria-pressed="false">טראומה</button>
+                  <button class="filter-opt" type="button" aria-pressed="false">ילדים ובני נוער</button>
+                  <button class="filter-opt" type="button" aria-pressed="false">עצבנות וכעס</button>
+                </div>
+              </div>
+              <div class="filter-group">
+                <h3>קהל יעד</h3>
+                <div class="filter-opts">
+                  <button class="filter-opt" type="button" aria-pressed="false">מבוגרים</button>
+                  <button class="filter-opt" type="button" aria-pressed="false">הורים</button>
+                  <button class="filter-opt" type="button" aria-pressed="false">בני נוער</button>
+                  <button class="filter-opt" type="button" aria-pressed="false">בני משפחה וחברים</button>
+                </div>
+              </div>
+              <div class="filter-group">
+                <h3>סוג תוכן</h3>
+                <div class="filter-opts">
+                  <button class="filter-opt" type="button" aria-pressed="false">מאמר</button>
+                  <button class="filter-opt" type="button" aria-pressed="false">מדריך</button>
+                  <button class="filter-opt" type="button" aria-pressed="false">סרטון</button>
+                  <button class="filter-opt" type="button" aria-pressed="false">כלי תרגול</button>
+                </div>
+              </div>
+              <div class="filter-group">
+                <h3>שפה</h3>
+                <div class="filter-opts">
+                  <button class="filter-opt" type="button" aria-pressed="true">עברית</button>
+                  <button class="filter-opt" type="button" aria-pressed="false">ערבית</button>
+                  <button class="filter-opt" type="button" aria-pressed="false">אנגלית</button>
+                </div>
+              </div>
+              <p class="filter-note">התוצאות כוללות תכנים מקצועיים בלבד; לגורמי סיוע - עמוד קבלת עזרה.</p>
+            </div>
+          </details>
+        </aside>
+
+        <!-- results -->
+        <div class="results-list">
+
+          <!-- recommended -->
+          <section class="result-block" aria-labelledby="rec-title">
+            <header>
+              <h2 id="rec-title">מומלץ עבורך</h2>
+              <p class="block-sub">התוצאות שהכי מתאימות למה שכתבתם, לפי אנשי המקצוע שלנו.</p>
+            </header>
+
+            <a class="card rec-card" href="article.html">
+              <span class="rec-flag">מומלץ</span>
+              <div class="card-art art-b" aria-hidden="true">
+                <svg viewBox="0 0 400 148" fill="none" preserveAspectRatio="xMidYMid slice">
+                  <path d="M186 28 a30 30 0 1 0 21 51 a25 25 0 0 1 -21 -51 Z" stroke="#6e6e92" stroke-width="1.5" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+                  <path d="M60 106 Q95 98 130 106 T200 106 T270 106 T340 106" stroke="#4cc4d2" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+                  <path d="M84 122 Q114 115 144 122 T204 122 T264 122 T324 122" stroke="#4cc4d2" stroke-width="1.5" opacity=".5" vector-effect="non-scaling-stroke"/>
+                  <circle cx="155" cy="40" r="2.5" fill="#6e6e92"/>
+                  <circle cx="170" cy="62" r="2" fill="#4cc4d2"/>
+                </svg>
+              </div>
+              <div class="card-body">
+                <div class="card-meta"><span class="tag">מדריך</span><span>5 דק׳ קריאה</span><span>·</span><span>שינה</span></div>
+                <h3>לא מצליחים להירדם? ככה עוזרים לגוף להאט</h3>
+                <p class="excerpt">כשהראש ממשיך לרוץ גם כשהגוף עייף - שגרת האטה קצרה, מסך שנכבה בזמן, ומה עושים בלילה שבו שום דבר לא עובד.</p>
+                <span class="card-cta">לקריאת המדריך ←</span>
+              </div>
+            </a>
+
+            <a class="card rec-card" href="article.html">
+              <span class="rec-flag">מומלץ</span>
+              <div class="card-art art-a" aria-hidden="true">
+                <svg viewBox="0 0 400 148" fill="none" preserveAspectRatio="xMidYMid slice">
+                  <circle cx="200" cy="74" r="56" stroke="#4cc4d2" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+                  <circle cx="200" cy="74" r="37" stroke="#6e6e92" stroke-width="1.5" opacity=".6" vector-effect="non-scaling-stroke"/>
+                  <path d="M191 60 L217 74 L191 88 Z" stroke="#14707e" stroke-width="1.5" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+                  <circle cx="146" cy="30" r="2.5" fill="#4cc4d2"/>
+                  <circle cx="256" cy="118" r="2.5" fill="#6e6e92"/>
+                </svg>
+              </div>
+              <div class="card-body">
+                <div class="card-meta"><span class="tag">סרטון קצר</span><span>2 דק׳ צפייה</span><span>·</span><span>חרדה ולחץ</span></div>
+                <h3>אז איך מחזירים מעט תחושת שליטה?</h3>
+                <p class="excerpt">1 מתוך 4 ישראלים מרגישים מתוחים ומודאגים. חמש פעולות קטנות שעוזרות לראש לנוח מהדאגה - בסרטון קצר ומרגיע.</p>
+                <span class="card-cta">לצפייה בסרטון ←</span>
+              </div>
+            </a>
+
+          </section>
+
+          <!-- more content -->
+          <section class="result-block" aria-labelledby="more-title">
+            <header>
+              <h2 id="more-title">עוד תכנים שיכולים לעזור</h2>
+            </header>
+
+            <a class="card mini-card" href="article.html">
+              <span class="mini-art art-a" aria-hidden="true">
+                <svg viewBox="0 0 100 100" fill="none" preserveAspectRatio="xMidYMid slice">
+                  <circle cx="40" cy="50" r="22" stroke="#4cc4d2" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+                  <circle cx="61" cy="50" r="22" stroke="#6e6e92" stroke-width="1.5" opacity=".7" vector-effect="non-scaling-stroke"/>
+                </svg>
+              </span>
+              <span class="card-body">
+                <span class="card-meta"><span class="tag">מאמר</span><span>3 דק׳ קריאה</span><span>· מציאת טיפול</span></span>
+                <h3>עברו שלושה שבועות - והלחץ עדיין לא מרפה?</h3>
+                <span class="excerpt">מתי תחושות קשות הן תגובה טבעית, ומתי שווה לפנות לליווי מקצועי - בלי שזה אומר שמשהו ״לא בסדר״.</span>
+              </span>
+              <span class="mini-cta" aria-hidden="true">←</span>
+            </a>
+
+            <a class="card mini-card" href="article.html">
+              <span class="mini-art art-b" aria-hidden="true">
+                <svg viewBox="0 0 100 100" fill="none" preserveAspectRatio="xMidYMid slice">
+                  <circle cx="40" cy="44" r="18" stroke="#6e6e92" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+                  <circle cx="65" cy="52" r="10" stroke="#14707e" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+                  <path d="M22 76 H80" stroke="#4cc4d2" stroke-width="1.5" stroke-linecap="round" vector-effect="non-scaling-stroke"/>
+                </svg>
+              </span>
+              <span class="card-body">
+                <span class="card-meta"><span class="tag">מדריך להורים</span><span>6 דק׳ קריאה</span><span>· ילדים ובני נוער</span></span>
+                <h3>הילד שלי מפחד - איך מדברים על זה?</h3>
+                <span class="excerpt">איך מקשיבים בלי להגזים בהסברים, מה נורמלי בכל גיל, ומתי כדאי להתייעץ עם גורם מקצועי.</span>
+              </span>
+              <span class="mini-cta" aria-hidden="true">←</span>
+            </a>
+
+            <a class="card mini-card" href="article.html">
+              <span class="mini-art art-b" aria-hidden="true">
+                <svg viewBox="0 0 100 100" fill="none" preserveAspectRatio="xMidYMid slice">
+                  <path d="M50 76 C28.5 55 18.5 34 33.5 29.5 C44 27.3 50 37 50 41.5 C50 37 56 27.3 66.5 29.5 C81.5 34 71.5 55 50 76 Z" stroke="#14707e" stroke-width="1.5" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+                  <circle cx="24" cy="26" r="2" fill="#4cc4d2"/>
+                  <circle cx="77" cy="26" r="2" fill="#4cc4d2"/>
+                </svg>
+              </span>
+              <span class="card-body">
+                <span class="card-meta"><span class="tag">מאמר</span><span>4 דק׳ קריאה</span><span>· עזרה לאדם קרוב</span></span>
+                <h3>לתמוך במישהו קרוב - בלי להישחק בעצמכם</h3>
+                <span class="excerpt">להיות שם בשביל מישהו זה גם מעמסה. איך מקשיבים באמת, ואיך שומרים על הכוחות של עצמכם לאורך זמן.</span>
+              </span>
+              <span class="mini-cta" aria-hidden="true">←</span>
+            </a>
+          </section>
+
+          <!-- related searches -->
+          <div class="related-row">
+            <span>חיפושים קשורים:</span>
+            <a class="chip" href="search.html?q=קושי להירדם בגלל חדשות">קושי להירדם בגלל חדשות</a>
+            <a class="chip" href="search.html?q=סיוטים">סיוטים</a>
+            <a class="chip" href="search.html?q=שגרת שינה לילדים">שגרת שינה לילדים</a>
+          </div>
+
+          <!-- routing to help + founding partners -->
+          <div class="panel panel-teal help-strip">
+            <div class="txt">
+              <h2>מחפשים ארגון או גורם מקצועי?</h2>
+              <p>ריכזנו במקום אחד את כל הדרכים לקבלת עזרה - קווי סיוע, מרפאות וגורמי טיפול - וכן את כל <a href="partners.html">השותפים המייסדים</a> של הפרויקט.</p>
+            </div>
+            <a class="btn btn-teal" href="help.html">קבלת עזרה</a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- design-state demo: the empty state (never a blank page) -->
+  <section class="section demo-section" aria-label="תצוגת עיצוב - מצב ללא תוצאות">
+    <div class="container">
+      <div class="demo-wrap">
+        <p class="demo-divider">תצוגה נוספת למשוב - מצב ללא תוצאות</p>
+        <div class="panel noresults">
+          <h2>לא מצאנו התאמה מדויקת - אבל אתם <span class="u-amber">לא לבד</span></h2>
+          <p>זה לא אומר שאין מה שיעזור. נסו לנסח את זה במילים אחרות, להתחיל מנושא קרוב - או פשוט לדבר עם מישהו עוד היום.</p>
+          <p class="nr-lead">אולי אחד מהנושאים האלה קרוב למה שחיפשתם:</p>
+          <div class="chip-row">
+            <a class="chip" href="search.html?q=שינה">שינה</a>
+            <a class="chip" href="search.html?q=חרדה ולחץ">חרדה ולחץ</a>
+            <a class="chip" href="search.html?q=ילדים ובני נוער">ילדים ובני נוער</a>
+            <a class="chip" href="search.html?q=עזרה לאדם קרוב">עזרה לאדם קרוב</a>
+          </div>
+          <div class="nr-actions">
+            <a class="btn btn-teal" href="help.html">קבלת עזרה</a>
+            <a href="index.html">חזרה לעמוד הבית ←</a>
+          </div>
+        </div>
+
+        <p class="demo-divider" style="margin-top:34px">תצוגה נוספת למשוב - שאילתה רגישה (הנוסח המדויק ייכתב ויאושר על ידי אנשי המקצוע)</p>
+        <div class="panel noresults sensitive">
+          <h2>נשמע שקשה לך עכשיו. <span class="u-amber">יש עם מי לדבר, מיד.</span></h2>
+          <p>[משפט ראשון בנוסח מומחים - ממתין לאישור מקצועי] אין צורך להסביר או להגדיר כלום - אפשר פשוט להתקשר, בעילום שם ובחינם.</p>
+          <div class="nr-actions">
+            <a class="btn btn-amber" href="tel:1201">שיחה עם ער״ן - 1201</a>
+            <a class="btn btn-outline" href="help.html">עוד דרכים לקבלת עזרה</a>
+          </div>
+          <p class="muted small" style="margin:0">בסכנה מיידית חייגו 101. התוצאות הרגילות אינן מוצגות בשאילתות כאלה.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  /* mockup-only: start with the filter panel folded on small screens */
+  if (window.matchMedia && window.matchMedia("(max-width: 960px)").matches) {
+    var f = document.querySelector(".filters-fold");
+    if (f) f.removeAttribute("open");
+  }
+</script>
+
+<!-- SHELL:FOOTER START -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a class="brand" href="index.html"><span class="brand-name">איך את.ה<span class="brand-q">?</span></span></a>
+        <p>פרויקט מבית קולקטיב עיקר, בשיתוף הארגונים המובילים בתחום בריאות הנפש, הטראומה והחוסן בישראל.</p>
+        <div class="social-row" aria-label="רשתות חברתיות">
+          <a href="#" aria-label="אינסטגרם"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.3" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="פייסבוק"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 8h3V4h-3a5 5 0 0 0-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9a1 1 0 0 1 1-1Z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="יוטיוב"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="2"/><path d="M10 9.5v5l4.5-2.5L10 9.5Z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="וואטסאפ"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z" stroke="currentColor" stroke-width="2"/><path d="M9 8.5c.5 3 3.5 6 6.5 6.5l.5-2-2-1-1 .8c-1-.5-2.3-1.8-2.8-2.8l.8-1-1-2-2 .5Z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+      <nav aria-label="ניווט - תוכן">
+        <h3>תוכן</h3>
+        <ul>
+          <li><a href="index.html#topics">נושאים נפוצים</a></li>
+          <li><a href="index.html#featured">מאמרים וכלים</a></li>
+          <li><a href="search.html">חיפוש</a></li>
+          <li><a href="help.html">קבלת עזרה</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="ניווט - הפרויקט">
+        <h3>הפרויקט</h3>
+        <ul>
+          <li><a href="about.html">על ״איך את.ה?״</a></li>
+          <li><a href="about.html#eiker">מי מאחורי הפרויקט</a></li>
+          <li><a href="partners.html">השותפים המייסדים</a></li>
+          <li><a href="https://www.icarcollective.org/he/" rel="external">האתר הרשמי של עיקר</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="ניווט - מידע">
+        <h3>מידע</h3>
+        <ul>
+          <li><a href="#">תנאי שימוש</a></li>
+          <li><a href="#">מדיניות פרטיות</a></li>
+          <li><a href="#">הצהרת נגישות</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-note">
+      <span>התוכן באתר אינו מהווה אבחון, ייעוץ רפואי או תחליף לטיפול. במצב חירום חייגו 101, או פנו לער״ן בקו 1201. כל התכנים, המספרים והארגונים בעמוד זה הם תוכן הדגמה לצורך משוב עיצובי.</span>
+      <span>© 2026 קולקטיב עיקר · ״איך את.ה?״</span>
+    </div>
+  </div>
+</footer>
+<script src="js/b.js"></script>
+<!-- SHELL:FOOTER END -->
+</body>
+</html>

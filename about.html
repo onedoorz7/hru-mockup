@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>על הפרויקט - איך את.ה?</title>
+<meta name="description" content="מה זה ״איך את.ה?״ - מדוע הוקם, למי הוא מיועד, איך נבדקים התכנים ומי מאחורי הפרויקט.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@700;800&family=Noto+Sans+Hebrew:wght@400;600&display=swap">
+<link rel="stylesheet" href="css/b.css">
+<style>
+  /* about page - B language */
+  .about-hero { padding-block: clamp(52px, 7.5vw, 84px) clamp(34px, 5vw, 52px); position: relative; overflow: hidden; }
+  .about-hero .container { display: grid; gap: 14px; max-width: 780px; text-align: center; position: relative; }
+  .about-hero h1 { font-size: clamp(2.2rem, 5.6vw, 3.5rem); }
+  .about-hero .lede { color: var(--ink-soft); font-size: clamp(1.05rem, 2vw, 1.22rem); }
+
+  .why-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: clamp(28px, 4vw, 52px); align-items: center; }
+  .why-copy { display: grid; gap: 14px; }
+  .why-copy h2 { font-size: clamp(1.7rem, 3.4vw, 2.3rem); }
+  .why-copy p { color: var(--ink-soft); }
+  .quote-card {
+    background: var(--card); border: 1px solid rgba(20, 112, 126, 0.25); border-radius: var(--r);
+    padding: clamp(28px, 4vw, 42px); display: grid; gap: 18px;
+    background-image: radial-gradient(24rem 16rem at 90% 0%, rgba(76, 196, 210, 0.12), transparent 65%);
+  }
+  .quote-card .q { font-family: var(--f-display); font-weight: 700; font-size: clamp(1.3rem, 2.4vw, 1.7rem); line-height: 1.4; }
+  .quote-card .q em { color: var(--teal-ink); font-style: normal; }
+  .quote-brand { font-family: var(--f-display); font-weight: 800; color: var(--ink); }
+  .quote-brand small { font-family: var(--f-body); font-weight: 400; color: var(--lilac); font-size: 0.75rem; }
+  .quote-brand .brand-q { color: var(--teal-ink); }
+
+  .aud-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .aud {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--r);
+    padding: 26px 26px 28px; display: grid; gap: 10px; align-content: start;
+  }
+  .aud-icon {
+    width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center;
+    border: 1px solid var(--line); background: #f6fbfc;
+  }
+  .aud h3 { font-size: 1.08rem; }
+  .aud p { color: var(--ink-soft); font-size: 0.95rem; }
+  .aud-you { border-color: rgba(20, 112, 126, 0.35); background: linear-gradient(160deg, rgba(76, 196, 210, 0.08), transparent 70%); }
+
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; counter-reset: step; }
+  .step {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--r);
+    padding: 26px; display: grid; gap: 10px; align-content: start;
+  }
+  .step-num {
+    width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center;
+    border: 1.5px solid var(--teal-ink); color: var(--teal-ink);
+    font-family: var(--f-display); font-weight: 700; font-size: 1.1rem;
+  }
+  .step h3 { font-size: 1.06rem; }
+  .step p { color: var(--ink-soft); font-size: 0.95rem; }
+  .verified-pill {
+    display: inline-flex; align-items: center; gap: 7px; justify-self: start;
+    border: 1px solid rgba(20, 112, 126, 0.35); color: var(--teal-ink);
+    border-radius: 999px; padding: 5px 14px; font-size: 0.85rem; font-weight: 600;
+  }
+
+  .offer-title { font-size: 1.15rem; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+  .offer-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 16px; }
+  .offer-list li { display: flex; gap: 12px; align-items: flex-start; }
+  .offer-list svg { flex-shrink: 0; margin-top: 2px; }
+  .offer-list b { display: block; }
+  .offer-list p { color: var(--ink-soft); font-size: 0.93rem; margin: 0; }
+  .offer-note { margin-top: 26px; color: var(--ink-soft); text-align: center; }
+
+  #eiker { scroll-margin-top: 90px; }
+  .eiker-panel { display: grid; grid-template-columns: auto 1fr; gap: clamp(24px, 4vw, 44px); align-items: center; }
+  .eiker-logo { display: grid; gap: 10px; justify-items: center; margin: 0; }
+  .eiker-mono {
+    width: 96px; height: 96px; border-radius: 24px; display: grid; place-items: center;
+    border: 1.5px solid var(--teal-ink); color: var(--teal-ink);
+    font-family: var(--f-display); font-weight: 800; font-size: 2.4rem;
+  }
+  .eiker-logo figcaption { color: var(--lilac); font-size: 0.8rem; text-align: center; line-height: 1.4; }
+  .eiker-body { display: grid; gap: 13px; }
+  .eiker-links { display: flex; gap: 10px 22px; flex-wrap: wrap; align-items: center; }
+
+  .closing { text-align: center; display: grid; gap: 20px; justify-items: center; }
+
+  @media (max-width: 960px) {
+    .why-grid { grid-template-columns: 1fr; }
+    .aud-grid, .steps { grid-template-columns: 1fr 1fr; }
+    .eiker-panel { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+    .eiker-links { justify-content: center; }
+  }
+  @media (max-width: 720px) { .aud-grid, .steps { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<!-- SHELL:HEADER START -->
+<a class="skip-link" href="#main">דילוג לתוכן</a>
+<header class="topbar">
+  <div class="container">
+    <a class="brand" href="index.html"><span class="brand-name">איך את.ה<span class="brand-q">?</span></span> <small>מבית קולקטיב עיקר</small></a>
+    <nav class="topnav" aria-label="ניווט ראשי">
+      <a href="index.html#topics">נושאים</a>
+      <a href="index.html#featured">מאמרים וכלים</a>
+      <a href="partners.html">הארגונים השותפים</a>
+      <a href="about.html" aria-current="page">על הפרויקט</a>
+    </nav>
+    <div class="topbar-side">
+      <div class="lang-switch" role="group" aria-label="בחירת שפה (עברית, ערבית, אנגלית)" title="האתר יתמוך בעברית, ערבית ואנגלית; המעבר בין השפות ייבנה בשלב הפיתוח">
+        <span aria-current="true">עב</span><span lang="ar">ع</span><span lang="en">EN</span>
+      </div>
+      <a class="btn btn-teal" href="help.html">קבלת עזרה</a>
+      <button class="menu-toggle" data-menu-toggle aria-controls="mobileNav" aria-expanded="false" aria-label="פתיחת תפריט">
+        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="ניווט ראשי - מובייל">
+    <a href="index.html#topics">נושאים</a>
+    <a href="index.html#featured">מאמרים וכלים</a>
+    <a href="partners.html">הארגונים השותפים</a>
+    <a href="about.html" aria-current="page">על הפרויקט</a>
+    <a href="help.html">קבלת עזרה</a>
+  </nav>
+</header>
+<!-- SHELL:HEADER END -->
+
+<main id="main" data-page="about">
+
+  <section class="hero about-hero">
+    <div class="hero-air" aria-hidden="true"></div>
+    <div class="container">
+      <h1>מה זה ״איך <span class="u-amber">את.ה</span><span class="brand-q">?</span>״</h1>
+      <p class="lede">פרויקט לאומי שמנגיש מידע וכלים לבריאות הנפש - לכל אחת ואחד.</p>
+    </div>
+  </section>
+
+  <section class="section section-line" id="why" aria-labelledby="why-h">
+    <div class="container why-grid">
+      <div class="why-copy">
+        <span class="eyebrow">מדוע הוקם</span>
+        <h2 id="why-h">אחרי ה־7 באוקטובר, ההתמודדות הנפשית היא <em class="accent">של כולנו</em></h2>
+        <p>לחץ, קשיי שינה, עצבנות, הצפה - אלה לא ״חולשה״ ולא בעיה פרטית שלכם. הרבה פעמים אלה תגובות טבעיות של הגוף והנפש למציאות לא פשוטה.</p>
+        <p>ובכל זאת, כשקשה - לא תמיד ברור מה בעצם עובר עלינו, מה אפשר לעשות כעת, ולמי אפשר לפנות. ״איך את.ה?״ הוקם כדי שלכל אחת ואחד יהיה מקום אחד, ברור ומרגיע, למצוא בו תשובות - ובעיקר כיוון.</p>
+      </div>
+      <div class="quote-card">
+        <p class="q">תגובות קשות הן לפעמים <em>תגובות נורמליות</em> למצב <em>לא נורמלי</em>.</p>
+        <p class="quote-brand">איך את.ה<span class="brand-q">?</span> <small>מבית קולקטיב עיקר</small></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-line" id="audience" aria-labelledby="audience-h">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">למי הוא מיועד</span>
+        <h2 id="audience-h">אם משהו מעסיק אתכם - <em class="accent">זה בשבילכם</em></h2>
+        <p>האתר פתוח לכולם. לא צריך אבחנה, הפניה או ״סיבה מספיק טובה״ כדי להיות כאן.</p>
+      </div>
+      <ul class="aud-grid" role="list">
+        <li class="aud">
+          <span class="aud-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="9.5" r="4.6" stroke="#6e6e92" stroke-width="1.5"/><path d="M5.5 23c1.5-6 15.5-6 17 0" stroke="#14707e" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          </span>
+          <h3>למי שמתמודדים בעצמם</h3>
+          <p>לחץ, חרדה, הצפה, קשיי שינה, עצבנות או תגובות שקשורות לטראומה - יש כאן מידע וכלים בשבילכם.</p>
+        </li>
+        <li class="aud">
+          <span class="aud-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 28 28" fill="none"><circle cx="10.5" cy="10" r="5" stroke="#6e6e92" stroke-width="1.5"/><circle cx="19.5" cy="13.5" r="3.4" stroke="#4cc4d2" stroke-width="1.5"/><path d="M4.5 23.5c1.3-4.6 8.6-5.2 11.5-2.4 1.9-1.9 6.7-1.5 7.5 2.4" stroke="#14707e" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>
+          </span>
+          <h3>להורים</h3>
+          <p>מידע ברור על ילדים ובני נוער - מה טבעי בכל גיל, איך מדברים על זה, ומתי כדאי להתייעץ.</p>
+        </li>
+        <li class="aud">
+          <span class="aud-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 28 28" fill="none"><path d="M6.5 19c0-6.6 6.6-6.6 7.5-3.2C15 12.4 21.5 12.4 21.5 19" stroke="#14707e" stroke-width="1.5" stroke-linecap="round"/><circle cx="6.8" cy="8" r="2.2" stroke="#4cc4d2" stroke-width="1.5"/><circle cx="21.2" cy="8" r="2.2" stroke="#4cc4d2" stroke-width="1.5"/></svg>
+          </span>
+          <h3>לבני משפחה וחברים</h3>
+          <p>כשמנסים לעזור לאדם קרוב - ולא תמיד בטוחים מה נכון להגיד, וכמה צריך לדאוג.</p>
+        </li>
+        <li class="aud">
+          <span class="aud-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="9.2" stroke="#6e6e92" stroke-width="1.5"/><path d="M14 8.8V14l3.8 2.5" stroke="#14707e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>למי שצריכים משהו עכשיו</h3>
+          <p>כלים מיידיים להתמודדות, וגורמים מקצועיים שאפשר לפנות אליהם - עוד היום.</p>
+        </li>
+        <li class="aud">
+          <span class="aud-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 28 28" fill="none"><rect x="5.8" y="4.8" width="16.4" height="18.4" rx="3.4" stroke="#6e6e92" stroke-width="1.5"/><path d="M10 11h8M10 16h5" stroke="#14707e" stroke-width="1.5" stroke-linecap="round"/></svg>
+          </span>
+          <h3>לאנשי מקצוע וארגונים</h3>
+          <p>תוכן מהימן, בדוק ונגיש - שאפשר להפנות אליו מטופלים, פונים וקהילות בביטחון מלא.</p>
+        </li>
+        <li class="aud aud-you">
+          <span class="aud-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 28 28" fill="none"><path d="M9.5 10a4.5 4.5 0 1 1 6 4.3c-1.3.5-1.5 1.4-1.5 2.7" stroke="#14707e" stroke-width="1.5" stroke-linecap="round"/><circle cx="14" cy="22" r="1.6" fill="#fdba2b"/></svg>
+          </span>
+          <h3>וגם אם אין לזה עדיין שם</h3>
+          <p>לא בטוחים שמה שאתם מרגישים ״מצדיק״ חיפוש? אם משהו מכביד - זה מספיק. הכול כאן אנונימי וללא שיפוט.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-line" id="content-check" aria-labelledby="check-h">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">איך נבחרים ונבדקים התכנים</span>
+        <h2 id="check-h">כל תוכן כאן עבר <em class="accent">בדיקה מקצועית</em></h2>
+        <p>לא כל מה שמסתובב ברשת נכון - או מרגיע. אצלנו שום תוכן לא עולה לאתר לפני שאיש או אשת מקצוע עברו עליו.</p>
+      </div>
+      <ol class="steps" role="list">
+        <li class="step">
+          <span class="step-num" aria-hidden="true">1</span>
+          <h3>נכתב על ידי אנשי מקצוע</h3>
+          <p>התכנים נכתבים על ידי פסיכולוגים, עובדים סוציאליים ואנשי טיפול מהארגונים השותפים בפרויקט.</p>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">2</span>
+          <h3>מאושר מראש - לפני פרסום</h3>
+          <p>כל מאמר עובר אישור מקצועי לפני שהוא מתפרסם, כדי שתוכלו לסמוך על כל מה שאתם קוראים.</p>
+        </li>
+        <li class="step">
+          <span class="step-num" aria-hidden="true">3</span>
+          <h3>מאומת - בתאריך גלוי</h3>
+          <p>ליד כל תוכן מופיע מתי הוא נבדק לאחרונה, כי מידע טוב הוא גם מידע עדכני. זה נראה כך:</p>
+          <span class="verified-pill"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 7.5 5.5 10.5 11.5 3.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>אומת לאחרונה: 12.8.2026</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section-line" id="offer" aria-labelledby="offer-h">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">מה האתר יכול להציע - ומה לא</span>
+        <h2 id="offer-h">חשוב לנו להיות <em class="accent">כנים</em> אתכם</h2>
+        <p>״איך את.ה?״ נבנה כדי לעזור לכם להתמצא - לא כדי להחליף בני אדם. אז הנה, בגובה העיניים:</p>
+      </div>
+      <div class="card-grid-2">
+        <div class="panel panel-teal">
+          <h3 class="offer-title">מה תמצאו כאן</h3>
+          <ul class="offer-list" role="list">
+            <li>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9.6" stroke="#14707e" stroke-width="1.5"/><path d="M7.5 12.5 10.5 15.5 16.5 8.5" stroke="#14707e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div><b>מידע מקצועי, ברור ומרגיע</b><p>תכנים שנכתבו ואושרו על ידי אנשי מקצוע - בגובה העיניים, בלי ז׳רגון.</p></div>
+            </li>
+            <li>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9.6" stroke="#14707e" stroke-width="1.5"/><path d="M7.5 12.5 10.5 15.5 16.5 8.5" stroke="#14707e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div><b>כיוון לארגונים שיכולים לסייע</b><p>נעזור לכם להגיע לגורם המתאים - לפי מה שאתם מחפשים ומי שאתם.</p></div>
+            </li>
+            <li>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9.6" stroke="#14707e" stroke-width="1.5"/><path d="M7.5 12.5 10.5 15.5 16.5 8.5" stroke="#14707e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div><b>כלים ראשונים להתמודדות</b><p>דברים קטנים שאפשר להתחיל בהם כבר עכשיו - נשימה, שגרה, שיחה.</p></div>
+            </li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3 class="offer-title">ומה בכוונה לא תמצאו</h3>
+          <ul class="offer-list" role="list">
+            <li>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9.6" stroke="#6e6e92" stroke-width="1.5"/><path d="M8 12h8" stroke="#6e6e92" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <div><b>אבחון</b><p>אף מאמר כאן לא קובע ״מה יש לכם״ ולא מדביק תוויות. את זה מבררים יחד עם איש מקצוע.</p></div>
+            </li>
+            <li>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9.6" stroke="#6e6e92" stroke-width="1.5"/><path d="M8 12h8" stroke="#6e6e92" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <div><b>טיפול</b><p>האתר לא מחליף שיחה עם אדם מקצועי - הוא עוזר למצוא אחד כזה.</p></div>
+            </li>
+            <li>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9.6" stroke="#6e6e92" stroke-width="1.5"/><path d="M8 12h8" stroke="#6e6e92" stroke-width="1.5" stroke-linecap="round"/></svg>
+              <div><b>תשובות רפואיות אישיות</b><p>לשאלות על תרופות, אבחנות או מצב ספציפי - פנו לגורם המטפל שלכם.</p></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <p class="offer-note">ואם אתם צריכים יותר מזה - בדיוק בשביל זה קיים עמוד <a href="help.html"><strong>קבלת עזרה</strong></a>, עם גורמים שאפשר לדבר איתם עוד היום.</p>
+    </div>
+  </section>
+
+  <section class="section section-line" id="eiker" aria-labelledby="eiker-h">
+    <div class="container">
+      <div class="panel panel-teal eiker-panel">
+        <figure class="eiker-logo">
+          <span class="eiker-mono" aria-hidden="true">ע</span>
+          <figcaption>קולקטיב עיקר<br>ICAR Collective</figcaption>
+        </figure>
+        <div class="eiker-body">
+          <span class="eyebrow">מי מאחורי הפרויקט</span>
+          <h2 id="eiker-h">פרויקט משותף, בשקיפות מלאה</h2>
+          <p>את הפרויקט מתכלל קולקטיב עיקר, המחבר בין ארגונים מקצועיים, מומחים ומשרדי ממשלה בתחום בריאות הנפש, הטראומה והחוסן. התכנים והסיוע מגיעים מהארגונים השותפים ובאישורם - אף גוף אינו בעלים של הפלטפורמה.</p>
+          <p>ארגון שפועל בתחום ורוצה להצטרף למיזם? נשמח לשמוע מכם ולצרף אתכם לשותפים.</p>
+          <div class="eiker-links">
+            <a class="btn btn-teal" href="#">יצירת קשר להצטרפות</a>
+            <a href="partners.html"><strong>השותפים המייסדים ←</strong></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="start" style="padding-top: 8px;">
+    <div class="container closing">
+      <div class="section-head center" style="margin-bottom: 0;">
+        <span class="eyebrow">ומכאן?</span>
+        <h2>אפשר פשוט <em class="accent">להתחיל</em></h2>
+        <p>בחרו נושא שמעסיק אתכם, או כתבו במילים שלכם בעמוד הבית.</p>
+      </div>
+      <div class="chip-row">
+        <a class="chip-lg" href="search.html?q=חרדה ולחץ">חרדה ולחץ</a>
+        <a class="chip-lg" href="search.html?q=שינה">שינה</a>
+        <a class="chip-lg" href="search.html?q=ילדים ובני נוער">ילדים ובני נוער</a>
+        <a class="chip-lg" href="search.html?q=טראומה">טראומה</a>
+        <a class="chip-lg" href="search.html?q=אובדן ושכול">אובדן ושכול</a>
+        <a class="chip-lg" href="search.html?q=עזרה לאדם קרוב">עזרה לאדם קרוב</a>
+        <a class="chip-lg" href="search.html?q=מציאת טיפול">מציאת טיפול או סיוע</a>
+      </div>
+      <p class="muted small">צריכים מישהו לדבר איתו עכשיו? <a href="help.html"><strong>לעזרה מיידית ←</strong></a></p>
+    </div>
+  </section>
+
+</main>
+
+<!-- SHELL:FOOTER START -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a class="brand" href="index.html"><span class="brand-name">איך את.ה<span class="brand-q">?</span></span></a>
+        <p>פרויקט מבית קולקטיב עיקר, בשיתוף הארגונים המובילים בתחום בריאות הנפש, הטראומה והחוסן בישראל.</p>
+        <div class="social-row" aria-label="רשתות חברתיות">
+          <a href="#" aria-label="אינסטגרם"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.3" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="פייסבוק"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 8h3V4h-3a5 5 0 0 0-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9a1 1 0 0 1 1-1Z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="יוטיוב"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="2"/><path d="M10 9.5v5l4.5-2.5L10 9.5Z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="וואטסאפ"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z" stroke="currentColor" stroke-width="2"/><path d="M9 8.5c.5 3 3.5 6 6.5 6.5l.5-2-2-1-1 .8c-1-.5-2.3-1.8-2.8-2.8l.8-1-1-2-2 .5Z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+      <nav aria-label="ניווט - תוכן">
+        <h3>תוכן</h3>
+        <ul>
+          <li><a href="index.html#topics">נושאים נפוצים</a></li>
+          <li><a href="index.html#featured">מאמרים וכלים</a></li>
+          <li><a href="search.html">חיפוש</a></li>
+          <li><a href="help.html">קבלת עזרה</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="ניווט - הפרויקט">
+        <h3>הפרויקט</h3>
+        <ul>
+          <li><a href="about.html">על ״איך את.ה?״</a></li>
+          <li><a href="about.html#eiker">מי מאחורי הפרויקט</a></li>
+          <li><a href="partners.html">השותפים המייסדים</a></li>
+          <li><a href="https://www.icarcollective.org/he/" rel="external">האתר הרשמי של עיקר</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="ניווט - מידע">
+        <h3>מידע</h3>
+        <ul>
+          <li><a href="#">תנאי שימוש</a></li>
+          <li><a href="#">מדיניות פרטיות</a></li>
+          <li><a href="#">הצהרת נגישות</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-note">
+      <span>התוכן באתר אינו מהווה אבחון, ייעוץ רפואי או תחליף לטיפול. במצב חירום חייגו 101, או פנו לער״ן בקו 1201. כל התכנים, המספרים והארגונים בעמוד זה הם תוכן הדגמה לצורך משוב עיצובי.</span>
+      <span>© 2026 קולקטיב עיקר · ״איך את.ה?״</span>
+    </div>
+  </div>
+</footer>
+<script src="js/b.js"></script>
+<!-- SHELL:FOOTER END -->
+</body>
+</html>

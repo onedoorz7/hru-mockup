@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>ער״ן - עזרה ראשונה נפשית - איך את.ה?</title>
+<meta name="description" content="ער״ן - עזרה ראשונה נפשית: תמיכה בטלפון 1201 או בצ׳אט, בעילום שם, 24 שעות ביממה. עמוד שותף בפרויקט ״איך את.ה?״ מבית קולקטיב עיקר.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@700;800&family=Noto+Sans+Hebrew:wght@400;600&display=swap">
+<link rel="stylesheet" href="css/b.css">
+<style>
+/* ---------- partner page (page-specific) ---------- */
+.partner-hero {
+  position: relative; overflow: hidden;
+  padding-block: clamp(40px, 6vw, 68px) clamp(48px, 6vw, 76px);
+}
+.partner-air {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(42rem 26rem at 88% -10%, rgba(76, 196, 210, 0.14), transparent 66%),
+    radial-gradient(34rem 22rem at 2% 112%, rgba(110, 110, 146, 0.09), transparent 64%);
+}
+.partner-rings { position: absolute; inset: 0; pointer-events: none; }
+.partner-rings svg { position: absolute; }
+.partner-hero .container { position: relative; }
+
+.breadcrumb {
+  display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center;
+  font-size: 0.88rem; font-weight: 600; color: var(--lilac);
+  margin-bottom: clamp(24px, 4vw, 38px);
+}
+.breadcrumb a { color: inherit; text-decoration: none; }
+.breadcrumb a:hover { color: var(--teal-ink); text-decoration: underline; }
+.breadcrumb .sep { opacity: 0.55; }
+.breadcrumb .here { color: var(--ink-soft); }
+
+.partner-head { display: flex; flex-wrap: wrap; align-items: flex-start; gap: clamp(22px, 3.5vw, 38px); }
+.partner-logo-lg {
+  width: clamp(96px, 12vw, 122px); aspect-ratio: 1; flex-shrink: 0;
+  border: 1px solid var(--line); border-radius: var(--r);
+  background: var(--card); box-shadow: var(--shadow-soft);
+  display: grid; place-items: center;
+  font-family: var(--f-display); font-weight: 800;
+  font-size: clamp(1.5rem, 2.6vw, 1.85rem); color: var(--teal-ink);
+}
+.partner-intro { display: grid; gap: 14px; flex: 1; min-width: min(100%, 340px); }
+.partner-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag-topic { color: var(--lilac); border-color: rgba(110, 110, 146, 0.4); }
+.tag-247 { display: inline-flex; align-items: center; gap: 7px; }
+.tag-247::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--amber); flex-shrink: 0; }
+.partner-intro h1 {
+  font-size: clamp(2rem, 4.6vw, 3rem);
+  font-weight: 800; letter-spacing: -0.015em; line-height: 1.12;
+}
+.partner-desc { font-size: clamp(1.05rem, 2vw, 1.2rem); color: var(--ink-soft); max-width: 34em; }
+.partner-actions { display: flex; flex-wrap: wrap; gap: 12px 16px; align-items: center; margin-top: 6px; }
+.partner-actions .note { font-size: 0.9rem; color: var(--lilac); font-weight: 600; }
+.partner-hero .partner-actions .btn { padding: 12px 28px; font-size: 1.02rem; }
+.btn-line { background: var(--card); color: var(--teal-ink); border: 1.5px solid rgba(20, 112, 126, 0.4); }
+.btn-line:hover { border-color: var(--teal-ink); background: rgba(76, 196, 210, 0.08); }
+
+/* facts - one clean hairline grid */
+.facts-section { padding-top: clamp(44px, 6vw, 72px); }
+.fact-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1px; background: var(--line);
+  border: 1px solid var(--line); border-radius: var(--r);
+  overflow: hidden; box-shadow: var(--shadow-soft);
+  margin: 0;
+}
+.fact { background: var(--card); padding: 22px 24px; display: grid; gap: 8px; align-content: start; }
+.fact dt { display: flex; align-items: center; gap: 9px; font-size: 0.88rem; font-weight: 600; color: var(--teal-ink); }
+.fact dt svg { flex-shrink: 0; }
+.fact dd { margin: 0; color: var(--ink); font-size: 0.98rem; line-height: 1.6; }
+.fact-contact { grid-column: 1 / -1; background: #f0f9fa; padding-block: 24px; }
+.fact-contact dd { display: flex; flex-wrap: wrap; gap: 14px 44px; align-items: center; padding-top: 2px; }
+.contact-line { display: inline-flex; align-items: center; gap: 11px; color: var(--ink); text-decoration: none; font-weight: 600; }
+.contact-line:hover b { text-decoration: underline; text-underline-offset: 3px; }
+.contact-line svg { color: var(--teal-ink); flex-shrink: 0; }
+.contact-line b { font-weight: 600; }
+.contact-line .num {
+  font-family: var(--f-display); font-weight: 800; font-size: 1.5rem;
+  color: var(--teal-ink); direction: ltr; line-height: 1;
+}
+.contact-line .sub { color: var(--ink-soft); font-weight: 400; font-size: 0.88rem; }
+.verified {
+  display: inline-flex; align-items: center; gap: 9px; margin-top: 18px;
+  color: var(--ink-soft); font-weight: 600; font-size: 0.92rem;
+}
+.verified svg { color: var(--teal-ink); flex-shrink: 0; }
+/* the joined grid appears as one calm block - no per-cell reveal */
+.anim .fact-grid .rv { opacity: 1; transform: none; }
+
+/* related orgs */
+.org-card { flex-direction: row; align-items: flex-start; gap: 18px; padding: 24px; }
+.org-card .org-logo {
+  width: 64px; height: 64px; flex-shrink: 0;
+  border: 1px solid var(--line); border-radius: 18px;
+  display: grid; place-items: center;
+  font-family: var(--f-display); font-weight: 700; font-size: 0.98rem;
+  color: var(--teal-ink);
+}
+.org-card .card-body { padding: 0; }
+
+/* route back */
+.route-back p { max-width: 40em; }
+.route-back .partner-actions { justify-content: center; margin-top: 2px; }
+
+@media (max-width: 1020px) {
+  .fact-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 760px) {
+  .partner-rings { display: none; }
+}
+@media (max-width: 640px) {
+  .fact-grid { grid-template-columns: 1fr; }
+  .fact-contact dd { flex-direction: column; align-items: flex-start; }
+  .partner-actions .btn { flex: 1 1 auto; }
+}
+</style>
+</head>
+<body>
+<!-- SHELL:HEADER START -->
+<a class="skip-link" href="#main">דילוג לתוכן</a>
+<header class="topbar">
+  <div class="container">
+    <a class="brand" href="index.html"><span class="brand-name">איך את.ה<span class="brand-q">?</span></span> <small>מבית קולקטיב עיקר</small></a>
+    <nav class="topnav" aria-label="ניווט ראשי">
+      <a href="index.html#topics">נושאים</a>
+      <a href="index.html#featured">מאמרים וכלים</a>
+      <a href="partners.html" aria-current="page">הארגונים השותפים</a>
+      <a href="about.html">על הפרויקט</a>
+    </nav>
+    <div class="topbar-side">
+      <div class="lang-switch" role="group" aria-label="בחירת שפה (עברית, ערבית, אנגלית)" title="האתר יתמוך בעברית, ערבית ואנגלית; המעבר בין השפות ייבנה בשלב הפיתוח">
+        <span aria-current="true">עב</span><span lang="ar">ع</span><span lang="en">EN</span>
+      </div>
+      <a class="btn btn-teal" href="help.html">קבלת עזרה</a>
+      <button class="menu-toggle" data-menu-toggle aria-controls="mobileNav" aria-expanded="false" aria-label="פתיחת תפריט">
+        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="ניווט ראשי - מובייל">
+    <a href="index.html#topics">נושאים</a>
+    <a href="index.html#featured">מאמרים וכלים</a>
+    <a href="partners.html" aria-current="page">הארגונים השותפים</a>
+    <a href="about.html">על הפרויקט</a>
+    <a href="help.html">קבלת עזרה</a>
+  </nav>
+</header>
+<!-- SHELL:HEADER END -->
+
+<main id="main" data-page="partner">
+
+  <!-- ראש עמוד השותף -->
+  <header class="partner-hero">
+    <div class="partner-air" aria-hidden="true"></div>
+    <div class="partner-rings" aria-hidden="true">
+      <svg style="inset-inline-end:-84px; top:34px;" width="250" height="250" viewBox="0 0 250 250" fill="none">
+        <circle cx="125" cy="125" r="123" stroke="#4cc4d2" stroke-width="1.5" opacity=".5"/>
+        <circle cx="125" cy="125" r="88" stroke="#6e6e92" stroke-width="1.5" opacity=".28"/>
+      </svg>
+    </div>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="פירורי לחם">
+        <a href="index.html">ראשי</a>
+        <span class="sep" aria-hidden="true">‹</span>
+        <a href="partners.html">הארגונים השותפים</a>
+        <span class="sep" aria-hidden="true">‹</span>
+        <span class="here" aria-current="page">ער״ן</span>
+      </nav>
+      <div class="partner-head">
+        <span class="partner-logo-lg" aria-hidden="true">ער״ן</span>
+        <div class="partner-intro">
+          <div class="partner-tags">
+            <span class="tag">עמותה</span>
+            <span class="tag tag-topic">שירות ארצי</span>
+            <span class="tag tag-247">זמין 24/7</span>
+          </div>
+          <h1>ער״ן - <span class="u-amber">עזרה ראשונה</span> נפשית</h1>
+          <p class="partner-desc">תמיכה נפשית ראשונה בשיחת טלפון או בצ׳אט, בעילום שם, 24 שעות ביממה - לכל מי שצריך אוזן קשבת, עכשיו.</p>
+          <div class="partner-actions">
+            <a class="btn btn-teal" href="tel:1201">חייגו 1201</a>
+            <a class="btn btn-line" href="#" rel="external">לאתר הרשמי</a>
+            <span class="note">השיחה אנונימית וללא תשלום</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- פרטי השירות -->
+  <section class="section section-line facts-section" id="facts" aria-labelledby="facts-h">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">פרטי השירות</span>
+        <h2 id="facts-h">מה חשוב <em class="accent">לדעת</em></h2>
+        <p>הפרטים נמסרו על ידי הארגון ונבדקו על ידי צוות הפרויקט.</p>
+      </div>
+      <dl class="fact-grid">
+        <div class="fact">
+          <dt><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 20s-7-4.5-9-9a5 5 0 0 1 9-3 5 5 0 0 1 9 3c-2 4.5-9 9-9 9Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>תחומי פעילות</dt>
+          <dd>תמיכה רגשית ראשונה במצבי מצוקה, בדידות וחרדה, ומניעת אובדנות</dd>
+        </div>
+        <div class="fact">
+          <dt><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="9" cy="8.5" r="3.5" stroke="currentColor" stroke-width="2"/><path d="M2.5 19a6.5 6.5 0 0 1 13 0" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M16 5.5a3.5 3.5 0 0 1 0 6M18.5 19a6.5 6.5 0 0 0-3.5-5.7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>קהלי יעד</dt>
+          <dd>כל הגילאים - מבוגרים, בני נוער, הורים ומי שדואגים לאדם קרוב</dd>
+        </div>
+        <div class="fact">
+          <dt><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 21l1.9-5.4A8 8 0 1 1 21 12Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8.5 12h7M8.5 9h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>סוגי שירותים</dt>
+          <dd>שיחות תמיכה והקשבה, סיוע רגשי ראשוני והכוונה להמשך טיפול</dd>
+        </div>
+        <div class="fact">
+          <dt><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 12h12M12 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>אופן קבלת השירות</dt>
+          <dd>פנייה ישירה - ללא הפניה, ללא הרשמה וללא המתנה לתור</dd>
+        </div>
+        <div class="fact">
+          <dt><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c-5 5.5-5 12.5 0 18M12 3c5 5.5 5 12.5 0 18" stroke="currentColor" stroke-width="2"/></svg>שירות מקוון או פרונטלי</dt>
+          <dd>מקוון - בטלפון או בצ׳אט, מכל מקום</dd>
+        </div>
+        <div class="fact">
+          <dt><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.5" stroke="currentColor" stroke-width="2"/></svg>אזורי פעילות</dt>
+          <dd>ארצי - מכל מקום בארץ</dd>
+        </div>
+        <div class="fact">
+          <dt><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 15a6 6 0 1 1 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M10 21a6 6 0 1 0 4-10.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>שפות</dt>
+          <dd>עברית, ערבית, אנגלית ורוסית</dd>
+        </div>
+        <div class="fact">
+          <dt><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20.6 13.4 13.4 20.6a2 2 0 0 1-2.8 0L3.4 13.4A2 2 0 0 1 2.8 12V4a1 1 0 0 1 1-1h8a2 2 0 0 1 1.4.6l7.4 7.4a2 2 0 0 1 0 2.4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="7.5" cy="7.5" r="1.5" fill="currentColor"/></svg>עלות</dt>
+          <dd>ללא עלות - השירות ניתן בחינם, לכולם</dd>
+        </div>
+        <div class="fact">
+          <dt><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3.5 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>שעות פעילות</dt>
+          <dd>24 שעות ביממה, כל ימות השנה - כולל שבתות וחגים</dd>
+        </div>
+        <div class="fact fact-contact">
+          <dt><svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>דרכי התקשרות</dt>
+          <dd>
+            <a class="contact-line" href="tel:1201">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+              <b class="num">1201</b>
+              <span class="sub">חיוג חינם מכל טלפון</span>
+            </a>
+            <a class="contact-line" href="#" rel="external">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 21l1.9-5.4A8 8 0 1 1 21 12Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M8.5 12h7M8.5 9h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+              <b>צ׳אט באתר ער״ן</b>
+              <span class="sub" dir="ltr">eran.org.il</span>
+            </a>
+          </dd>
+        </div>
+      </dl>
+      <p class="verified">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><path d="M8.5 12.5 11 15l4.5-5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        הפרטים אומתו לאחרונה: 25.8.2026
+      </p>
+    </div>
+  </section>
+
+  <!-- תכנים מהשותף -->
+  <section class="section section-line" id="partner-content" aria-labelledby="partner-content-h">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">מאמרים וכלים</span>
+        <h2 id="partner-content-h">תכנים <em class="accent">מהשותף</em></h2>
+        <p>תכנים באתר שנכתבו על ידי אנשי המקצוע של ער״ן או בשיתוף איתם.</p>
+      </div>
+      <div class="card-grid-2">
+        <a class="card" href="article.html">
+          <div class="card-art art-a" aria-hidden="true">
+            <svg viewBox="0 0 400 148" fill="none">
+              <circle cx="200" cy="74" r="52" stroke="#4cc4d2" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+              <circle cx="200" cy="74" r="34" stroke="#6e6e92" stroke-width="1.5" opacity=".7" vector-effect="non-scaling-stroke"/>
+              <circle cx="200" cy="74" r="16" stroke="#14707e" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+              <circle cx="200" cy="74" r="3" fill="#14707e"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span class="tag">מאמר</span><span>4 דק׳ קריאה</span><span>·</span><span>חרדה ולחץ</span></div>
+            <h3>אז איך מחזירים מעט תחושת שליטה?</h3>
+            <p class="excerpt">1 מתוך 4 ישראלים מרגישים מתוחים ומודאגים. חמש פעולות קטנות שעוזרות לראש לנוח מהדאגה.</p>
+            <span class="card-cta">לקריאת המאמר ←</span>
+          </div>
+        </a>
+        <a class="card" href="search.html?q=שינה">
+          <div class="card-art art-b" aria-hidden="true">
+            <svg viewBox="0 0 400 148" fill="none">
+              <path d="M278 34 a26 26 0 1 0 18 44 a22 22 0 0 1 -18 -44 Z" stroke="#6e6e92" stroke-width="1.5" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+              <path d="M60 104 Q95 96 130 104 T200 104 T270 104 T340 104" stroke="#4cc4d2" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+              <path d="M84 120 Q114 113 144 120 T204 120 T264 120 T324 120" stroke="#4cc4d2" stroke-width="1.5" opacity=".5" vector-effect="non-scaling-stroke"/>
+              <circle cx="122" cy="46" r="2.5" fill="#6e6e92"/>
+              <circle cx="152" cy="64" r="2" fill="#4cc4d2"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span class="tag">מדריך</span><span>5 דק׳ קריאה</span><span>·</span><span>שינה</span></div>
+            <h3>לא מצליחים להירדם? ככה עוזרים לגוף להאט</h3>
+            <p class="excerpt">כשהראש ממשיך לרוץ גם כשהגוף עייף - שגרת האטה קצרה ומה עושים בלילה שבו כלום לא עובד.</p>
+            <span class="card-cta">לקריאת המדריך ←</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ארגונים נוספים -->
+  <section class="section section-line" id="more-orgs" aria-labelledby="more-orgs-h">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">עוד כתובות</span>
+        <h2 id="more-orgs-h">ארגונים נוספים שעשויים <em class="accent">לעזור</em></h2>
+        <p>אם השירות של ער״ן אינו בדיוק מה שחיפשתם - יש עוד מי שאפשר לפנות אליהם.</p>
+      </div>
+      <div class="card-grid-2">
+        <a class="card org-card" href="partners.html">
+          <span class="org-logo" aria-hidden="true" style="background:#f6fbfc">סה״ר</span>
+          <div class="card-body">
+            <div class="card-meta"><span class="tag">קו סיוע</span><span>שירות מקוון</span></div>
+            <h3>סה״ר - סיוע והקשבה ברשת</h3>
+            <p class="excerpt">תמיכה רגשית אנונימית בכתב - בצ׳אט, בוואטסאפ וברשתות, למי שקל לו יותר לכתוב.</p>
+            <span class="card-cta">לעמוד הארגון ←</span>
+          </div>
+        </a>
+        <a class="card org-card" href="partners.html">
+          <span class="org-logo" aria-hidden="true" style="background:#f6f6fa">נט״ל</span>
+          <div class="card-body">
+            <div class="card-meta"><span class="tag">עמותה</span><span>שירות מקוון ופרונטלי</span></div>
+            <h3>נט״ל - קו סיוע לטראומה על רקע לאומי</h3>
+            <p class="excerpt">ליווי טיפולי ותמיכה טלפונית לנפגעי טראומה על רקע לאומי, למשרתי מילואים ולמשפחות.</p>
+            <span class="card-cta">לעמוד הארגון ←</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- חזרה רגועה -->
+  <section class="section" id="route-back" style="padding-top: 12px;">
+    <div class="container">
+      <div class="again-panel route-back">
+        <h2>לא בטוחים שזה הכיוון הנכון?</h2>
+        <p>אפשר לחזור לחיפוש ולכתוב במילים שלכם מה עובר עליכם - ואם עכשיו זה רגע קשה, לא חייבים לעבור אותו לבד.</p>
+        <div class="partner-actions">
+          <a class="btn btn-teal" href="search.html">חזרה לחיפוש</a>
+          <a class="btn btn-line" href="help.html">לעמוד קבלת עזרה</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- SHELL:FOOTER START -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a class="brand" href="index.html"><span class="brand-name">איך את.ה<span class="brand-q">?</span></span></a>
+        <p>פרויקט מבית קולקטיב עיקר, בשיתוף הארגונים המובילים בתחום בריאות הנפש, הטראומה והחוסן בישראל.</p>
+        <div class="social-row" aria-label="רשתות חברתיות">
+          <a href="#" aria-label="אינסטגרם"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.3" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="פייסבוק"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 8h3V4h-3a5 5 0 0 0-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9a1 1 0 0 1 1-1Z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="יוטיוב"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="2"/><path d="M10 9.5v5l4.5-2.5L10 9.5Z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="וואטסאפ"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z" stroke="currentColor" stroke-width="2"/><path d="M9 8.5c.5 3 3.5 6 6.5 6.5l.5-2-2-1-1 .8c-1-.5-2.3-1.8-2.8-2.8l.8-1-1-2-2 .5Z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+      <nav aria-label="ניווט - תוכן">
+        <h3>תוכן</h3>
+        <ul>
+          <li><a href="index.html#topics">נושאים נפוצים</a></li>
+          <li><a href="index.html#featured">מאמרים וכלים</a></li>
+          <li><a href="search.html">חיפוש</a></li>
+          <li><a href="help.html">קבלת עזרה</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="ניווט - הפרויקט">
+        <h3>הפרויקט</h3>
+        <ul>
+          <li><a href="about.html">על ״איך את.ה?״</a></li>
+          <li><a href="about.html#eiker">מי מאחורי הפרויקט</a></li>
+          <li><a href="partners.html">השותפים המייסדים</a></li>
+          <li><a href="https://www.icarcollective.org/he/" rel="external">האתר הרשמי של עיקר</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="ניווט - מידע">
+        <h3>מידע</h3>
+        <ul>
+          <li><a href="#">תנאי שימוש</a></li>
+          <li><a href="#">מדיניות פרטיות</a></li>
+          <li><a href="#">הצהרת נגישות</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-note">
+      <span>התוכן באתר אינו מהווה אבחון, ייעוץ רפואי או תחליף לטיפול. במצב חירום חייגו 101, או פנו לער״ן בקו 1201. כל התכנים, המספרים והארגונים בעמוד זה הם תוכן הדגמה לצורך משוב עיצובי.</span>
+      <span>© 2026 קולקטיב עיקר · ״איך את.ה?״</span>
+    </div>
+  </div>
+</footer>
+<script src="js/b.js"></script>
+<!-- SHELL:FOOTER END -->
+</body>
+</html>
