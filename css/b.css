@@ -389,7 +389,7 @@ a.card:hover .card-cta { text-decoration: underline; text-underline-offset: 3px;
 }
 
 /* the parallel path: "או ספרו לנו מי אתם" */
-.hero-who { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; justify-content: center; }
+.who-row { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: center; justify-content: center; margin-top: 30px; }
 .who-chips { display: flex; flex-wrap: wrap; gap: 8px 10px; align-items: center; justify-content: center; }
 .who-label { color: var(--ink-soft); font-size: 0.92rem; font-weight: 600; }
 .chip.who { border-style: dashed; border-color: rgba(20, 112, 126, 0.45); font-size: 0.88rem; padding: 7px 15px; }
@@ -414,7 +414,7 @@ section[id] { scroll-margin-top: 88px; }
   .hero .lede { font-size: 1.05rem; }
 
   /* chip clouds become single-line swipeable strips that bleed to the edge */
-  .hero-who { display: block; text-align: start; }
+  .who-row { display: block; text-align: start; margin-top: 22px; }
   .who-label { display: block; margin-bottom: 9px; }
   .who-chips,
   .hero .chip-row {
