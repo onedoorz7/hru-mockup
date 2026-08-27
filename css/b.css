@@ -1,12 +1,12 @@
 /* =========================================================
    איך את.ה? - Direction B: "אוויר"
    All-light, clinic-grade Scandinavian calm.
-   Near-white cool paper, huge airy ink typography,
-   teal as THE accent, amber only as tiny punctuation.
+   Near-white cool paper, typography in the brand purple family
+   (headings in the swatch purple itself), turquoise fills, amber punctuation.
    ========================================================= */
 :root {
-  --ink: #232338;
-  --ink-soft: #45455f;
+  --ink: #3d3d5c;        /* deep cut of the brand purple - body text (10.8:1 on paper, 5.2:1 on turquoise fills) */
+  --ink-soft: #565679;    /* softer step of the same purple */
   --lilac: #6e6e92;
   --line: #dcdcea;
   --paper: #fbfbfd;
@@ -22,7 +22,7 @@
   --f-body: "Noto Sans Hebrew", "Arial Hebrew", Arial, sans-serif;
 
   --r: 24px;
-  --shadow-soft: 0 2px 6px rgba(35, 35, 56, 0.04), 0 14px 40px rgba(35, 35, 56, 0.06);
+  --shadow-soft: 0 2px 6px rgba(61, 61, 92, 0.04), 0 14px 40px rgba(61, 61, 92, 0.06);
   --container: 1120px;
 }
 
@@ -45,6 +45,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+h1 { color: var(--plum); }
 h1, h2, h3, h4 {
   font-family: var(--f-display);
   font-weight: 700;
@@ -79,7 +80,7 @@ button { font: inherit; cursor: pointer; }
   background-size: 100% 0.12em;
   background-position: 0 97%;
 }
-/* teal accent word inside ink headings */
+/* the lighter swatch purple as the accent word inside headings */
 .accent { color: var(--plum); font-style: normal; }
 
 /* ---------- header ---------- */
