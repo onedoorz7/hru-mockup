@@ -10,6 +10,30 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@700;800&family=Noto+Sans+Hebrew:wght@400;600&display=swap">
 <link rel="stylesheet" href="css/b.css">
+<style>
+/* ---------- index.html page styles ---------- */
+
+/* topics: compact band, visually attached to the hero */
+#topics.section { padding-block: 26px 44px; }
+.topics-lede {
+  text-align: center; color: var(--ink-soft);
+  font-size: 1.05rem; font-weight: 600;
+  margin: 0 0 20px;
+}
+.topics-row { justify-content: center; }
+.topics-row .chip-more {
+  background: var(--tint);
+  border-style: dashed; border-color: rgba(110, 110, 146, 0.45);
+  color: var(--plum);
+}
+.topics-row .chip-more:hover { border-color: var(--plum); background: rgba(76, 196, 210, 0.08); }
+
+/* partners: slim quiet band */
+#partners.section { padding-block: 34px 40px; }
+.partners-eyebrow { text-align: center; margin: 0 0 20px; }
+#partners .logo-pill { min-width: 132px; justify-content: center; padding: 13px 20px; font-size: 0.95rem; }
+.partners-more { text-align: center; font-size: 0.95rem; margin: 20px 0 0; }
+</style>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect x=%224.5%22 y=%225.5%22 width=%2226%22 height=%2220%22 rx=%227%22 fill=%22%23c6c6d6%22/%3E%3Crect x=%221.5%22 y=%222.5%22 width=%2226%22 height=%2220%22 rx=%227%22 fill=%22%23fff%22 stroke=%22%234cc4d2%22 stroke-width=%222%22/%3E%3Cpath d=%22M13 21.5 C14 25 16 28 19.5 30.5 C17 26.5 16.5 24 16.5 21.5 Z%22 fill=%22%23fff%22 stroke=%22%234cc4d2%22 stroke-width=%221.5%22/%3E%3Ctext x=%2214.5%22 y=%2219%22 font-family=%22Arial,sans-serif%22 font-size=%2216%22 font-weight=%22bold%22 fill=%22%234cc4d2%22 text-anchor=%22middle%22%3E?%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -19,8 +43,8 @@
   <div class="container">
     <a class="brand" href="index.html"><span class="brand-bubble"><span class="brand-name">איך את.ה<span class="brand-q">?</span></span><svg class="tail" viewBox="0 0 22 18" aria-hidden="true"><path d="M5 0 H15 V2.6 C14.8 8 15.4 12 16.5 16.5 C11.5 12.5 8 8 5 2.6 Z" fill="#fff"/><path d="M5 2.4 C8 8 11.5 12.5 16.5 16.5 C15.4 12 14.8 8 15 2.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> <small>מבית קולקטיב עיקר</small></a>
     <nav class="topnav" aria-label="ניווט ראשי">
-      <a href="index.html#topics">נושאים</a>
-      <a href="index.html#featured">מאמרים וכלים</a>
+      <a href="topics.html">נושאים</a>
+      <a href="index.html#featured">ארגז כלים</a>
       <a href="partners.html">הארגונים השותפים</a>
       <a href="about.html">על הפרויקט</a>
     </nav>
@@ -28,15 +52,15 @@
       <div class="lang-switch" role="group" aria-label="בחירת שפה (עברית, ערבית, אנגלית)" title="האתר יתמוך בעברית, ערבית ואנגלית; המעבר בין השפות ייבנה בשלב הפיתוח">
         <span aria-current="true">עב</span><span lang="ar">ع</span><span lang="en">EN</span>
       </div>
-      <a class="btn btn-teal" href="help.html">קבלת עזרה</a>
+      <a class="btn btn-amber" href="help.html">קבלת עזרה</a>
       <button class="menu-toggle" data-menu-toggle aria-controls="mobileNav" aria-expanded="false" aria-label="פתיחת תפריט">
         <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
     </div>
   </div>
   <nav class="mobile-nav" id="mobileNav" aria-label="ניווט ראשי - מובייל">
-    <a href="index.html#topics">נושאים</a>
-    <a href="index.html#featured">מאמרים וכלים</a>
+    <a href="topics.html">נושאים</a>
+    <a href="index.html#featured">ארגז כלים</a>
     <a href="partners.html">הארגונים השותפים</a>
     <a href="about.html">על הפרויקט</a>
     <a href="help.html">קבלת עזרה</a>
@@ -49,7 +73,7 @@
   <!-- א. Hero -->
   <section class="hero">
     <div class="hero-air" aria-hidden="true"></div>
-    <div class="hero-rings" aria-hidden="true">
+    <div class="hero-rings breathe" aria-hidden="true">
       <svg style="inset-inline-end:-90px; top:64px;" width="280" height="280" viewBox="0 0 280 280" fill="none">
         <circle cx="140" cy="140" r="138" stroke="#4cc4d2" stroke-width="1.5" opacity=".5"/>
         <circle cx="140" cy="140" r="100" stroke="#6e6e92" stroke-width="1.5" opacity=".28"/>
@@ -69,36 +93,23 @@
         </div>
         <p class="search-hint">החיפוש אנונימי - אפשר לכתוב בחופשיות.</p>
       </form>
-      <div class="chip-row" aria-label="נושאים נפוצים">
-        <a class="chip" href="search.html?q=חרדה ולחץ">חרדה ולחץ</a>
-        <a class="chip" href="search.html?q=שינה">שינה</a>
-        <a class="chip" href="search.html?q=ילדים ובני נוער">ילדים ובני נוער</a>
-        <a class="chip" href="search.html?q=מילואים">חזרה ממילואים</a>
-        <a class="chip" href="search.html?q=עזרה לאדם קרוב">עזרה לאדם קרוב</a>
-      </div>
       <p class="hero-help">צריכים מישהו לדבר איתו עכשיו? <a href="help.html">לעזרה מיידית ←</a></p>
     </div>
   </section>
 
+  <div class="crisis-strip">מתמודדים עם מחשבות על אובדנות, או דואגים למישהו קרוב? <a href="help.html#crisis">יש עם מי לדבר - עכשיו ←</a></div>
+
   <!-- ב. נושאים נפוצים -->
-  <section class="section section-line" id="topics">
+  <section class="section" id="topics">
     <div class="container">
-      <div class="section-head center">
-        <span class="eyebrow">נושאים נפוצים</span>
-        <h2>אפשר גם להתחיל <em class="accent">מנושא</em></h2>
-        <p>בחרו נושא שמעסיק אתכם - ונציג מידע מקצועי וארגונים רלוונטיים.</p>
-      </div>
+      <p class="topics-lede">אפשר גם להתחיל מנושא:</p>
       <div class="chip-row topics-row">
         <a class="chip-lg" href="search.html?q=חרדה ולחץ">חרדה ולחץ</a>
         <a class="chip-lg" href="search.html?q=שינה">שינה</a>
         <a class="chip-lg" href="search.html?q=ילדים ובני נוער">ילדים ובני נוער</a>
-        <a class="chip-lg" href="search.html?q=טראומה">טראומה</a>
-        <a class="chip-lg" href="search.html?q=עצבנות וכעס">עצבנות וכעס</a>
-        <a class="chip-lg" href="search.html?q=קושי להתרכז">קושי להתרכז</a>
         <a class="chip-lg" href="search.html?q=עזרה לאדם קרוב">עזרה לאדם קרוב</a>
-        <a class="chip-lg" href="search.html?q=אובדן ושכול">אובדן ושכול</a>
-        <a class="chip-lg" href="search.html?q=מציאת טיפול">מציאת טיפול או סיוע</a>
-        <a class="chip-lg" href="search.html?q=תמיכה במטפלים">תמיכה במטפלים</a>
+        <a class="chip-lg" href="search.html?q=טראומה">טראומה</a>
+        <a class="chip-lg chip-more" href="topics.html">עוד נושאים ←</a>
       </div>
       <div class="who-row">
         <span class="who-label">או ספרו לנו מי אתם:</span>
@@ -109,7 +120,6 @@
           <a class="chip who" href="search.html?q=תמיכה במטפלים">איש.אשת טיפול</a>
         </div>
       </div>
-      <p class="center muted small mt-lg">הרשימה גדלה עם הזמן - נושאים חדשים מתווספים בהתאם לצורך.</p>
     </div>
   </section>
 
@@ -117,9 +127,9 @@
   <section class="section section-line" id="featured">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">מאמרים וכלים</span>
-        <h2>תכנים שנכתבו ונבדקו <em class="accent">על ידי אנשי מקצוע</em></h2>
-        <p>כל תוכן באתר נכתב או אושר מראש על ידי גורמים מקצועיים מהארגונים השותפים.</p>
+        <span class="eyebrow">ארגז כלים</span>
+        <h2>תכנים וכלים <em class="accent">שאפשר להתחיל בהם</em></h2>
+        <p>כל מה שבאתר עבר בדיקה מקצועית. כאן ריכזנו נקודות התחלה טובות.</p>
       </div>
       <div class="card-grid">
         <a class="card" href="article.html">
@@ -132,7 +142,7 @@
             </svg>
           </div>
           <div class="card-body">
-            <div class="card-meta"><span class="tag">מאמר</span><span>4 דק׳ קריאה</span><span>·</span><span>חרדה ולחץ</span></div>
+            <div class="card-meta"><span class="tag">מאמר</span><span>4 דק׳ קריאה</span></div>
             <h3>אז איך מחזירים מעט תחושת שליטה?</h3>
             <p class="excerpt">1 מתוך 4 ישראלים מרגישים מתוחים ומודאגים. חמש פעולות קטנות שעוזרות לראש לנוח מהדאגה.</p>
             <span class="card-cta">לקריאת המאמר ←</span>
@@ -149,7 +159,7 @@
             </svg>
           </div>
           <div class="card-body">
-            <div class="card-meta"><span class="tag">מדריך</span><span>5 דק׳ קריאה</span><span>·</span><span>שינה</span></div>
+            <div class="card-meta"><span class="tag">מדריך</span><span>5 דק׳ קריאה</span></div>
             <h3>לא מצליחים להירדם? ככה עוזרים לגוף להאט</h3>
             <p class="excerpt">כשהראש ממשיך לרוץ גם כשהגוף עייף - שגרת האטה קצרה ומה עושים בלילה שבו כלום לא עובד.</p>
             <span class="card-cta">לקריאת המדריך ←</span>
@@ -164,7 +174,7 @@
             </svg>
           </div>
           <div class="card-body">
-            <div class="card-meta"><span class="tag">מדריך להורים</span><span>6 דק׳ קריאה</span><span>·</span><span>ילדים ובני נוער</span></div>
+            <div class="card-meta"><span class="tag">מדריך</span><span class="tag">להורים</span><span>6 דק׳ קריאה</span></div>
             <h3>הילד שלי מפחד - איך מדברים על זה?</h3>
             <p class="excerpt">איך מקשיבים בלי להגזים בהסברים, מה נורמלי בכל גיל, ומתי כדאי להתייעץ עם גורם מקצועי.</p>
             <span class="card-cta">לקריאת המדריך ←</span>
@@ -179,7 +189,7 @@
             </svg>
           </div>
           <div class="card-body">
-            <div class="card-meta"><span class="tag">מאמר</span><span>4 דק׳ קריאה</span><span>·</span><span>טראומה</span></div>
+            <div class="card-meta"><span class="tag">מאמר</span><span>4 דק׳ קריאה</span></div>
             <h3>חזרתם מהמילואים - והראש עוד שם?</h3>
             <p class="excerpt">45% מהמילואימניקים מדווחים על מצוקה רגשית גם בבית. חמישה כלים שיכולים לעזור במעבר הביתה.</p>
             <span class="card-cta">לקריאת המאמר ←</span>
@@ -193,7 +203,7 @@
             </svg>
           </div>
           <div class="card-body">
-            <div class="card-meta"><span class="tag">מאמר</span><span>3 דק׳ קריאה</span><span>·</span><span>מציאת טיפול</span></div>
+            <div class="card-meta"><span class="tag">מאמר</span><span>3 דק׳ קריאה</span></div>
             <h3>עברו שלושה שבועות - והלחץ עדיין לא מרפה?</h3>
             <p class="excerpt">84% מהישראלים דיווחו שטיפול שיפר את מצבם. מתי שווה לפנות לליווי מקצועי - ולמה זה לא אומר שמשהו ״לא בסדר״.</p>
             <span class="card-cta">לקריאת המאמר ←</span>
@@ -208,7 +218,7 @@
             </svg>
           </div>
           <div class="card-body">
-            <div class="card-meta"><span class="tag">מאמר</span><span>4 דק׳ קריאה</span><span>·</span><span>עזרה לאדם קרוב</span></div>
+            <div class="card-meta"><span class="tag">מאמר</span><span>4 דק׳ קריאה</span></div>
             <h3>לתמוך במישהו קרוב - בלי להישחק בעצמכם</h3>
             <p class="excerpt">להיות שם בשביל מישהו זה גם מעמסה. איך מקשיבים באמת ואיך שומרים על הכוחות של עצמכם.</p>
             <span class="card-cta">לקריאת המאמר ←</span>
@@ -221,25 +231,21 @@
   <!-- ג. שותפים -->
   <section class="section section-line" id="partners">
     <div class="container">
-      <div class="section-head center">
-        <span class="eyebrow">בשיתוף</span>
-        <h2>הגופים המובילים בתחום - <em class="accent">ביחד</em></h2>
-        <p>הפרויקט נבנה בשיתוף גופים מובילים בתחום, ולצד השותפים המרכזיים - כל הארגונים שסייעו בהקמת המיזם מוצגים במקטע השותפים המייסדים.</p>
-      </div>
+      <p class="partners-eyebrow"><span class="eyebrow">בשיתוף</span></p>
       <div class="logo-strip">
-        <a class="logo-pill" href="partners.html"><span class="logo-ring"></span>מפעל הפיס</a>
-        <a class="logo-pill" href="partners.html"><span class="logo-ring alt"></span>מאוחדת</a>
-        <a class="logo-pill" href="partners.html"><span class="logo-ring"></span>ITC</a>
-        <span class="logo-pill" aria-hidden="true" style="opacity:.5">לוגו תורם</span>
-        <span class="logo-pill" aria-hidden="true" style="opacity:.5">לוגו תורם</span>
+        <a class="logo-pill" href="partners.html">מפעל הפיס</a>
+        <a class="logo-pill" href="partners.html">מאוחדת</a>
+        <a class="logo-pill" href="partners.html">ITC</a>
+        <a class="logo-pill" href="partners.html">משרד הבריאות</a>
+        <a class="logo-pill" href="partners.html">ער״ן</a>
+        <a class="logo-pill" href="partners.html">נט״ל</a>
       </div>
-      <p class="center muted small mt-lg">רשימת התורמים המרכזיים בעמוד הבית תעודכן עם אישור הלקוח.</p>
-      <p class="center" style="margin-top:10px"><a href="partners.html"><strong>לכל השותפים המייסדים ←</strong></a></p>
+      <p class="partners-more"><a href="partners.html">לרשימת השותפים המלאה ←</a></p>
     </div>
   </section>
 
   <!-- ה+ו. על הפרויקט / הצטרפו אלינו -->
-  <section class="section section-line" id="about">
+  <section class="section section-line section-tint" id="about">
     <div class="container card-grid-2">
       <div class="panel">
         <span class="eyebrow">על הפרויקט</span>
@@ -311,8 +317,8 @@
       <nav aria-label="ניווט - תוכן">
         <h3>תוכן</h3>
         <ul>
-          <li><a href="index.html#topics">נושאים נפוצים</a></li>
-          <li><a href="index.html#featured">מאמרים וכלים</a></li>
+          <li><a href="topics.html">נושאים נפוצים</a></li>
+          <li><a href="index.html#featured">ארגז כלים</a></li>
           <li><a href="search.html">חיפוש</a></li>
           <li><a href="help.html">קבלת עזרה</a></li>
         </ul>
@@ -322,7 +328,7 @@
         <ul>
           <li><a href="about.html">על ״איך את.ה?״</a></li>
           <li><a href="about.html#eiker">מי מאחורי הפרויקט</a></li>
-          <li><a href="partners.html">השותפים המייסדים</a></li>
+          <li><a href="partners.html">הארגונים והשותפים</a></li>
           <li><a href="https://www.icarcollective.org/he/" rel="external">האתר הרשמי של עיקר</a></li>
         </ul>
       </nav>
@@ -335,8 +341,9 @@
         </ul>
       </nav>
     </div>
+    <p class="footer-disclaimer">״איך את.ה?״ הוא אתר מידע פסיכו-חינוכי: הוא עוזר להבין, לזהות ולמצוא מידע וכלים - אך אינו מהווה אבחון ואינו מחליף ייעוץ או טיפול מקצועיים. במצב חירום חייגו 101; לתמיכה נפשית מיידית - ער״ן, בטלפון 1201.</p>
     <div class="footer-note">
-      <span>התוכן באתר אינו מהווה אבחון, ייעוץ רפואי או תחליף לטיפול. במצב חירום חייגו 101, או פנו לער״ן בקו 1201. כל התכנים, המספרים והארגונים בעמוד זה הם תוכן הדגמה לצורך משוב עיצובי.</span>
+      <span>כל התכנים, המספרים והארגונים באתר הם תוכן הדגמה לצורך משוב עיצובי.</span>
       <span>© 2026 קולקטיב עיקר · ״איך את.ה?״</span>
     </div>
   </div>

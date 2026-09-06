@@ -6,7 +6,7 @@
    ========================================================= */
 :root {
   --ink: #3d3d5c;        /* deep cut of the brand purple - body text (10.8:1 on paper, 5.2:1 on turquoise fills) */
-  --ink-soft: #565679;    /* softer step of the same purple */
+  --ink-soft: #6e6e92;    /* ONE secondary tone = the swatch purple; no in-between steps */
   --lilac: #6e6e92;
   --line: #dcdcea;
   --paper: #fbfbfd;
@@ -15,7 +15,7 @@
   --teal: #4cc4d2;        /* brand turquoise - fills with ink text, decorative lines; never text on light */
   --teal-deep: #35aebd;   /* pressed/hover state of a turquoise fill */
   --plum: #6e6e92;        /* brand purple - the interactive/accent color on light (AA 4.8:1) */
-  --amber: #fdba2b;       /* tiny punctuation only */
+  --amber: #fdba2b;       /* punctuation + the high-significance CTA (קבלת עזרה) */
   --focus: #6e6e92;
 
   --f-display: "Rubik", "Arial Hebrew", Arial, sans-serif;
@@ -157,6 +157,8 @@ button { font: inherit; cursor: pointer; }
 .btn:active { transform: translateY(1px); }
 .btn-teal { background: var(--teal); color: var(--ink); }
 .btn-teal:hover { background: var(--teal-deep); box-shadow: 0 8px 22px rgba(76, 196, 210, 0.35); }
+.btn-amber { background: var(--amber); color: var(--ink); }
+.btn-amber:hover { background: #f3ad14; box-shadow: 0 8px 22px rgba(253, 186, 43, 0.4); }
 
 .menu-toggle { display: none; }
 
@@ -177,7 +179,7 @@ button { font: inherit; cursor: pointer; }
 /* ---------- hero ---------- */
 .hero {
   position: relative; overflow: hidden;
-  padding-block: clamp(72px, 11vw, 138px) clamp(76px, 10vw, 122px);
+  padding-block: clamp(52px, 8vw, 96px) clamp(36px, 4.5vw, 54px);
 }
 .hero-air {
   position: absolute; inset: 0; pointer-events: none;
@@ -241,9 +243,10 @@ button { font: inherit; cursor: pointer; }
 .hero-help a { font-weight: 600; }
 
 /* ---------- sections ---------- */
-.section { padding-block: clamp(60px, 8.5vw, 108px); }
+.section { padding-block: clamp(44px, 6vw, 76px); }
+.section-tint { background: var(--tint); }
 .section-line { border-top: 1px solid var(--line); }
-.section-head { display: grid; gap: 12px; max-width: 660px; margin-bottom: clamp(30px, 4.5vw, 48px); }
+.section-head { display: grid; gap: 10px; max-width: 660px; margin-bottom: clamp(22px, 3.5vw, 36px); }
 .section-head.center { margin-inline: auto; text-align: center; }
 .eyebrow {
   color: var(--plum); font-weight: 600; font-size: 0.88rem;
@@ -361,8 +364,12 @@ a.card:hover .card-cta { text-decoration: underline; text-underline-offset: 3px;
 .footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; font-size: 0.95rem; }
 .footer .brand { font-size: 1.4rem; color: var(--ink); }
 .footer-about { display: grid; gap: 14px; align-content: start; font-size: 0.95rem; }
+.footer-disclaimer {
+  border-top: 1px solid var(--line); margin-top: 40px; padding-top: 22px;
+  color: var(--ink-soft); font-size: 0.92rem; max-width: 62em;
+}
 .footer-note {
-  border-top: 1px solid var(--line); margin-top: 44px; padding-top: 22px;
+  padding-top: 14px;
   display: flex; flex-wrap: wrap; gap: 10px 28px; justify-content: space-between;
   font-size: 0.85rem; color: var(--lilac);
 }
@@ -409,8 +416,12 @@ a.card:hover .card-cta { text-decoration: underline; text-underline-offset: 3px;
   .anim .rv.in { opacity: 1; transform: none; }
   .anim .hero-enter { opacity: 0; transform: translateY(16px); animation: vrise .65s cubic-bezier(.2,.7,.2,1) forwards; animation-delay: var(--hd, 0s); }
   @keyframes vrise { to { opacity: 1; transform: none; } }
-  .anim .hero-rings { animation: bbreathe 9s ease-in-out infinite alternate; transform-origin: center; }
-  @keyframes bbreathe { from { transform: scale(1); opacity: .85; } to { transform: scale(1.05); opacity: 1; } }
+  .anim .hero-rings, .anim .breathe { animation: bbreathe 16s ease-in-out infinite; transform-origin: center; }
+  @keyframes bbreathe {
+    0%, 100% { transform: scale(1); opacity: .82; }
+    25%, 50% { transform: scale(1.03); opacity: 1; }
+    75% { transform: scale(1); opacity: .82; }
+  }
 }
 
 /* the parallel path: "או ספרו לנו מי אתם" */
@@ -471,3 +482,11 @@ section[id] { scroll-margin-top: 88px; }
     padding: 14px 8px; font-size: 0.92rem; line-height: 1.25;
   }
 }
+
+/* quiet crisis line: always one tap from the suicide-support path */
+.crisis-strip {
+  display: flex; flex-wrap: wrap; gap: 6px 14px; justify-content: center; align-items: center;
+  padding: 12px clamp(18px, 4vw, 32px); font-size: 0.95rem;
+  background: var(--tint); border-block: 1px solid var(--line); color: var(--ink);
+}
+.crisis-strip a { font-weight: 700; color: var(--ink); }

@@ -82,8 +82,23 @@
 .filter-note { color: var(--lilac); font-size: 0.85rem; line-height: 1.6; }
 .sum-note { color: var(--lilac); font-weight: 600; font-size: 0.85rem; margin-inline-start: auto; }
 
-/* recommended - horizontal result rows */
-.rec-card { position: relative; flex-direction: row; align-items: stretch; overflow: visible; }
+/* consumption quick-filter - how do you feel like taking this in right now */
+.consume-row {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px;
+}
+.consume-label { color: var(--ink); font-weight: 600; font-size: 0.95rem; }
+.consume-opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.consume-opt {
+  background: var(--card); color: var(--ink-soft); cursor: pointer;
+  border: 1px solid var(--line); border-radius: 999px;
+  padding: 7px 18px; font-size: 0.92rem; font-weight: 600;
+  transition: border-color .12s ease, background .12s ease, color .12s ease;
+}
+.consume-opt:hover { border-color: var(--plum); color: var(--plum); }
+.consume-opt[aria-current="true"] { background: var(--plum); border-color: var(--plum); color: #fff; }
+
+/* primary result rows */
+.rec-card { position: relative; flex-direction: row; align-items: stretch; }
 .rec-card .card-art {
   flex: 0 0 216px; height: auto; min-height: 172px;
   border-bottom: 0; border-inline-end: 1px solid var(--line);
@@ -92,17 +107,7 @@
 }
 .rec-card .card-art svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 .rec-card .card-body { padding: 20px 24px 22px; }
-.rec-flag {
-  position: absolute; top: -12px; inset-inline-start: 22px; z-index: 1;
-  display: inline-flex; align-items: center; gap: 7px;
-  background: var(--card); color: var(--plum);
-  border: 1px solid rgba(110, 110, 146, 0.45); border-radius: 999px;
-  padding: 2px 14px; font-size: 0.78rem; font-weight: 600;
-}
-.rec-flag::before {
-  content: ""; width: 6px; height: 6px; border-radius: 50%;
-  background: var(--amber); flex-shrink: 0;
-}
+.tag-aud { border-style: dashed; color: var(--ink-soft); }
 
 /* compact secondary result rows */
 .mini-card { flex-direction: row; align-items: center; gap: 18px; padding: 16px 18px; }
@@ -119,6 +124,15 @@
   color: var(--plum); font-weight: 600; font-size: 1.2rem;
   padding-inline-start: 4px; flex-shrink: 0;
 }
+
+/* "more content" divider + centered more-button */
+.more-divider {
+  display: flex; align-items: center; gap: 16px;
+  color: var(--lilac); font-family: var(--f-body);
+  font-weight: 600; font-size: 0.95rem; letter-spacing: 0.01em;
+}
+.more-divider::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.more-cta { display: flex; justify-content: center; margin-top: 2px; }
 
 /* related searches */
 .related-row {
@@ -206,8 +220,8 @@
   <div class="container">
     <a class="brand" href="index.html"><span class="brand-bubble"><span class="brand-name">איך את.ה<span class="brand-q">?</span></span><svg class="tail" viewBox="0 0 22 18" aria-hidden="true"><path d="M5 0 H15 V2.6 C14.8 8 15.4 12 16.5 16.5 C11.5 12.5 8 8 5 2.6 Z" fill="#fff"/><path d="M5 2.4 C8 8 11.5 12.5 16.5 16.5 C15.4 12 14.8 8 15 2.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> <small>מבית קולקטיב עיקר</small></a>
     <nav class="topnav" aria-label="ניווט ראשי">
-      <a href="index.html#topics">נושאים</a>
-      <a href="index.html#featured">מאמרים וכלים</a>
+      <a href="topics.html">נושאים</a>
+      <a href="index.html#featured">ארגז כלים</a>
       <a href="partners.html">הארגונים השותפים</a>
       <a href="about.html">על הפרויקט</a>
     </nav>
@@ -215,15 +229,15 @@
       <div class="lang-switch" role="group" aria-label="בחירת שפה (עברית, ערבית, אנגלית)" title="האתר יתמוך בעברית, ערבית ואנגלית; המעבר בין השפות ייבנה בשלב הפיתוח">
         <span aria-current="true">עב</span><span lang="ar">ع</span><span lang="en">EN</span>
       </div>
-      <a class="btn btn-teal" href="help.html">קבלת עזרה</a>
+      <a class="btn btn-amber" href="help.html">קבלת עזרה</a>
       <button class="menu-toggle" data-menu-toggle aria-controls="mobileNav" aria-expanded="false" aria-label="פתיחת תפריט">
         <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
     </div>
   </div>
   <nav class="mobile-nav" id="mobileNav" aria-label="ניווט ראשי - מובייל">
-    <a href="index.html#topics">נושאים</a>
-    <a href="index.html#featured">מאמרים וכלים</a>
+    <a href="topics.html">נושאים</a>
+    <a href="index.html#featured">ארגז כלים</a>
     <a href="partners.html">הארגונים השותפים</a>
     <a href="about.html">על הפרויקט</a>
     <a href="help.html">קבלת עזרה</a>
@@ -286,15 +300,6 @@
                 </div>
               </div>
               <div class="filter-group">
-                <h3>קהל יעד</h3>
-                <div class="filter-opts">
-                  <button class="filter-opt" type="button" aria-pressed="false">מבוגרים</button>
-                  <button class="filter-opt" type="button" aria-pressed="false">הורים</button>
-                  <button class="filter-opt" type="button" aria-pressed="false">בני נוער</button>
-                  <button class="filter-opt" type="button" aria-pressed="false">בני משפחה וחברים</button>
-                </div>
-              </div>
-              <div class="filter-group">
                 <h3>סוג תוכן</h3>
                 <div class="filter-opts">
                   <button class="filter-opt" type="button" aria-pressed="false">מאמר</button>
@@ -319,15 +324,25 @@
         <!-- results -->
         <div class="results-list">
 
-          <!-- recommended -->
-          <section class="result-block" aria-labelledby="rec-title">
+          <!-- how would you like to take this in right now -->
+          <div class="consume-row" role="group" aria-label="סינון לפי אופן צריכה">
+            <span class="consume-label" id="consume-label">איך נוח לכם עכשיו?</span>
+            <div class="consume-opts" aria-labelledby="consume-label">
+              <button class="consume-opt" type="button" aria-current="true">הכול</button>
+              <button class="consume-opt" type="button">לקרוא</button>
+              <button class="consume-opt" type="button">לצפות</button>
+              <button class="consume-opt" type="button">לעשות</button>
+            </div>
+          </div>
+
+          <!-- a calm starting point -->
+          <section class="result-block" aria-labelledby="start-title">
             <header>
-              <h2 id="rec-title">מומלץ עבורך</h2>
-              <p class="block-sub">התוצאות שהכי מתאימות למה שכתבתם, לפי אנשי המקצוע שלנו.</p>
+              <h2 id="start-title">אפשר להתחיל מכאן</h2>
+              <p class="block-sub">הנה מידע שיכול להיות רלוונטי למה שכתבתם.</p>
             </header>
 
             <a class="card rec-card" href="article.html">
-              <span class="rec-flag">מומלץ</span>
               <div class="card-art art-b" aria-hidden="true">
                 <svg viewBox="0 0 400 148" fill="none" preserveAspectRatio="xMidYMid slice">
                   <path d="M186 28 a30 30 0 1 0 21 51 a25 25 0 0 1 -21 -51 Z" stroke="#6e6e92" stroke-width="1.5" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
@@ -338,7 +353,7 @@
                 </svg>
               </div>
               <div class="card-body">
-                <div class="card-meta"><span class="tag">מדריך</span><span>5 דק׳ קריאה</span><span>·</span><span>שינה</span></div>
+                <div class="card-meta"><span class="tag">מדריך</span><span>5 דק׳ קריאה</span></div>
                 <h3>לא מצליחים להירדם? ככה עוזרים לגוף להאט</h3>
                 <p class="excerpt">כשהראש ממשיך לרוץ גם כשהגוף עייף - שגרת האטה קצרה, מסך שנכבה בזמן, ומה עושים בלילה שבו שום דבר לא עובד.</p>
                 <span class="card-cta">לקריאת המדריך ←</span>
@@ -346,7 +361,6 @@
             </a>
 
             <a class="card rec-card" href="article.html">
-              <span class="rec-flag">מומלץ</span>
               <div class="card-art art-a" aria-hidden="true">
                 <svg viewBox="0 0 400 148" fill="none" preserveAspectRatio="xMidYMid slice">
                   <circle cx="200" cy="74" r="56" stroke="#4cc4d2" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
@@ -357,7 +371,7 @@
                 </svg>
               </div>
               <div class="card-body">
-                <div class="card-meta"><span class="tag">סרטון קצר</span><span>2 דק׳ צפייה</span><span>·</span><span>חרדה ולחץ</span></div>
+                <div class="card-meta"><span class="tag">סרטון</span><span>2 דק׳ צפייה</span></div>
                 <h3>אז איך מחזירים מעט תחושת שליטה?</h3>
                 <p class="excerpt">1 מתוך 4 ישראלים מרגישים מתוחים ומודאגים. חמש פעולות קטנות שעוזרות לראש לנוח מהדאגה - בסרטון קצר ומרגיע.</p>
                 <span class="card-cta">לצפייה בסרטון ←</span>
@@ -368,9 +382,7 @@
 
           <!-- more content -->
           <section class="result-block" aria-labelledby="more-title">
-            <header>
-              <h2 id="more-title">עוד תכנים שיכולים לעזור</h2>
-            </header>
+            <h2 class="more-divider" id="more-title">עוד תכנים</h2>
 
             <a class="card mini-card" href="article.html">
               <span class="mini-art art-a" aria-hidden="true">
@@ -380,7 +392,7 @@
                 </svg>
               </span>
               <span class="card-body">
-                <span class="card-meta"><span class="tag">מאמר</span><span>3 דק׳ קריאה</span><span>· מציאת טיפול</span></span>
+                <span class="card-meta"><span class="tag">מאמר</span><span>3 דק׳ קריאה</span></span>
                 <h3>עברו שלושה שבועות - והלחץ עדיין לא מרפה?</h3>
                 <span class="excerpt">מתי תחושות קשות הן תגובה טבעית, ומתי שווה לפנות לליווי מקצועי - בלי שזה אומר שמשהו ״לא בסדר״.</span>
               </span>
@@ -396,7 +408,7 @@
                 </svg>
               </span>
               <span class="card-body">
-                <span class="card-meta"><span class="tag">מדריך להורים</span><span>6 דק׳ קריאה</span><span>· ילדים ובני נוער</span></span>
+                <span class="card-meta"><span class="tag">מדריך</span><span class="tag tag-aud">להורים</span><span>6 דק׳ קריאה</span></span>
                 <h3>הילד שלי מפחד - איך מדברים על זה?</h3>
                 <span class="excerpt">איך מקשיבים בלי להגזים בהסברים, מה נורמלי בכל גיל, ומתי כדאי להתייעץ עם גורם מקצועי.</span>
               </span>
@@ -412,12 +424,16 @@
                 </svg>
               </span>
               <span class="card-body">
-                <span class="card-meta"><span class="tag">מאמר</span><span>4 דק׳ קריאה</span><span>· עזרה לאדם קרוב</span></span>
+                <span class="card-meta"><span class="tag">מאמר</span><span>4 דק׳ קריאה</span></span>
                 <h3>לתמוך במישהו קרוב - בלי להישחק בעצמכם</h3>
                 <span class="excerpt">להיות שם בשביל מישהו זה גם מעמסה. איך מקשיבים באמת, ואיך שומרים על הכוחות של עצמכם לאורך זמן.</span>
               </span>
               <span class="mini-cta" aria-hidden="true">←</span>
             </a>
+
+            <div class="more-cta">
+              <a class="btn btn-teal" href="#">עוד בנושא הזה</a>
+            </div>
           </section>
 
           <!-- related searches -->
@@ -432,9 +448,9 @@
           <div class="panel panel-teal help-strip">
             <div class="txt">
               <h2>מחפשים ארגון או גורם מקצועי?</h2>
-              <p>ריכזנו במקום אחד את כל הדרכים לקבלת עזרה - קווי סיוע, מרפאות וגורמי טיפול - וכן את כל <a href="partners.html">השותפים המייסדים</a> של הפרויקט.</p>
+              <p>כל הדרכים לקבלת עזרה - וכל <a href="partners.html">הארגונים והשותפים</a> - במקום אחד.</p>
             </div>
-            <a class="btn btn-teal" href="help.html">קבלת עזרה</a>
+            <a class="btn btn-amber" href="help.html">קבלת עזרה</a>
           </div>
 
         </div>
@@ -458,7 +474,7 @@
             <a class="chip" href="search.html?q=עזרה לאדם קרוב">עזרה לאדם קרוב</a>
           </div>
           <div class="nr-actions">
-            <a class="btn btn-teal" href="help.html">קבלת עזרה</a>
+            <a class="btn btn-amber" href="help.html">קבלת עזרה</a>
             <a href="index.html">חזרה לעמוד הבית ←</a>
           </div>
         </div>
@@ -485,6 +501,13 @@
     var f = document.querySelector(".filters-fold");
     if (f) f.removeAttribute("open");
   }
+  /* mockup-only: the consumption quick-filter toggles its visual state */
+  document.querySelectorAll(".consume-opt").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      document.querySelectorAll(".consume-opt").forEach(function (b) { b.removeAttribute("aria-current"); });
+      btn.setAttribute("aria-current", "true");
+    });
+  });
 </script>
 
 <!-- SHELL:FOOTER START -->
@@ -504,8 +527,8 @@
       <nav aria-label="ניווט - תוכן">
         <h3>תוכן</h3>
         <ul>
-          <li><a href="index.html#topics">נושאים נפוצים</a></li>
-          <li><a href="index.html#featured">מאמרים וכלים</a></li>
+          <li><a href="topics.html">נושאים נפוצים</a></li>
+          <li><a href="index.html#featured">ארגז כלים</a></li>
           <li><a href="search.html">חיפוש</a></li>
           <li><a href="help.html">קבלת עזרה</a></li>
         </ul>
@@ -515,7 +538,7 @@
         <ul>
           <li><a href="about.html">על ״איך את.ה?״</a></li>
           <li><a href="about.html#eiker">מי מאחורי הפרויקט</a></li>
-          <li><a href="partners.html">השותפים המייסדים</a></li>
+          <li><a href="partners.html">הארגונים והשותפים</a></li>
           <li><a href="https://www.icarcollective.org/he/" rel="external">האתר הרשמי של עיקר</a></li>
         </ul>
       </nav>
@@ -528,8 +551,9 @@
         </ul>
       </nav>
     </div>
+    <p class="footer-disclaimer">״איך את.ה?״ הוא אתר מידע פסיכו-חינוכי: הוא עוזר להבין, לזהות ולמצוא מידע וכלים - אך אינו מהווה אבחון ואינו מחליף ייעוץ או טיפול מקצועיים. במצב חירום חייגו 101; לתמיכה נפשית מיידית - ער״ן, בטלפון 1201.</p>
     <div class="footer-note">
-      <span>התוכן באתר אינו מהווה אבחון, ייעוץ רפואי או תחליף לטיפול. במצב חירום חייגו 101, או פנו לער״ן בקו 1201. כל התכנים, המספרים והארגונים בעמוד זה הם תוכן הדגמה לצורך משוב עיצובי.</span>
+      <span>כל התכנים, המספרים והארגונים באתר הם תוכן הדגמה לצורך משוב עיצובי.</span>
       <span>© 2026 קולקטיב עיקר · ״איך את.ה?״</span>
     </div>
   </div>

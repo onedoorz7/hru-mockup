@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>השותפים המייסדים - איך את.ה?</title>
-<meta name="description" content="הגופים המובילים בתחום בריאות הנפש, הטראומה והחוסן - השותפים בפרויקט איך את.ה?">
+<title>הארגונים והשותפים - איך את.ה?</title>
+<meta name="description" content="הגופים המובילים בתחום בריאות הנפש, הטראומה והחוסן - הארגונים והשותפים בפרויקט איך את.ה?">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@700;800&family=Noto+Sans+Hebrew:wght@400;600&display=swap">
@@ -36,6 +36,9 @@
 }
 .partners-hero .lede {
   color: var(--ink-soft); font-size: 1.05rem; max-width: 46em;
+}
+.partners-hero .hero-note {
+  color: var(--lilac); font-size: 0.92rem; font-weight: 600;
 }
 
 /* type filter pills (static mockup) */
@@ -77,18 +80,6 @@
 .org-logo.ring-lilac::before { border-color: rgba(110, 110, 146, 0.4); }
 .org-logo span { position: relative; }
 
-/* the "central partner" flag - white pill, tiny amber dot */
-.tag-flag {
-  display: inline-flex; align-items: center; gap: 7px;
-  background: var(--card); color: var(--plum);
-  border: 1px solid rgba(110, 110, 146, 0.45); border-radius: 999px;
-  padding: 2px 12px; font-size: 0.78rem; font-weight: 600;
-}
-.tag-flag::before {
-  content: ""; width: 6px; height: 6px; border-radius: 50%;
-  background: var(--amber); flex-shrink: 0;
-}
-
 .update-note { margin-top: clamp(26px, 4vw, 34px); text-align: center; }
 
 /* screen-reader-only heading for the list section */
@@ -115,8 +106,8 @@
   <div class="container">
     <a class="brand" href="index.html"><span class="brand-bubble"><span class="brand-name">איך את.ה<span class="brand-q">?</span></span><svg class="tail" viewBox="0 0 22 18" aria-hidden="true"><path d="M5 0 H15 V2.6 C14.8 8 15.4 12 16.5 16.5 C11.5 12.5 8 8 5 2.6 Z" fill="#fff"/><path d="M5 2.4 C8 8 11.5 12.5 16.5 16.5 C15.4 12 14.8 8 15 2.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> <small>מבית קולקטיב עיקר</small></a>
     <nav class="topnav" aria-label="ניווט ראשי">
-      <a href="index.html#topics">נושאים</a>
-      <a href="index.html#featured">מאמרים וכלים</a>
+      <a href="topics.html">נושאים</a>
+      <a href="index.html#featured">ארגז כלים</a>
       <a href="partners.html" aria-current="page">הארגונים השותפים</a>
       <a href="about.html">על הפרויקט</a>
     </nav>
@@ -124,15 +115,15 @@
       <div class="lang-switch" role="group" aria-label="בחירת שפה (עברית, ערבית, אנגלית)" title="האתר יתמוך בעברית, ערבית ואנגלית; המעבר בין השפות ייבנה בשלב הפיתוח">
         <span aria-current="true">עב</span><span lang="ar">ع</span><span lang="en">EN</span>
       </div>
-      <a class="btn btn-teal" href="help.html">קבלת עזרה</a>
+      <a class="btn btn-amber" href="help.html">קבלת עזרה</a>
       <button class="menu-toggle" data-menu-toggle aria-controls="mobileNav" aria-expanded="false" aria-label="פתיחת תפריט">
         <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
     </div>
   </div>
   <nav class="mobile-nav" id="mobileNav" aria-label="ניווט ראשי - מובייל">
-    <a href="index.html#topics">נושאים</a>
-    <a href="index.html#featured">מאמרים וכלים</a>
+    <a href="topics.html">נושאים</a>
+    <a href="index.html#featured">ארגז כלים</a>
     <a href="partners.html" aria-current="page">הארגונים השותפים</a>
     <a href="about.html">על הפרויקט</a>
     <a href="help.html">קבלת עזרה</a>
@@ -156,8 +147,9 @@
     </div>
     <div class="container">
       <span class="eyebrow">בשיתוף</span>
-      <h1>השותפים <span class="u-amber">המייסדים</span></h1>
+      <h1>הארגונים <span class="u-amber">והשותפים</span></h1>
       <p class="lede">״איך את.ה?״ הוקם יחד עם עשרות גופים מתחום בריאות הנפש, הטראומה והחוסן - קופות חולים, משרדי ממשלה, רשויות מקומיות וארגוני החברה האזרחית. מקטע אחד ואחיד מציג את כל מי שסייע בהקמת המיזם; שותפים שכותבים תכנים מקבלים קרדיט על התוכן עצמו.</p>
+      <p class="hero-note">השותפים המממנים מוצגים ראשונים; בהמשך כלל הארגונים.</p>
     </div>
   </section>
 
@@ -168,16 +160,13 @@
       <div class="type-row" aria-label="סינון לפי סוג ארגון (תצוגה בלבד)">
         <button class="filter-opt" aria-pressed="true" type="button">כל הארגונים</button>
         <button class="filter-opt" aria-pressed="false" type="button">קווי סיוע</button>
-        <button class="filter-opt" aria-pressed="false" type="button">קופות חולים</button>
-        <button class="filter-opt" aria-pressed="false" type="button">גופים ממשלתיים</button>
-        <button class="filter-opt" aria-pressed="false" type="button">עמותות וטיפול</button>
+        <button class="filter-opt" aria-pressed="false" type="button">קופות חולים ושירותי בריאות הנפש</button>
       </div>
 
       <div class="partner-grid">
         <a class="card org-card" href="partner.html">
           <div class="org-logo" aria-hidden="true"><span>הפיס</span></div>
           <div class="card-body">
-            <div class="card-meta"><span class="tag-flag">שותף מרכזי</span></div>
             <h3>מפעל הפיס</h3>
             <p class="excerpt">שותף מרכזי במימון ובהקמת המיזם.</p>
             <span class="card-cta">לעמוד השותף ←</span>
@@ -186,7 +175,7 @@
         <a class="card org-card" href="partner.html">
           <div class="org-logo ring-lilac" aria-hidden="true"><span>מאוחדת</span></div>
           <div class="card-body">
-            <div class="card-meta"><span class="tag-flag">שותף מרכזי</span><span class="tag">קופת חולים</span></div>
+            <div class="card-meta"><span class="tag">קופת חולים</span></div>
             <h3>מאוחדת</h3>
             <p class="excerpt">שירותי בריאות הנפש בקהילה ושותפות מרכזית בפרויקט.</p>
             <span class="card-cta">לעמוד השותף ←</span>
@@ -195,7 +184,6 @@
         <a class="card org-card" href="partner.html">
           <div class="org-logo" aria-hidden="true"><span>ITC</span></div>
           <div class="card-body">
-            <div class="card-meta"><span class="tag-flag">שותף מרכזי</span></div>
             <h3>ITC - הקואליציה הישראלית לטראומה</h3>
             <p class="excerpt">שותפות מקצועית מרכזית בתחום הטראומה והחוסן.</p>
             <span class="card-cta">לעמוד השותף ←</span>
@@ -204,7 +192,7 @@
         <a class="card org-card" href="partner.html">
           <div class="org-logo ring-lilac" aria-hidden="true"><span>ער״ן</span></div>
           <div class="card-body">
-            <div class="card-meta"><span class="tag">עמותה · קו סיוע</span><span class="tag-flag">24/7</span></div>
+            <div class="card-meta"><span class="tag">קו סיוע</span></div>
             <h3>ער״ן - עזרה ראשונה נפשית</h3>
             <p class="excerpt">תמיכה נפשית ראשונה בטלפון 1201 או בצ׳אט, בעילום שם, לכל הגילאים.</p>
             <span class="card-cta">לעמוד השותף ←</span>
@@ -213,7 +201,7 @@
         <a class="card org-card" href="partner.html">
           <div class="org-logo" aria-hidden="true"><span>נט״ל</span></div>
           <div class="card-body">
-            <div class="card-meta"><span class="tag">עמותה · טיפול וסיוע</span></div>
+            <div class="card-meta"><span class="tag">קו סיוע</span></div>
             <h3>נט״ל - טראומה על רקע לאומי</h3>
             <p class="excerpt">קו סיוע 1-800-363-363, ליווי טיפולי ותמיכה למשרתי מילואים, נפגעי טראומה ומשפחות.</p>
             <span class="card-cta">לעמוד השותף ←</span>
@@ -222,7 +210,7 @@
         <a class="card org-card" href="partner.html">
           <div class="org-logo ring-lilac" aria-hidden="true"><span>סה״ר</span></div>
           <div class="card-body">
-            <div class="card-meta"><span class="tag">עמותה · תמיכה בכתב</span></div>
+            <div class="card-meta"><span class="tag">קו סיוע</span></div>
             <h3>סה״ר - סיוע והקשבה ברשת</h3>
             <p class="excerpt">תמיכה רגשית אנונימית בצ׳אט ובוואטסאפ - למי שקל יותר לכתוב מאשר לדבר.</p>
             <span class="card-cta">לעמוד השותף ←</span>
@@ -240,7 +228,6 @@
         <a class="card org-card" href="partner.html">
           <div class="org-logo ring-lilac" aria-hidden="true"><span>קופ״ח</span></div>
           <div class="card-body">
-            <div class="card-meta"><span class="tag">קופות החולים</span></div>
             <h3>קופות החולים</h3>
             <p class="excerpt">שירותי בריאות הנפש בקהילה: פנייה עצמית, מוקדים ייעודיים וטיפול מסובסד לחברי הקופות.</p>
             <span class="card-cta">לעמוד השותף ←</span>
@@ -257,7 +244,7 @@
         </a>
       </div>
 
-      <p class="muted small update-note">מקטע אחיד אחד לכל השותפים המייסדים (30+); התצוגה כוללת ארגונים לדוגמה בלבד עד לקבלת הרשימה הסופית. הפרטים בכל עמוד שותף מאומתים ומוצגים עם תאריך אימות.</p>
+      <p class="muted small update-note">מקטע אחיד אחד לכל הארגונים והשותפים (30+); התצוגה כוללת ארגונים לדוגמה בלבד עד לקבלת הרשימה הסופית. הפרטים בכל עמוד שותף מאומתים ומוצגים עם תאריך אימות.</p>
     </div>
   </section>
 
@@ -265,15 +252,10 @@
   <section class="section" style="padding-top: 0;">
     <div class="container">
       <div class="again-panel">
-        <h2>לא בטוחים לאיזה ארגון לפנות?</h2>
-        <p>כתבו לנו מה עובר עליכם - ונכוון אתכם למידע ולארגון המתאים.</p>
-        <form class="search-form" action="search.html" method="get" role="search" style="width:100%; max-width:640px;">
-          <div class="search-box">
-            <input type="text" name="q" aria-label="מה עובר עליכם? כתבו בשפה חופשית" placeholder="מה עובר עליכם?">
-            <button class="btn btn-teal" type="submit">מצאו לי מידע</button>
-          </div>
-        </form>
-        <p class="small" style="margin:0"><a href="help.html"><strong>או עברו ישירות לקבלת עזרה ←</strong></a></p>
+        <h2>רוצים עזרה למצוא כיוון?</h2>
+        <p>כתבו בדף הבית מה עובר עליכם - ומשם נכוון אתכם למידע ולארגונים.</p>
+        <a class="btn btn-teal" href="index.html">לחיפוש החופשי</a>
+        <p class="small" style="margin:0"><a href="help.html"><strong>או עברו לקבלת עזרה ←</strong></a></p>
       </div>
     </div>
   </section>
@@ -297,8 +279,8 @@
       <nav aria-label="ניווט - תוכן">
         <h3>תוכן</h3>
         <ul>
-          <li><a href="index.html#topics">נושאים נפוצים</a></li>
-          <li><a href="index.html#featured">מאמרים וכלים</a></li>
+          <li><a href="topics.html">נושאים נפוצים</a></li>
+          <li><a href="index.html#featured">ארגז כלים</a></li>
           <li><a href="search.html">חיפוש</a></li>
           <li><a href="help.html">קבלת עזרה</a></li>
         </ul>
@@ -308,7 +290,7 @@
         <ul>
           <li><a href="about.html">על ״איך את.ה?״</a></li>
           <li><a href="about.html#eiker">מי מאחורי הפרויקט</a></li>
-          <li><a href="partners.html">השותפים המייסדים</a></li>
+          <li><a href="partners.html">הארגונים והשותפים</a></li>
           <li><a href="https://www.icarcollective.org/he/" rel="external">האתר הרשמי של עיקר</a></li>
         </ul>
       </nav>
@@ -321,8 +303,9 @@
         </ul>
       </nav>
     </div>
+    <p class="footer-disclaimer">״איך את.ה?״ הוא אתר מידע פסיכו-חינוכי: הוא עוזר להבין, לזהות ולמצוא מידע וכלים - אך אינו מהווה אבחון ואינו מחליף ייעוץ או טיפול מקצועיים. במצב חירום חייגו 101; לתמיכה נפשית מיידית - ער״ן, בטלפון 1201.</p>
     <div class="footer-note">
-      <span>התוכן באתר אינו מהווה אבחון, ייעוץ רפואי או תחליף לטיפול. במצב חירום חייגו 101, או פנו לער״ן בקו 1201. כל התכנים, המספרים והארגונים בעמוד זה הם תוכן הדגמה לצורך משוב עיצובי.</span>
+      <span>כל התכנים, המספרים והארגונים באתר הם תוכן הדגמה לצורך משוב עיצובי.</span>
       <span>© 2026 קולקטיב עיקר · ״איך את.ה?״</span>
     </div>
   </div>

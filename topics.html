@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>נושאים - איך את.ה?</title>
+<meta name="description" content="הסברים קצרים ומרגיעים על מה שהרבה מאיתנו מרגישים - חרדה, שינה, טראומה ועוד. בלי אבחנות ובלי מונחים מקצועיים.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@700;800&family=Noto+Sans+Hebrew:wght@400;600&display=swap">
+<link rel="stylesheet" href="css/b.css">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect x=%224.5%22 y=%225.5%22 width=%2226%22 height=%2220%22 rx=%227%22 fill=%22%23c6c6d6%22/%3E%3Crect x=%221.5%22 y=%222.5%22 width=%2226%22 height=%2220%22 rx=%227%22 fill=%22%23fff%22 stroke=%22%234cc4d2%22 stroke-width=%222%22/%3E%3Cpath d=%22M13 21.5 C14 25 16 28 19.5 30.5 C17 26.5 16.5 24 16.5 21.5 Z%22 fill=%22%23fff%22 stroke=%22%234cc4d2%22 stroke-width=%221.5%22/%3E%3Ctext x=%2214.5%22 y=%2219%22 font-family=%22Arial,sans-serif%22 font-size=%2216%22 font-weight=%22bold%22 fill=%22%234cc4d2%22 text-anchor=%22middle%22%3E?%3C/text%3E%3C/svg%3E">
+<style>
+  /* topics page - the psycho-education layer, B language */
+  .topics-hero { padding-block: clamp(40px, 5.5vw, 62px) clamp(24px, 3.5vw, 36px); }
+  .topics-hero .container { max-width: 780px; gap: 16px; }
+  .topics-hero h1 { font-size: clamp(2.3rem, 5.5vw, 3.3rem); }
+  .topics-hero .lede { font-size: clamp(1.02rem, 1.9vw, 1.18rem); max-width: 36em; }
+  .topics-motif { display: grid; justify-items: center; }
+  .topics-motif svg { width: clamp(62px, 8vw, 82px); height: auto; }
+
+  /* bento grid of quiet explainer cards */
+  .bento-section { padding-top: 6px; }
+  .bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 22px; }
+  .bento .bento-card {
+    padding: clamp(24px, 3vw, 32px) clamp(22px, 2.6vw, 30px);
+    display: flex; flex-direction: column; gap: 16px;
+    grid-column: span 2;
+  }
+  .bento .span3 { grid-column: span 3; }
+  .bento .span6 { grid-column: span 6; }
+  .bento-head { display: flex; align-items: center; gap: 13px; }
+  .bento-icon {
+    width: 46px; height: 46px; flex-shrink: 0;
+    border-radius: 14px; display: grid; place-items: center;
+    border: 1px solid var(--line); background: #f6fbfc;
+  }
+  .bento-card h2 { font-size: 1.3rem; line-height: 1.2; }
+  .bento-points { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; align-content: start; }
+  .bento-points li {
+    position: relative; padding-inline-start: 20px;
+    color: var(--ink-soft); font-size: 0.95rem; line-height: 1.62;
+  }
+  .bento-points li::before {
+    content: ""; position: absolute; inset-inline-start: 2px; top: 0.72em;
+    width: 9px; height: 1.5px; border-radius: 2px; background: var(--teal);
+  }
+  .bento-points li.reassure { color: var(--ink); }
+  .bento-points li.reassure::before {
+    width: 7px; height: 7px; border-radius: 50%; background: var(--amber);
+    top: 0.5em; inset-inline-start: 1px;
+  }
+  .bento-more {
+    margin-top: auto; padding-top: 8px; align-self: flex-start;
+    font-weight: 600; font-size: 0.95rem; color: var(--plum); text-decoration: none;
+  }
+  .bento-more:hover { text-decoration: underline; text-underline-offset: 3px; }
+  .span6 .bento-points { grid-template-columns: 1fr 1fr; gap: 10px 36px; }
+
+  @media (max-width: 1020px) {
+    .bento { grid-template-columns: 1fr 1fr; }
+    .bento .bento-card, .bento .span3 { grid-column: span 1; }
+    .bento .grow-sm, .bento .span6 { grid-column: span 2; }
+  }
+  @media (max-width: 720px) {
+    .bento { grid-template-columns: 1fr; gap: 16px; }
+    .bento .bento-card, .bento .span3, .bento .span6, .bento .grow-sm { grid-column: span 1; }
+    .span6 .bento-points { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<!-- SHELL:HEADER START -->
+<a class="skip-link" href="#main">דילוג לתוכן</a>
+<header class="topbar">
+  <div class="container">
+    <a class="brand" href="index.html"><span class="brand-bubble"><span class="brand-name">איך את.ה<span class="brand-q">?</span></span><svg class="tail" viewBox="0 0 22 18" aria-hidden="true"><path d="M5 0 H15 V2.6 C14.8 8 15.4 12 16.5 16.5 C11.5 12.5 8 8 5 2.6 Z" fill="#fff"/><path d="M5 2.4 C8 8 11.5 12.5 16.5 16.5 C15.4 12 14.8 8 15 2.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> <small>מבית קולקטיב עיקר</small></a>
+    <nav class="topnav" aria-label="ניווט ראשי">
+      <a href="topics.html" aria-current="page">נושאים</a>
+      <a href="index.html#featured">ארגז כלים</a>
+      <a href="partners.html">הארגונים השותפים</a>
+      <a href="about.html">על הפרויקט</a>
+    </nav>
+    <div class="topbar-side">
+      <div class="lang-switch" role="group" aria-label="בחירת שפה (עברית, ערבית, אנגלית)" title="האתר יתמוך בעברית, ערבית ואנגלית; המעבר בין השפות ייבנה בשלב הפיתוח">
+        <span aria-current="true">עב</span><span lang="ar">ع</span><span lang="en">EN</span>
+      </div>
+      <a class="btn btn-amber" href="help.html">קבלת עזרה</a>
+      <button class="menu-toggle" data-menu-toggle aria-controls="mobileNav" aria-expanded="false" aria-label="פתיחת תפריט">
+        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="ניווט ראשי - מובייל">
+    <a href="topics.html" aria-current="page">נושאים</a>
+    <a href="index.html#featured">ארגז כלים</a>
+    <a href="partners.html">הארגונים השותפים</a>
+    <a href="about.html">על הפרויקט</a>
+    <a href="help.html">קבלת עזרה</a>
+  </nav>
+</header>
+<!-- SHELL:HEADER END -->
+
+<main id="main" data-page="topics">
+
+  <!-- compact hero -->
+  <section class="hero topics-hero">
+    <div class="container">
+      <div class="topics-motif" aria-hidden="true">
+        <div class="breathe">
+          <svg width="82" height="82" viewBox="0 0 88 88" fill="none">
+            <circle cx="44" cy="44" r="42" stroke="#4cc4d2" stroke-width="1.5" opacity=".55"/>
+            <circle cx="44" cy="44" r="29" stroke="#6e6e92" stroke-width="1.5" opacity=".5"/>
+            <circle cx="44" cy="44" r="16" stroke="#6e6e92" stroke-width="1.5"/>
+            <circle cx="44" cy="44" r="3" fill="#6e6e92"/>
+          </svg>
+        </div>
+      </div>
+      <h1>נושאים</h1>
+      <p class="lede">הסברים קצרים, מרגיעים ומבוססים על מה שהרבה מאיתנו מרגישים עכשיו. בלי אבחנות ובלי מונחים מקצועיים - רק מה שעוזר להבין.</p>
+      <p class="hero-help">מעדיפים לכתוב במילים שלכם? <a href="search.html">לחיפוש החופשי ←</a></p>
+    </div>
+  </section>
+
+  <!-- bento of explainers -->
+  <section class="section bento-section" id="explainers" aria-label="הסברים לפי נושא">
+    <div class="container">
+      <div class="bento">
+
+        <article class="panel bento-card span3">
+          <div class="bento-head">
+            <span class="bento-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                <circle cx="13" cy="13" r="11" stroke="#4cc4d2" stroke-width="1.5"/>
+                <circle cx="13" cy="13" r="6.5" stroke="#6e6e92" stroke-width="1.5"/>
+                <circle cx="13" cy="13" r="1.8" fill="#6e6e92"/>
+              </svg>
+            </span>
+            <h2>חרדה ולחץ</h2>
+          </div>
+          <ul class="bento-points">
+            <li>חרדה היא מערכת ההגנה הטבעית של הגוף - היא נועדה לשמור עלינו כשמשהו מרגיש לא בטוח.</li>
+            <li>תגובות נפוצות: מחשבות רצות, דופק מהיר, מתח בגוף, קושי להתרכז.</li>
+            <li>גם ירידה בעניין בדברים שהיו מהנים היא ביטוי שכיח של לחץ מתמשך - לא סימן שמשהו ״התקלקל״ בכם.</li>
+            <li>בתקופת עומס כמו עכשיו, גוף שנשאר דרוך לאורך זמן הוא תגובה טבעית למצב לא שגרתי.</li>
+            <li class="reassure">1 מתוך 4 ישראלים מרגישים כך בתקופה הזו - אתם ממש לא לבד.</li>
+            <li>אצל רוב האנשים התחושות מתמתנות בהדרגה, ויש צעדים קטנים שעוזרים כבר עכשיו.</li>
+          </ul>
+          <a class="bento-more" href="search.html?q=חרדה ולחץ">רוצים לדעת יותר? ←</a>
+        </article>
+
+        <article class="panel bento-card span3">
+          <div class="bento-head">
+            <span class="bento-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                <path d="M17 4 a9 9 0 1 0 6.2 15.2 a7.6 7.6 0 0 1 -6.2 -15.2 Z" stroke="#6e6e92" stroke-width="1.5" stroke-linejoin="round"/>
+                <circle cx="6.5" cy="6.5" r="1.3" fill="#4cc4d2"/>
+                <circle cx="9" cy="11" r="1" fill="#4cc4d2"/>
+              </svg>
+            </span>
+            <h2>שינה</h2>
+          </div>
+          <ul class="bento-points">
+            <li>שינה רגישה מאוד ללחץ: כשהראש נשאר דרוך, לגוף קשה להרפות - זה מובן, לא כישלון.</li>
+            <li>תגובות נפוצות: קושי להירדם, יקיצות באמצע הלילה, עייפות גם אחרי שינה.</li>
+            <li>בתקופות מתוחות, שינה קטועה היא מהתגובות השכיחות ביותר - אצל מבוגרים וילדים כאחד.</li>
+            <li class="reassure">הגוף יודע לפצות על לילה או שניים של שינה חסרה - לילה לבן פה ושם אינו מסוכן.</li>
+            <li>שגרת האטה קצרה לפני השינה, אפילו של עשר דקות, עוזרת לגוף לזהות שאפשר לשחרר.</li>
+          </ul>
+          <a class="bento-more" href="search.html?q=שינה">רוצים לדעת יותר? ←</a>
+        </article>
+
+        <article class="panel bento-card">
+          <div class="bento-head">
+            <span class="bento-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                <path d="M2.5 15 L6 9.5 L10 17 L14 11 L17.5 14 Q20.5 15.8 23.5 14.6" stroke="#6e6e92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="23.5" cy="14.6" r="1.5" fill="#4cc4d2"/>
+              </svg>
+            </span>
+            <h2>טראומה</h2>
+          </div>
+          <ul class="bento-points">
+            <li>אחרי אירוע קשה, הגוף והנפש ממשיכים לעבד אותו עוד זמן מה - זה תהליך, לא תקלה.</li>
+            <li>תגובות נפוצות: דריכות, זיכרונות שחוזרים, קושי לישון, עצב או תחושת ניתוק.</li>
+            <li>בשבועות הראשונים אלו תגובות טבעיות למצב לא טבעי - כך הנפש מעכלת את מה שקרה.</li>
+            <li class="reassure">אצל רוב האנשים התגובות מתמתנות מעצמן, עם זמן ותמיכה מהסביבה.</li>
+            <li>וכשהן נמשכות או מכבידות - יש דרכי טיפול יעילות ומוכרות, ופנייה לעזרה היא צעד של כוח.</li>
+          </ul>
+          <a class="bento-more" href="search.html?q=טראומה">רוצים לדעת יותר? ←</a>
+        </article>
+
+        <article class="panel bento-card">
+          <div class="bento-head">
+            <span class="bento-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                <circle cx="10" cy="10" r="6" stroke="#6e6e92" stroke-width="1.5"/>
+                <circle cx="19.5" cy="13.5" r="3.5" stroke="#6e6e92" stroke-width="1.5"/>
+                <path d="M3 21.5 H23" stroke="#4cc4d2" stroke-width="1.5" stroke-linecap="round"/>
+              </svg>
+            </span>
+            <h2>ילדים ובני נוער</h2>
+          </div>
+          <ul class="bento-points">
+            <li>ילדים חווים את מה שקורה סביבם, אבל מבטאים את זה אחרת - דרך התנהגות, משחק וגוף.</li>
+            <li>תגובות נפוצות: היצמדות, קשיי שינה, עצבנות, חזרה להרגלים של גיל צעיר יותר.</li>
+            <li>אצל בני נוער זה נראה לפעמים כהסתגרות או שינוי פתאומי במוטיבציה - בלימודים, בחוגים, בחברויות.</li>
+            <li class="reassure">בתקופת עומס אלו תגובות מוכרות וצפויות - ברוב המקרים הן שלב חולף, לא מצב קבוע.</li>
+            <li>הנוכחות הרגועה שלכם משפיעה יותר מכל הסבר מושלם - מספיק להיות שם ולהקשיב.</li>
+          </ul>
+          <a class="bento-more" href="search.html?q=ילדים ובני נוער">רוצים לדעת יותר? ←</a>
+        </article>
+
+        <article class="panel bento-card grow-sm">
+          <div class="bento-head">
+            <span class="bento-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                <path d="M2.5 19 H23.5" stroke="#6e6e92" stroke-width="1.5" opacity=".5" stroke-linecap="round"/>
+                <path d="M7 19 L13 8 L19 19" stroke="#6e6e92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="21" cy="6.5" r="2.2" stroke="#4cc4d2" stroke-width="1.5"/>
+              </svg>
+            </span>
+            <h2>חזרה ממילואים</h2>
+          </div>
+          <ul class="bento-points">
+            <li>המעבר משירות לשגרה הוא שינוי חד - ולראש ולגוף לוקח זמן להחליף הילוך.</li>
+            <li>תגובות נפוצות: דריכות, קוצר רוח, תחושת ריחוק מהסביבה, קושי להרגיש הנאה מדברים רגילים.</li>
+            <li>תחושת זרות בבית אחרי תקופה ארוכה בחוץ היא תגובה טבעית ומוכרת - לא עניין של ״חוזק״.</li>
+            <li class="reassure">45% מהמילואימניקים מדווחים על מצוקה רגשית בחזרה הביתה - זו חוויה משותפת לרבים.</li>
+            <li>אצל רוב החוזרים ההסתגלות קורית בהדרגה, ויש כלים שמקילים על המעבר.</li>
+          </ul>
+          <a class="bento-more" href="search.html?q=מילואים">רוצים לדעת יותר? ←</a>
+        </article>
+
+        <article class="panel panel-teal bento-card span6">
+          <div class="bento-head">
+            <span class="bento-icon" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+                <path d="M13 20.5 C8 17 7.2 13.5 10.4 12.8 C12.1 12.4 13 14 13 14.7 C13 14 13.9 12.4 15.6 12.8 C18.8 13.5 18 17 13 20.5 Z" stroke="#6e6e92" stroke-width="1.5" stroke-linejoin="round"/>
+                <circle cx="6.5" cy="7" r="1.3" fill="#4cc4d2"/>
+                <circle cx="19.5" cy="7" r="1.3" fill="#4cc4d2"/>
+              </svg>
+            </span>
+            <h2>עזרה לאדם קרוב</h2>
+          </div>
+          <ul class="bento-points">
+            <li>לדאוג למישהו קרוב הוא בעצמו עומס רגשי - מותר שגם לכם יהיה קשה.</li>
+            <li>העזרה המשמעותית ביותר היא הקשבה - בלי לתקן, בלי לשפוט ובלי למהר לפתרונות.</li>
+            <li>אין צורך במילים מושלמות: עצם הנוכחות שלכם אומרת ״אני כאן איתך״.</li>
+            <li>שווה לשים לב לשינויים שנמשכים לאורך זמן - הסתגרות, או ויתור על דברים שהיו חשובים.</li>
+            <li class="reassure">שיחה פתוחה על מצוקה לא מחמירה אותה - להפך, לרוב היא דווקא מקילה.</li>
+            <li>גם מי שתומך צריך תמיכה - שמירה על הכוחות שלכם היא חלק מהעזרה.</li>
+          </ul>
+          <a class="bento-more" href="search.html?q=עזרה לאדם קרוב">רוצים לדעת יותר? ←</a>
+        </article>
+
+      </div>
+      <p class="center muted small mt-lg">הרשימה גדלה עם הזמן - נושאים חדשים מתווספים בהתאם לצורך.</p>
+    </div>
+  </section>
+
+  <!-- return to the free-text search -->
+  <section class="section" id="search-again" style="padding-top: 8px;">
+    <div class="container">
+      <div class="again-panel">
+        <h2>לא מצאתם נושא שמדבר אליכם?</h2>
+        <p>כתבו במילים שלכם - ואנחנו נכוון אתכם.</p>
+        <form class="search-form" action="search.html" method="get" role="search">
+          <div class="search-box">
+            <input type="text" name="q" aria-label="מה עובר עליכם? כתבו בשפה חופשית" placeholder="מה עובר עליכם?">
+            <button class="btn btn-teal" type="submit">מצאו לי מידע</button>
+          </div>
+        </form>
+        <p class="small"><a href="index.html"><strong>חזרה לעמוד הבית ←</strong></a></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- SHELL:FOOTER START -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a class="brand" href="index.html"><span class="brand-name">איך את.ה<span class="brand-q">?</span></span></a>
+        <p>פרויקט מבית קולקטיב עיקר, בשיתוף הארגונים המובילים בתחום בריאות הנפש, הטראומה והחוסן בישראל.</p>
+        <div class="social-row" aria-label="רשתות חברתיות">
+          <a href="#" aria-label="אינסטגרם"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.3" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="פייסבוק"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 8h3V4h-3a5 5 0 0 0-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9a1 1 0 0 1 1-1Z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="יוטיוב"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="2"/><path d="M10 9.5v5l4.5-2.5L10 9.5Z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="וואטסאפ"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z" stroke="currentColor" stroke-width="2"/><path d="M9 8.5c.5 3 3.5 6 6.5 6.5l.5-2-2-1-1 .8c-1-.5-2.3-1.8-2.8-2.8l.8-1-1-2-2 .5Z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+      <nav aria-label="ניווט - תוכן">
+        <h3>תוכן</h3>
+        <ul>
+          <li><a href="topics.html">נושאים נפוצים</a></li>
+          <li><a href="index.html#featured">ארגז כלים</a></li>
+          <li><a href="search.html">חיפוש</a></li>
+          <li><a href="help.html">קבלת עזרה</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="ניווט - הפרויקט">
+        <h3>הפרויקט</h3>
+        <ul>
+          <li><a href="about.html">על ״איך את.ה?״</a></li>
+          <li><a href="about.html#eiker">מי מאחורי הפרויקט</a></li>
+          <li><a href="partners.html">הארגונים והשותפים</a></li>
+          <li><a href="https://www.icarcollective.org/he/" rel="external">האתר הרשמי של עיקר</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="ניווט - מידע">
+        <h3>מידע</h3>
+        <ul>
+          <li><a href="#">תנאי שימוש</a></li>
+          <li><a href="#">מדיניות פרטיות</a></li>
+          <li><a href="#">הצהרת נגישות</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="footer-disclaimer">״איך את.ה?״ הוא אתר מידע פסיכו-חינוכי: הוא עוזר להבין, לזהות ולמצוא מידע וכלים - אך אינו מהווה אבחון ואינו מחליף ייעוץ או טיפול מקצועיים. במצב חירום חייגו 101; לתמיכה נפשית מיידית - ער״ן, בטלפון 1201.</p>
+    <div class="footer-note">
+      <span>כל התכנים, המספרים והארגונים באתר הם תוכן הדגמה לצורך משוב עיצובי.</span>
+      <span>© 2026 קולקטיב עיקר · ״איך את.ה?״</span>
+    </div>
+  </div>
+</footer>
+<script src="js/b.js"></script>
+<!-- SHELL:FOOTER END -->
+</body>
+</html>

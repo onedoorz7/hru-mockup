@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex">
-<title>קבלת עזרה - איך את.ה?</title>
+<title>יש עם מי לדבר. עכשיו. - איך את.ה?</title>
 <meta name="description" content="קווי סיוע, צ׳אט ותמיכה מקצועית - בחינם, בעילום שם, עוד היום. איך את.ה? מבית קולקטיב עיקר.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,17 +29,57 @@
   }
   .emergency .e-call:focus-visible { outline-color: var(--ink); }
 
-  .help-now { border: 1px solid var(--line); }
-  .help-now .card-body { gap: 12px; }
-  .kv { display: grid; gap: 3px; }
-  .kv .k { color: var(--plum); font-size: 0.82rem; font-weight: 600; }
-  .kv p { color: var(--ink-soft); font-size: 0.95rem; line-height: 1.6; }
-  .help-line { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); }
-  .help-line .num { font-family: var(--f-display); font-weight: 800; font-size: 1.5rem; color: var(--ink); direction: ltr; }
-  .help-line .num-he { direction: rtl; }
-  .help-line .num-long { font-size: 1.12rem; }
+  /* compact help rows */
+  .quick-lines { list-style: none; margin: 0 auto; padding: 0; max-width: 720px; display: grid; gap: 12px; }
+  .q-row {
+    background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+    padding: 14px 22px; display: flex; align-items: center; justify-content: space-between;
+    gap: 10px 18px; flex-wrap: wrap;
+  }
+  .q-main { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  .q-main strong { font-family: var(--f-display); font-weight: 800; font-size: 1.1rem; color: var(--ink); white-space: nowrap; }
+  .q-main span { color: var(--ink-soft); font-size: 0.92rem; }
+  .q-act { display: flex; align-items: center; gap: 14px; }
+  .q-num { font-family: var(--f-display); font-weight: 800; font-size: 1.2rem; color: var(--ink); direction: ltr; white-space: nowrap; }
+  .q-btn { padding: 7px 16px; font-size: 0.9rem; }
   .btn-line { background: transparent; color: var(--plum); border: 1.5px solid var(--plum); }
   .btn-line:hover { background: rgba(76, 196, 210, 0.1); }
+
+  /* crisis toggle */
+  .crisis-wrap { max-width: 780px; margin-inline: auto; display: grid; gap: 16px; }
+  .crisis-toggle { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .crisis-btn {
+    font-family: var(--f-body); font-weight: 600; font-size: 0.98rem; line-height: 1.45;
+    background: var(--card); color: var(--ink);
+    border: 1.5px solid var(--line); border-radius: 16px;
+    padding: 13px 18px; cursor: pointer;
+    transition: background .12s ease, border-color .12s ease, color .12s ease;
+  }
+  .crisis-btn:hover { border-color: var(--plum); }
+  .crisis-btn[aria-pressed="true"] { background: var(--plum); border-color: var(--plum); color: #fff; }
+  .crisis-block {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--r);
+    padding: clamp(24px, 4vw, 38px); display: grid; gap: 16px;
+  }
+  .crisis-block[hidden] { display: none; }
+  .crisis-block > p { line-height: 1.8; }
+  .crisis-lines { list-style: none; margin: 0; padding: 0; display: grid; }
+  .crisis-lines li {
+    display: flex; align-items: center; justify-content: space-between; gap: 8px 16px; flex-wrap: wrap;
+    padding-block: 13px; border-top: 1px solid var(--line);
+  }
+  .crisis-lines li:last-child { padding-bottom: 0; }
+  .crisis-lines .c-main { color: var(--ink-soft); font-size: 0.95rem; line-height: 1.6; }
+  .crisis-lines .c-main strong { color: var(--ink); font-weight: 600; }
+  .c-call {
+    flex-shrink: 0; text-decoration: none; font-weight: 600; font-size: 0.85rem;
+    color: var(--plum); border: 1.5px solid var(--plum); border-radius: 999px;
+    padding: 4px 14px; white-space: nowrap;
+    transition: background .12s ease;
+  }
+  .c-call:hover { background: rgba(76, 196, 210, 0.1); }
+  .c-call-amber { background: var(--amber); border-color: var(--amber); color: var(--ink); }
+  .c-call-amber:hover { background: #f3ad14; }
 
   .reassure-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
   .reassure {
@@ -60,6 +100,7 @@
   .after-note { margin-top: 18px; text-align: center; }
 
   @media (max-width: 900px) { .reassure-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 560px) { .crisis-toggle { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -69,8 +110,8 @@
   <div class="container">
     <a class="brand" href="index.html"><span class="brand-bubble"><span class="brand-name">איך את.ה<span class="brand-q">?</span></span><svg class="tail" viewBox="0 0 22 18" aria-hidden="true"><path d="M5 0 H15 V2.6 C14.8 8 15.4 12 16.5 16.5 C11.5 12.5 8 8 5 2.6 Z" fill="#fff"/><path d="M5 2.4 C8 8 11.5 12.5 16.5 16.5 C15.4 12 14.8 8 15 2.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> <small>מבית קולקטיב עיקר</small></a>
     <nav class="topnav" aria-label="ניווט ראשי">
-      <a href="index.html#topics">נושאים</a>
-      <a href="index.html#featured">מאמרים וכלים</a>
+      <a href="topics.html">נושאים</a>
+      <a href="index.html#featured">ארגז כלים</a>
       <a href="partners.html">הארגונים השותפים</a>
       <a href="about.html">על הפרויקט</a>
     </nav>
@@ -78,15 +119,15 @@
       <div class="lang-switch" role="group" aria-label="בחירת שפה (עברית, ערבית, אנגלית)" title="האתר יתמוך בעברית, ערבית ואנגלית; המעבר בין השפות ייבנה בשלב הפיתוח">
         <span aria-current="true">עב</span><span lang="ar">ع</span><span lang="en">EN</span>
       </div>
-      <a class="btn btn-teal" href="help.html" aria-current="page">קבלת עזרה</a>
+      <a class="btn btn-amber" href="help.html" aria-current="page">קבלת עזרה</a>
       <button class="menu-toggle" data-menu-toggle aria-controls="mobileNav" aria-expanded="false" aria-label="פתיחת תפריט">
         <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
     </div>
   </div>
   <nav class="mobile-nav" id="mobileNav" aria-label="ניווט ראשי - מובייל">
-    <a href="index.html#topics">נושאים</a>
-    <a href="index.html#featured">מאמרים וכלים</a>
+    <a href="topics.html">נושאים</a>
+    <a href="index.html#featured">ארגז כלים</a>
     <a href="partners.html">הארגונים השותפים</a>
     <a href="about.html">על הפרויקט</a>
     <a href="help.html" aria-current="page">קבלת עזרה</a>
@@ -99,7 +140,7 @@
   <section class="hero help-hero">
     <div class="hero-air" aria-hidden="true"></div>
     <div class="container">
-      <h1>אנחנו כאן. <span class="u-amber">גם עכשיו.</span></h1>
+      <h1>יש עם מי לדבר. <span class="u-amber">עכשיו.</span></h1>
       <p class="lede">אם קשה לכם כרגע - אפשר לדבר עם&nbsp;מישהו <b>עוד היום</b>. בחינם, בעילום שם.</p>
     </div>
   </section>
@@ -116,75 +157,117 @@
       <div class="section-head center">
         <span class="eyebrow">בחינם · בעילום שם</span>
         <h2>עזרה זמינה <em class="accent">עכשיו</em></h2>
-        <p>שלושת השירותים האלה פתוחים לכולם - בלי הפניה, בלי פרטים מזהים, ובלי התחייבות להמשך.</p>
+        <p>בלי הפניה, בלי פרטים מזהים ובלי התחייבות להמשך.</p>
       </div>
-      <div class="card-grid">
-
-        <article class="card help-now">
-          <div class="card-body">
-            <div class="card-meta"><span class="tag">פתוח עכשיו · 24/7</span><span>טלפון · צ׳אט</span></div>
-            <h3>ער״ן - עזרה ראשונה נפשית</h3>
-            <div class="kv">
-              <span class="k">למי זה מתאים</span>
-              <p>לכל מי שרוצה אוזן קשבת ברגע זה - בכל נושא, בכל שעה.</p>
-            </div>
-            <div class="kv">
-              <span class="k">איך זה עובד</span>
-              <p>שיחה עם מתנדבות ומתנדבים מיומנים, בטלפון או בצ׳אט באתר ער״ן.</p>
-            </div>
-            <div class="help-line">
-              <span class="num">1201</span>
-              <a class="btn btn-teal" href="tel:1201">חיוג 1201</a>
-            </div>
+      <ul class="quick-lines">
+        <li class="q-row">
+          <div class="q-main">
+            <strong>ער״ן</strong>
+            <span>24/7, שיחה או צ׳אט</span>
           </div>
-        </article>
-
-        <article class="card help-now">
-          <div class="card-body">
-            <div class="card-meta"><span class="tag">בכתב · אנונימי</span><span>צ׳אט · וואטסאפ</span></div>
-            <h3>סה״ר - סיוע והקשבה ברשת</h3>
-            <div class="kv">
-              <span class="k">למי זה מתאים</span>
-              <p>למי שקל יותר לכתוב מאשר לדבר - פותחים שיחה בכתב, בקצב שלכם.</p>
-            </div>
-            <div class="kv">
-              <span class="k">איך זה עובד</span>
-              <p>מתנדבות ומתנדבים עונים בצ׳אט באתר ובוואטסאפ, בערבים ובלילות.</p>
-            </div>
-            <div class="help-line">
-              <span class="num num-he">צ׳אט</span>
-              <a class="btn btn-line" href="#">התחלת צ׳אט</a>
-            </div>
+          <div class="q-act">
+            <span class="q-num">1201</span>
+            <a class="btn btn-teal q-btn" href="tel:1201">חיוג 1201</a>
           </div>
-        </article>
-
-        <article class="card help-now">
-          <div class="card-body">
-            <div class="card-meta"><span class="tag">קו סיוע</span><span>טראומה על רקע לאומי</span></div>
-            <h3>נט״ל - טראומה על רקע לאומי</h3>
-            <div class="kv">
-              <span class="k">למי זה מתאים</span>
-              <p>למתמודדות ומתמודדים עם חרדה או טראומה על רקע ביטחוני - וגם לבני ובנות משפחה.</p>
-            </div>
-            <div class="kv">
-              <span class="k">איך זה עובד</span>
-              <p>קו סיוע של אנשי מקצוע ומתנדבים המתמחים בתחום, גם לשיחות המשך.</p>
-            </div>
-            <div class="help-line">
-              <span class="num num-long">1-800-363-363</span>
-              <a class="btn btn-line" href="tel:1800363363">חיוג לנט״ל</a>
-            </div>
+        </li>
+        <li class="q-row">
+          <div class="q-main">
+            <strong>סה״ר</strong>
+            <span>צ׳אט אנונימי בכתב</span>
           </div>
-        </article>
+          <div class="q-act">
+            <a class="btn btn-line q-btn" href="#">התחלת צ׳אט</a>
+          </div>
+        </li>
+        <li class="q-row">
+          <div class="q-main">
+            <strong>נט״ל</strong>
+            <span>טראומה על רקע לאומי</span>
+          </div>
+          <div class="q-act">
+            <span class="q-num">1-800-363-363</span>
+            <a class="btn btn-line q-btn" href="tel:1800363363">חיוג לנט״ל</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
 
+  <section class="section section-tint" id="crisis">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">לא לבד ברגע הזה</span>
+        <h2>כשהמחשבות <em class="accent">כבדות במיוחד</em></h2>
+        <p>בחרו את מה שקרוב למה שאתם עוברים עכשיו - בשני המקרים יש עם מי לדבר.</p>
+      </div>
+      <div class="crisis-wrap">
+        <div class="crisis-toggle" role="group" aria-label="בחירת מצב">
+          <button type="button" class="crisis-btn" data-crisis-btn="self" aria-pressed="true">יש לי מחשבות על אובדנות</button>
+          <button type="button" class="crisis-btn" data-crisis-btn="other" aria-pressed="false">מישהו קרוב מתמודד עם מחשבות על אובדנות</button>
+        </div>
+        <!-- תוכן סופי, כולל ASK-S, יסופק ויאושר על ידי הצוות המקצועי -->
+        <div class="crisis-block" data-crisis-block="self">
+          <p>אם עולות בכם מחשבות על אובדנות - הכאב הזה אמיתי, ואתם לא צריכים לשאת אותו לבד. מחשבות כאלה הן סימן שהעומס גדול מדי כרגע, ושזה הזמן לפנות למישהו. שיחה אחת, עכשיו, עם מי שיודעים להקשיב - יכולה להקל.</p>
+          <ul class="crisis-lines">
+            <li>
+              <span class="c-main"><strong>ער״ן 1201</strong> - תמיכה נפשית 24/7, אנונימי וללא תשלום.</span>
+              <a class="c-call" href="tel:1201">חיוג 1201</a>
+            </li>
+            <li>
+              <span class="c-main"><strong>סה״ר</strong> - צ׳אט כתוב אנונימי, בערבים ובלילות.</span>
+              <a class="c-call" href="#">לצ׳אט</a>
+            </li>
+            <li>
+              <span class="c-main"><strong>קו הסיוע 105</strong> - להורים ולבני נוער.</span>
+              <a class="c-call" href="tel:105">חיוג 105</a>
+            </li>
+            <li>
+              <span class="c-main"><strong>ובמצב סכנה מיידית - 101</strong> (מד״א).</span>
+              <a class="c-call c-call-amber" href="tel:101">חיוג 101</a>
+            </li>
+          </ul>
+        </div>
+        <div class="crisis-block" data-crisis-block="other" hidden>
+          <p>כשאדם קרוב משתף במחשבות על אובדנות, או כשמשהו בו מדאיג אתכם - עצם הנוכחות שלכם חשובה. מותר ואף כדאי לשאול ישירות ובאכפתיות אם יש לו מחשבות על אובדנות: שאלה ישירה לא מסכנת - היא פותחת דלת. הקשיבו בלי שיפוט, הישארו בקשר - ואל תישארו עם הדאגה לבד.</p>
+          <ul class="crisis-lines">
+            <li>
+              <span class="c-main"><strong>ער״ן 1201</strong> - תמיכה נפשית 24/7, אנונימי וללא תשלום.</span>
+              <a class="c-call" href="tel:1201">חיוג 1201</a>
+            </li>
+            <li>
+              <span class="c-main"><strong>סה״ר</strong> - צ׳אט כתוב אנונימי, בערבים ובלילות.</span>
+              <a class="c-call" href="#">לצ׳אט</a>
+            </li>
+            <li>
+              <span class="c-main"><strong>קו הסיוע 105</strong> - להורים ולבני נוער.</span>
+              <a class="c-call" href="tel:105">חיוג 105</a>
+            </li>
+            <li>
+              <span class="c-main"><strong>ובמצב סכנה מיידית - 101</strong> (מד״א).</span>
+              <a class="c-call c-call-amber" href="tel:101">חיוג 101</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
+  <script>
+    (function () {
+      var btns = document.querySelectorAll('[data-crisis-btn]');
+      var blocks = document.querySelectorAll('[data-crisis-block]');
+      btns.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var target = btn.getAttribute('data-crisis-btn');
+          btns.forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+          blocks.forEach(function (bl) { bl.hidden = bl.getAttribute('data-crisis-block') !== target; });
+        });
+      });
+    })();
+  </script>
 
   <section class="section section-line" id="doubt">
     <div class="container">
       <div class="section-head center">
-        <span class="eyebrow">שלושה דברים שחשוב לדעת</span>
         <h2>לא בטוחים אם זה <em class="accent">״מספיק חמור״</em>?</h2>
         <p>אין רף שצריך לעבור. אם משהו מכביד עליכם - זו סיבה מספיק טובה.</p>
       </div>
@@ -297,8 +380,8 @@
       <nav aria-label="ניווט - תוכן">
         <h3>תוכן</h3>
         <ul>
-          <li><a href="index.html#topics">נושאים נפוצים</a></li>
-          <li><a href="index.html#featured">מאמרים וכלים</a></li>
+          <li><a href="topics.html">נושאים נפוצים</a></li>
+          <li><a href="index.html#featured">ארגז כלים</a></li>
           <li><a href="search.html">חיפוש</a></li>
           <li><a href="help.html">קבלת עזרה</a></li>
         </ul>
@@ -308,7 +391,7 @@
         <ul>
           <li><a href="about.html">על ״איך את.ה?״</a></li>
           <li><a href="about.html#eiker">מי מאחורי הפרויקט</a></li>
-          <li><a href="partners.html">השותפים המייסדים</a></li>
+          <li><a href="partners.html">הארגונים והשותפים</a></li>
           <li><a href="https://www.icarcollective.org/he/" rel="external">האתר הרשמי של עיקר</a></li>
         </ul>
       </nav>
@@ -321,8 +404,9 @@
         </ul>
       </nav>
     </div>
+    <p class="footer-disclaimer">״איך את.ה?״ הוא אתר מידע פסיכו-חינוכי: הוא עוזר להבין, לזהות ולמצוא מידע וכלים - אך אינו מהווה אבחון ואינו מחליף ייעוץ או טיפול מקצועיים. במצב חירום חייגו 101; לתמיכה נפשית מיידית - ער״ן, בטלפון 1201.</p>
     <div class="footer-note">
-      <span>התוכן באתר אינו מהווה אבחון, ייעוץ רפואי או תחליף לטיפול. במצב חירום חייגו 101, או פנו לער״ן בקו 1201. כל התכנים, המספרים והארגונים בעמוד זה הם תוכן הדגמה לצורך משוב עיצובי.</span>
+      <span>כל התכנים, המספרים והארגונים באתר הם תוכן הדגמה לצורך משוב עיצובי.</span>
       <span>© 2026 קולקטיב עיקר · ״איך את.ה?״</span>
     </div>
   </div>

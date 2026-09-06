@@ -48,9 +48,6 @@
 }
 .partner-intro { display: grid; gap: 14px; flex: 1; min-width: min(100%, 340px); }
 .partner-tags { display: flex; flex-wrap: wrap; gap: 8px; }
-.tag-topic { color: var(--lilac); border-color: rgba(110, 110, 146, 0.4); }
-.tag-247 { display: inline-flex; align-items: center; gap: 7px; }
-.tag-247::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--amber); flex-shrink: 0; }
 .partner-intro h1 {
   font-size: clamp(2rem, 4.6vw, 3rem);
   font-weight: 800; letter-spacing: -0.015em; line-height: 1.12;
@@ -129,8 +126,8 @@
   <div class="container">
     <a class="brand" href="index.html"><span class="brand-bubble"><span class="brand-name">איך את.ה<span class="brand-q">?</span></span><svg class="tail" viewBox="0 0 22 18" aria-hidden="true"><path d="M5 0 H15 V2.6 C14.8 8 15.4 12 16.5 16.5 C11.5 12.5 8 8 5 2.6 Z" fill="#fff"/><path d="M5 2.4 C8 8 11.5 12.5 16.5 16.5 C15.4 12 14.8 8 15 2.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> <small>מבית קולקטיב עיקר</small></a>
     <nav class="topnav" aria-label="ניווט ראשי">
-      <a href="index.html#topics">נושאים</a>
-      <a href="index.html#featured">מאמרים וכלים</a>
+      <a href="topics.html">נושאים</a>
+      <a href="index.html#featured">ארגז כלים</a>
       <a href="partners.html" aria-current="page">הארגונים השותפים</a>
       <a href="about.html">על הפרויקט</a>
     </nav>
@@ -138,15 +135,15 @@
       <div class="lang-switch" role="group" aria-label="בחירת שפה (עברית, ערבית, אנגלית)" title="האתר יתמוך בעברית, ערבית ואנגלית; המעבר בין השפות ייבנה בשלב הפיתוח">
         <span aria-current="true">עב</span><span lang="ar">ع</span><span lang="en">EN</span>
       </div>
-      <a class="btn btn-teal" href="help.html">קבלת עזרה</a>
+      <a class="btn btn-amber" href="help.html">קבלת עזרה</a>
       <button class="menu-toggle" data-menu-toggle aria-controls="mobileNav" aria-expanded="false" aria-label="פתיחת תפריט">
         <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
       </button>
     </div>
   </div>
   <nav class="mobile-nav" id="mobileNav" aria-label="ניווט ראשי - מובייל">
-    <a href="index.html#topics">נושאים</a>
-    <a href="index.html#featured">מאמרים וכלים</a>
+    <a href="topics.html">נושאים</a>
+    <a href="index.html#featured">ארגז כלים</a>
     <a href="partners.html" aria-current="page">הארגונים השותפים</a>
     <a href="about.html">על הפרויקט</a>
     <a href="help.html">קבלת עזרה</a>
@@ -169,7 +166,7 @@
       <nav class="breadcrumb" aria-label="פירורי לחם">
         <a href="index.html">ראשי</a>
         <span class="sep" aria-hidden="true">‹</span>
-        <a href="partners.html">הארגונים השותפים</a>
+        <a href="partners.html">הארגונים והשותפים</a>
         <span class="sep" aria-hidden="true">‹</span>
         <span class="here" aria-current="page">ער״ן</span>
       </nav>
@@ -177,9 +174,7 @@
         <span class="partner-logo-lg" aria-hidden="true">ער״ן</span>
         <div class="partner-intro">
           <div class="partner-tags">
-            <span class="tag">עמותה</span>
-            <span class="tag tag-topic">שירות ארצי</span>
-            <span class="tag tag-247">זמין 24/7</span>
+            <span class="tag">קו סיוע</span>
           </div>
           <h1>ער״ן - <span class="u-amber">עזרה ראשונה</span> נפשית</h1>
           <p class="partner-desc">תמיכה נפשית ראשונה בשיחת טלפון או בצ׳אט, בעילום שם, 24 שעות ביממה - לכל מי שצריך אוזן קשבת, עכשיו.</p>
@@ -265,7 +260,7 @@
   <section class="section section-line" id="partner-content" aria-labelledby="partner-content-h">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">מאמרים וכלים</span>
+        <span class="eyebrow">תכנים וכלים</span>
         <h2 id="partner-content-h">תכנים <em class="accent">מהשותף</em></h2>
         <p>תכנים באתר שנכתבו על ידי אנשי המקצוע של ער״ן או בשיתוף איתם.</p>
       </div>
@@ -343,7 +338,7 @@
     <div class="container">
       <div class="again-panel route-back">
         <h2>לא בטוחים שזה הכיוון הנכון?</h2>
-        <p>אפשר לחזור לחיפוש ולכתוב במילים שלכם מה עובר עליכם - ואם עכשיו זה רגע קשה, לא חייבים לעבור אותו לבד.</p>
+        <p>אפשר לחזור לחיפוש ולכתוב במילים שלכם מה עובר עליכם - ומשם להתקדם.</p>
         <div class="partner-actions">
           <a class="btn btn-teal" href="search.html">חזרה לחיפוש</a>
           <a class="btn btn-line" href="help.html">לעמוד קבלת עזרה</a>
@@ -371,8 +366,8 @@
       <nav aria-label="ניווט - תוכן">
         <h3>תוכן</h3>
         <ul>
-          <li><a href="index.html#topics">נושאים נפוצים</a></li>
-          <li><a href="index.html#featured">מאמרים וכלים</a></li>
+          <li><a href="topics.html">נושאים נפוצים</a></li>
+          <li><a href="index.html#featured">ארגז כלים</a></li>
           <li><a href="search.html">חיפוש</a></li>
           <li><a href="help.html">קבלת עזרה</a></li>
         </ul>
@@ -382,7 +377,7 @@
         <ul>
           <li><a href="about.html">על ״איך את.ה?״</a></li>
           <li><a href="about.html#eiker">מי מאחורי הפרויקט</a></li>
-          <li><a href="partners.html">השותפים המייסדים</a></li>
+          <li><a href="partners.html">הארגונים והשותפים</a></li>
           <li><a href="https://www.icarcollective.org/he/" rel="external">האתר הרשמי של עיקר</a></li>
         </ul>
       </nav>
@@ -395,8 +390,9 @@
         </ul>
       </nav>
     </div>
+    <p class="footer-disclaimer">״איך את.ה?״ הוא אתר מידע פסיכו-חינוכי: הוא עוזר להבין, לזהות ולמצוא מידע וכלים - אך אינו מהווה אבחון ואינו מחליף ייעוץ או טיפול מקצועיים. במצב חירום חייגו 101; לתמיכה נפשית מיידית - ער״ן, בטלפון 1201.</p>
     <div class="footer-note">
-      <span>התוכן באתר אינו מהווה אבחון, ייעוץ רפואי או תחליף לטיפול. במצב חירום חייגו 101, או פנו לער״ן בקו 1201. כל התכנים, המספרים והארגונים בעמוד זה הם תוכן הדגמה לצורך משוב עיצובי.</span>
+      <span>כל התכנים, המספרים והארגונים באתר הם תוכן הדגמה לצורך משוב עיצובי.</span>
       <span>© 2026 קולקטיב עיקר · ״איך את.ה?״</span>
     </div>
   </div>
