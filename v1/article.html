@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>אז איך מחזירים מעט תחושת שליטה? - איך את.ה?</title>
+<meta name="description" content="חמש פעולות קטנות שעוזרות לראש לנוח מהדאגה - מאמר מקצועי מאת ד״ר דנה לוי, ער״ן. פרויקט ״איך את.ה?״ מבית קולקטיב עיקר.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@700;800&family=Noto+Sans+Hebrew:wght@400;600&display=swap">
+<link rel="stylesheet" href="css/b.css">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect x=%224.5%22 y=%225.5%22 width=%2226%22 height=%2220%22 rx=%227%22 fill=%22%23c6c6d6%22/%3E%3Crect x=%221.5%22 y=%222.5%22 width=%2226%22 height=%2220%22 rx=%227%22 fill=%22%23fff%22 stroke=%22%234cc4d2%22 stroke-width=%222%22/%3E%3Cpath d=%22M13 21.5 C14 25 16 28 19.5 30.5 C17 26.5 16.5 24 16.5 21.5 Z%22 fill=%22%23fff%22 stroke=%22%234cc4d2%22 stroke-width=%221.5%22/%3E%3Ctext x=%2214.5%22 y=%2219%22 font-family=%22Arial,sans-serif%22 font-size=%2216%22 font-weight=%22bold%22 fill=%22%234cc4d2%22 text-anchor=%22middle%22%3E?%3C/text%3E%3C/svg%3E">
+<style>
+/* ---------- article page (page-specific) ---------- */
+.article-hero {
+  position: relative; overflow: hidden;
+  padding-block: clamp(44px, 6vw, 76px) 0;
+}
+.article-air {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(42rem 26rem at 85% -12%, rgba(76, 196, 210, 0.13), transparent 66%),
+    radial-gradient(34rem 22rem at 4% 110%, rgba(110, 110, 146, 0.08), transparent 64%);
+}
+.article-hero .container { position: relative; }
+.article-col { max-width: 700px; margin-inline: auto; }
+
+.breadcrumb {
+  display: flex; flex-wrap: wrap; gap: 6px 10px; align-items: center;
+  font-size: 0.88rem; font-weight: 600; color: var(--lilac);
+  margin-bottom: clamp(24px, 4vw, 38px);
+}
+.breadcrumb a { color: inherit; text-decoration: none; }
+.breadcrumb a:hover { color: var(--plum); text-decoration: underline; }
+.breadcrumb .sep { opacity: 0.55; }
+.breadcrumb .here { color: var(--ink-soft); }
+
+.article-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag-topic { color: var(--lilac); border-color: rgba(110, 110, 146, 0.4); }
+.article-head { display: grid; gap: 16px; }
+.article-head h1 {
+  font-size: clamp(2.1rem, 5.6vw, 3.35rem);
+  font-weight: 800; letter-spacing: -0.015em; line-height: 1.12;
+}
+.article-head .sub { font-size: clamp(1.05rem, 2vw, 1.22rem); color: var(--ink-soft); }
+
+.author-avatar {
+  width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;
+  border: 1.5px solid rgba(110, 110, 146, 0.5);
+  background: #f6fbfc; color: var(--plum);
+  font-family: var(--f-display); font-weight: 700; font-size: 1rem;
+  display: grid; place-items: center;
+}
+.byline { display: flex; align-items: center; gap: 14px; margin-top: 4px; }
+.byline .who { display: grid; gap: 2px; font-size: 0.95rem; line-height: 1.5; }
+.byline .who .muted { font-weight: 400; }
+.byline .meta-line { color: var(--lilac); font-weight: 600; font-size: 0.88rem; }
+.article-head b, .byline b { font-weight: 600; }
+
+.article-art {
+  max-width: 880px;
+  margin: clamp(32px, 4.5vw, 50px) auto 0;
+  border: 1px solid var(--line); border-radius: var(--r);
+  overflow: hidden; background: #f6fbfc;
+}
+.article-art svg { width: 100%; height: clamp(170px, 22vw, 250px); }
+
+.article-body { padding-top: clamp(38px, 5vw, 62px); }
+.prose { display: grid; gap: 22px; }
+.prose p { color: var(--ink-soft); }
+.prose strong, .prose b { color: var(--ink); font-weight: 600; }
+.prose .opening {
+  font-size: clamp(1.14rem, 2vw, 1.27rem); line-height: 1.75; color: var(--ink);
+}
+.prose h2 { font-size: clamp(1.5rem, 3vw, 1.9rem); letter-spacing: -0.01em; margin-top: 12px; }
+
+.stat-callout {
+  background: linear-gradient(160deg, rgba(76, 196, 210, 0.1), rgba(76, 196, 210, 0.03) 70%);
+  border: 1px solid rgba(110, 110, 146, 0.22);
+  border-radius: var(--r);
+  padding: 24px 28px; display: grid; gap: 4px;
+}
+.stat-num {
+  font-family: var(--f-display); font-weight: 800; color: var(--plum);
+  font-size: clamp(1.7rem, 3.4vw, 2.1rem); line-height: 1.2;
+}
+
+.steps { list-style: none; padding: 0; margin: 4px 0 0; counter-reset: step; display: grid; gap: 20px; }
+.steps li { counter-increment: step; position: relative; padding-inline-start: 58px; min-height: 40px; }
+.steps li::before {
+  content: counter(step);
+  position: absolute; inset-inline-start: 0; top: 2px;
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1.5px solid rgba(110, 110, 146, 0.55);
+  background: var(--card); color: var(--plum);
+  font-family: var(--f-display); font-weight: 700; font-size: 1.05rem;
+  display: grid; place-items: center;
+}
+
+.share-block {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px;
+  margin-top: 6px;
+}
+.share-label { font-weight: 600; color: var(--ink); font-size: 0.98rem; }
+.share-btns { display: flex; flex-wrap: wrap; gap: 10px; }
+.share-btns .chip { font-size: 0.92rem; padding: 8px 16px; }
+.share-btns .chip svg { flex-shrink: 0; }
+
+.author-sig {
+  display: flex; gap: 16px; align-items: flex-start;
+  border-top: 1px solid var(--line);
+  padding-top: 28px; margin-top: 10px;
+}
+.author-sig .who { display: grid; gap: 3px; font-size: 0.95rem; line-height: 1.55; }
+.author-sig .who b { font-family: var(--f-display); font-weight: 700; font-size: 1.02rem; color: var(--ink); }
+.author-sig .who span { color: var(--ink-soft); }
+.author-sig .who a { font-weight: 600; font-size: 0.92rem; }
+
+.related-grid { max-width: 920px; }
+.article-help { font-size: 1.02rem; color: var(--ink-soft); max-width: 42em; margin-inline: auto; }
+
+@media (max-width: 560px) {
+  .steps li { padding-inline-start: 50px; }
+  .steps li::before { width: 36px; height: 36px; font-size: 1rem; }
+}
+</style>
+</head>
+<body>
+<!-- SHELL:HEADER START -->
+<a class="skip-link" href="#main">דילוג לתוכן</a>
+<header class="topbar">
+  <div class="container">
+    <a class="brand" href="index.html"><span class="brand-bubble"><span class="brand-name">איך את.ה<span class="brand-q">?</span></span><svg class="tail" viewBox="0 0 22 18" aria-hidden="true"><path d="M5 0 H15 V2.6 C14.8 8 15.4 12 16.5 16.5 C11.5 12.5 8 8 5 2.6 Z" fill="#fff"/><path d="M5 2.4 C8 8 11.5 12.5 16.5 16.5 C15.4 12 14.8 8 15 2.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> <small>מבית קולקטיב עיקר</small></a>
+    <nav class="topnav" aria-label="ניווט ראשי">
+      <a href="index.html#topics">נושאים</a>
+      <a href="index.html#featured">מאמרים וכלים</a>
+      <a href="partners.html">הארגונים השותפים</a>
+      <a href="about.html">על הפרויקט</a>
+    </nav>
+    <div class="topbar-side">
+      <div class="lang-switch" role="group" aria-label="בחירת שפה (עברית, ערבית, אנגלית)" title="האתר יתמוך בעברית, ערבית ואנגלית; המעבר בין השפות ייבנה בשלב הפיתוח">
+        <span aria-current="true">עב</span><span lang="ar">ع</span><span lang="en">EN</span>
+      </div>
+      <a class="btn btn-teal" href="help.html">קבלת עזרה</a>
+      <button class="menu-toggle" data-menu-toggle aria-controls="mobileNav" aria-expanded="false" aria-label="פתיחת תפריט">
+        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="ניווט ראשי - מובייל">
+    <a href="index.html#topics">נושאים</a>
+    <a href="index.html#featured">מאמרים וכלים</a>
+    <a href="partners.html">הארגונים השותפים</a>
+    <a href="about.html">על הפרויקט</a>
+    <a href="help.html">קבלת עזרה</a>
+  </nav>
+</header>
+<!-- SHELL:HEADER END -->
+
+<main id="main" data-page="article">
+
+  <article>
+    <!-- ראש המאמר -->
+    <header class="article-hero">
+      <div class="article-air" aria-hidden="true"></div>
+      <div class="container">
+        <div class="article-col">
+          <nav class="breadcrumb" aria-label="פירורי לחם">
+            <a href="index.html">ראשי</a>
+            <span class="sep" aria-hidden="true">‹</span>
+            <a href="search.html?q=חרדה ולחץ">חרדה ולחץ</a>
+            <span class="sep" aria-hidden="true">‹</span>
+            <span class="here" aria-current="page">אז איך מחזירים מעט תחושת שליטה?</span>
+          </nav>
+          <div class="article-head">
+            <div class="article-tags">
+              <span class="tag">מאמר</span>
+              <span class="tag tag-topic">חרדה ולחץ</span>
+            </div>
+            <h1>אז איך מחזירים מעט <span class="u-amber">תחושת שליטה</span>?</h1>
+            <p class="sub">חמש פעולות קטנות שעוזרות לראש לנוח מהדאגה</p>
+            <div class="byline">
+              <span class="author-avatar" aria-hidden="true">דל</span>
+              <div class="who">
+                <span><b>מאת ד״ר דנה לוי</b> <span class="muted">· פסיכולוגית קלינית, ער״ן</span></span>
+                <span class="meta-line">4 דק׳ קריאה · פורסם ב־25.8.2026</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <figure class="article-art" aria-hidden="true">
+          <svg viewBox="0 0 1200 260" preserveAspectRatio="xMidYMid slice" role="presentation" fill="none">
+            <circle cx="712" cy="120" r="106" stroke="#4cc4d2" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+            <circle cx="712" cy="120" r="72" stroke="#6e6e92" stroke-width="1.5" opacity=".6" vector-effect="non-scaling-stroke"/>
+            <circle cx="712" cy="120" r="40" stroke="#6e6e92" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+            <circle cx="712" cy="120" r="4" fill="#6e6e92"/>
+            <circle cx="238" cy="90" r="26" stroke="#6e6e92" stroke-width="1.5" opacity=".5" vector-effect="non-scaling-stroke"/>
+            <circle cx="1010" cy="72" r="17" stroke="#4cc4d2" stroke-width="1.5" opacity=".7" vector-effect="non-scaling-stroke"/>
+            <path d="M20 196 Q85 184 150 196 T280 196 T410 196 T540 196 T670 196 T800 196 T930 196 T1060 196 T1190 196" stroke="#4cc4d2" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+            <path d="M60 218 Q120 208 180 218 T300 218 T420 218 T540 218 T660 218 T780 218 T900 218 T1020 218 T1140 218" stroke="#6e6e92" stroke-width="1.5" opacity=".45" vector-effect="non-scaling-stroke"/>
+            <circle cx="420" cy="56" r="3" fill="#6e6e92"/>
+            <circle cx="472" cy="40" r="2.5" fill="#4cc4d2"/>
+          </svg>
+        </figure>
+      </div>
+    </header>
+
+    <!-- גוף המאמר -->
+    <div class="section article-body">
+      <div class="container">
+        <div class="prose article-col">
+          <p class="opening">כשכל מחשבה מתחילה ב״ומה אם…״, הראש מנסה לייצר ודאות במקום שבו כרגע אין כזו. אבל ככל שמנסים לחשוב על כל תרחיש אפשרי, הדאגה לא תמיד נרגעת - לפעמים היא רק תופסת יותר מקום.</p>
+
+          <div class="stat-callout">
+            <span class="stat-num">1 מתוך 4</span>
+            <p>ישראלים מרגישים מתוחים, מודאגים וחרדים. <strong>אתם לא לבד.</strong></p>
+          </div>
+
+          <h2>אז איך מחזירים מעט תחושת שליטה?</h2>
+
+          <ol class="steps">
+            <li><b>הפרידו בין מה שבשליטתכם לבין מה שלא</b> - ובחרו פעולה קטנה אחת שאפשר לעשות היום.</li>
+            <li><b>קבעו גבולות לעדכונים</b> - בדיקה בשעות מסוימות במקום גלילה בלתי פוסקת.</li>
+            <li><b>תנו לדאגה שם</b> - אמרו לעצמכם: ״אני שם לב שאני מודאג עכשיו״. עצם הזיהוי יוצר מעט מרחק מהמחשבה.</li>
+            <li><b>החזירו את תשומת הלב למה שנמצא מולכם:</b> כוס מים, מקלחת, ארוחה או הליכה קצרה.</li>
+            <li><b>שתפו אדם קרוב במה שעובר עליכם</b> - לא כדי שיפתור, אלא כדי שלא תישאו את הכול לבד.</li>
+          </ol>
+
+          <p>אי אפשר לשלוט בכל מה שיקרה. אפשר לבחור איך לשמור על עצמנו בתוך חוסר הוודאות - <strong>צעד קטן בכל פעם.</strong></p>
+
+          <div class="share-block">
+            <span class="share-label">מכירים מישהו שזה יכול לעזור לו?</span>
+            <div class="share-btns">
+              <a class="chip" href="#">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z" stroke="currentColor" stroke-width="2"/><path d="M9 8.5c.5 3 3.5 6 6.5 6.5l.5-2-2-1-1 .8c-1-.5-2.3-1.8-2.8-2.8l.8-1-1-2-2 .5Z" fill="currentColor"/></svg>
+                שיתוף בוואטסאפ
+              </a>
+              <a class="chip" href="#">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10.5 13.5a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1.6 1.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M13.5 10.5a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.6-1.6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                העתקת קישור
+              </a>
+            </div>
+          </div>
+
+          <div class="author-sig">
+            <span class="author-avatar" aria-hidden="true">דל</span>
+            <div class="who">
+              <b>ד״ר דנה לוי</b>
+              <span>פסיכולוגית קלינית, ער״ן - עזרה ראשונה נפשית</span>
+              <a href="partner.html">לעמוד הארגון באתר ←</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- אולי יעזור גם -->
+  <section class="section section-line" id="related" aria-labelledby="related-h">
+    <div class="container related-grid">
+      <div class="section-head center">
+        <span class="eyebrow">המשך קריאה</span>
+        <h2 id="related-h">אולי <em class="accent">יעזור</em> גם</h2>
+        <p>עוד תכנים שנכתבו ונבדקו על ידי אנשי מקצוע מהארגונים השותפים.</p>
+      </div>
+      <div class="card-grid-2">
+        <a class="card" href="search.html?q=שינה">
+          <div class="card-art art-b" aria-hidden="true">
+            <svg viewBox="0 0 400 148" fill="none">
+              <path d="M278 34 a26 26 0 1 0 18 44 a22 22 0 0 1 -18 -44 Z" stroke="#6e6e92" stroke-width="1.5" stroke-linejoin="round" vector-effect="non-scaling-stroke"/>
+              <path d="M60 104 Q95 96 130 104 T200 104 T270 104 T340 104" stroke="#4cc4d2" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+              <path d="M84 120 Q114 113 144 120 T204 120 T264 120 T324 120" stroke="#4cc4d2" stroke-width="1.5" opacity=".5" vector-effect="non-scaling-stroke"/>
+              <circle cx="122" cy="46" r="2.5" fill="#6e6e92"/>
+              <circle cx="152" cy="64" r="2" fill="#4cc4d2"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span class="tag">מדריך</span><span>5 דק׳ קריאה</span><span>·</span><span>שינה</span></div>
+            <h3>לא מצליחים להירדם? ככה עוזרים לגוף להאט</h3>
+            <p class="excerpt">כשהראש ממשיך לרוץ גם כשהגוף עייף - שגרת האטה קצרה ומה עושים בלילה שבו כלום לא עובד.</p>
+            <span class="card-cta">לקריאת המדריך ←</span>
+          </div>
+        </a>
+        <a class="card" href="search.html?q=מתי לפנות לטיפול">
+          <div class="card-art art-a" aria-hidden="true">
+            <svg viewBox="0 0 400 148" fill="none">
+              <circle cx="178" cy="74" r="36" stroke="#4cc4d2" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+              <circle cx="222" cy="74" r="36" stroke="#6e6e92" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span class="tag">מאמר</span><span>3 דק׳ קריאה</span><span>·</span><span>מציאת טיפול</span></div>
+            <h3>עברו שלושה שבועות - והלחץ עדיין לא מרפה?</h3>
+            <p class="excerpt">84% מהישראלים דיווחו שטיפול שיפר את מצבם. מתי שווה לפנות לליווי מקצועי - ולמה זה לא אומר שמשהו ״לא בסדר״.</p>
+            <span class="card-cta">לקריאת המאמר ←</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- חיפוש חוזר -->
+  <section class="section section-line" id="search-again">
+    <div class="container">
+      <div class="again-panel">
+        <h2>לא מצאתם עדיין את מה שחיפשתם?</h2>
+        <p>נסו לכתוב במילים שלכם - אין דרך לא נכונה להגיד את זה.</p>
+        <form class="search-form" action="search.html" method="get" role="search">
+          <div class="search-box">
+            <input type="text" name="q" aria-label="מה עובר עליכם? כתבו בשפה חופשית" placeholder="מה עובר עליכם?">
+            <button class="btn btn-teal" type="submit">מצאו לי מידע</button>
+          </div>
+        </form>
+      </div>
+      <p class="center mt-lg article-help">ואם עכשיו זה רגע קשה - לא חייבים לעבור אותו לבד. <a href="help.html"><strong>לעמוד קבלת עזרה ←</strong></a></p>
+    </div>
+  </section>
+
+</main>
+
+<!-- SHELL:FOOTER START -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a class="brand" href="index.html"><span class="brand-name">איך את.ה<span class="brand-q">?</span></span></a>
+        <p>פרויקט מבית קולקטיב עיקר, בשיתוף הארגונים המובילים בתחום בריאות הנפש, הטראומה והחוסן בישראל.</p>
+        <div class="social-row" aria-label="רשתות חברתיות">
+          <a href="#" aria-label="אינסטגרם"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.3" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="פייסבוק"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 8h3V4h-3a5 5 0 0 0-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9a1 1 0 0 1 1-1Z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="יוטיוב"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="2"/><path d="M10 9.5v5l4.5-2.5L10 9.5Z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="וואטסאפ"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z" stroke="currentColor" stroke-width="2"/><path d="M9 8.5c.5 3 3.5 6 6.5 6.5l.5-2-2-1-1 .8c-1-.5-2.3-1.8-2.8-2.8l.8-1-1-2-2 .5Z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+      <nav aria-label="ניווט - תוכן">
+        <h3>תוכן</h3>
+        <ul>
+          <li><a href="index.html#topics">נושאים נפוצים</a></li>
+          <li><a href="index.html#featured">מאמרים וכלים</a></li>
+          <li><a href="search.html">חיפוש</a></li>
+          <li><a href="help.html">קבלת עזרה</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="ניווט - הפרויקט">
+        <h3>הפרויקט</h3>
+        <ul>
+          <li><a href="about.html">על ״איך את.ה?״</a></li>
+          <li><a href="about.html#eiker">מי מאחורי הפרויקט</a></li>
+          <li><a href="partners.html">השותפים המייסדים</a></li>
+          <li><a href="https://www.icarcollective.org/he/" rel="external">האתר הרשמי של עיקר</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="ניווט - מידע">
+        <h3>מידע</h3>
+        <ul>
+          <li><a href="#">תנאי שימוש</a></li>
+          <li><a href="#">מדיניות פרטיות</a></li>
+          <li><a href="#">הצהרת נגישות</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-note">
+      <span>התוכן באתר אינו מהווה אבחון, ייעוץ רפואי או תחליף לטיפול. במצב חירום חייגו 101, או פנו לער״ן בקו 1201. כל התכנים, המספרים והארגונים בעמוד זה הם תוכן הדגמה לצורך משוב עיצובי.</span>
+      <span>© 2026 קולקטיב עיקר · ״איך את.ה?״</span>
+    </div>
+  </div>
+</footer>
+<script src="js/b.js"></script>
+<!-- SHELL:FOOTER END -->
+</body>
+</html>

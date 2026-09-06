@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>קבלת עזרה - איך את.ה?</title>
+<meta name="description" content="קווי סיוע, צ׳אט ותמיכה מקצועית - בחינם, בעילום שם, עוד היום. איך את.ה? מבית קולקטיב עיקר.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@700;800&family=Noto+Sans+Hebrew:wght@400;600&display=swap">
+<link rel="stylesheet" href="css/b.css">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22%3E%3Crect x=%224.5%22 y=%225.5%22 width=%2226%22 height=%2220%22 rx=%227%22 fill=%22%23c6c6d6%22/%3E%3Crect x=%221.5%22 y=%222.5%22 width=%2226%22 height=%2220%22 rx=%227%22 fill=%22%23fff%22 stroke=%22%234cc4d2%22 stroke-width=%222%22/%3E%3Cpath d=%22M13 21.5 C14 25 16 28 19.5 30.5 C17 26.5 16.5 24 16.5 21.5 Z%22 fill=%22%23fff%22 stroke=%22%234cc4d2%22 stroke-width=%221.5%22/%3E%3Ctext x=%2214.5%22 y=%2219%22 font-family=%22Arial,sans-serif%22 font-size=%2216%22 font-weight=%22bold%22 fill=%22%234cc4d2%22 text-anchor=%22middle%22%3E?%3C/text%3E%3C/svg%3E">
+<style>
+  /* help page - B language */
+  .help-hero { padding-block: clamp(48px, 7vw, 76px) clamp(30px, 4vw, 44px); position: relative; overflow: hidden; }
+  .help-hero .container { display: grid; gap: 14px; max-width: 760px; text-align: center; position: relative; }
+  .help-hero h1 { font-size: clamp(2.2rem, 5.4vw, 3.4rem); }
+  .help-hero .lede { color: var(--ink-soft); font-size: clamp(1.05rem, 2vw, 1.22rem); }
+  .help-hero .lede b { color: var(--ink); font-weight: 600; }
+
+  .emergency { background: var(--amber); color: var(--ink); }
+  .emergency .container { display: flex; align-items: center; justify-content: center; gap: 12px 22px; flex-wrap: wrap; padding-block: 13px; font-weight: 600; }
+  .emergency p { display: inline-flex; align-items: center; gap: 10px; margin: 0; }
+  .emergency .e-num { font-family: var(--f-display); font-size: 1.25rem; }
+  .emergency .e-call {
+    background: var(--ink); color: #fff; text-decoration: none; font-weight: 600;
+    border-radius: 999px; padding: 6px 18px; font-size: 0.92rem; white-space: nowrap;
+  }
+  .emergency .e-call:focus-visible { outline-color: var(--ink); }
+
+  .help-now { border: 1px solid var(--line); }
+  .help-now .card-body { gap: 12px; }
+  .kv { display: grid; gap: 3px; }
+  .kv .k { color: var(--plum); font-size: 0.82rem; font-weight: 600; }
+  .kv p { color: var(--ink-soft); font-size: 0.95rem; line-height: 1.6; }
+  .help-line { display: flex; align-items: center; justify-content: space-between; gap: 14px; flex-wrap: wrap; margin-top: auto; padding-top: 12px; border-top: 1px solid var(--line); }
+  .help-line .num { font-family: var(--f-display); font-weight: 800; font-size: 1.5rem; color: var(--ink); direction: ltr; }
+  .help-line .num-he { direction: rtl; }
+  .help-line .num-long { font-size: 1.12rem; }
+  .btn-line { background: transparent; color: var(--plum); border: 1.5px solid var(--plum); }
+  .btn-line:hover { background: rgba(76, 196, 210, 0.1); }
+
+  .reassure-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .reassure {
+    background: var(--card); border: 1px solid var(--line); border-radius: var(--r);
+    padding: 26px 26px 28px; display: grid; gap: 10px; align-content: start;
+  }
+  .reassure-icon {
+    width: 46px; height: 46px; border-radius: 14px; display: grid; place-items: center;
+    border: 1px solid var(--line); background: #f6fbfc;
+  }
+  .reassure h3 { font-size: 1.08rem; }
+  .reassure p { color: var(--ink-soft); font-size: 0.95rem; }
+
+  .signs { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; }
+  .signs li { display: flex; gap: 12px; align-items: flex-start; }
+  .signs svg { flex-shrink: 0; margin-top: 3px; }
+  .signs-note { color: var(--lilac); font-size: 0.92rem; border-top: 1px solid var(--line); padding-top: 16px; margin-top: 6px; }
+  .after-note { margin-top: 18px; text-align: center; }
+
+  @media (max-width: 900px) { .reassure-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<!-- SHELL:HEADER START -->
+<a class="skip-link" href="#main">דילוג לתוכן</a>
+<header class="topbar">
+  <div class="container">
+    <a class="brand" href="index.html"><span class="brand-bubble"><span class="brand-name">איך את.ה<span class="brand-q">?</span></span><svg class="tail" viewBox="0 0 22 18" aria-hidden="true"><path d="M5 0 H15 V2.6 C14.8 8 15.4 12 16.5 16.5 C11.5 12.5 8 8 5 2.6 Z" fill="#fff"/><path d="M5 2.4 C8 8 11.5 12.5 16.5 16.5 C15.4 12 14.8 8 15 2.4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span> <small>מבית קולקטיב עיקר</small></a>
+    <nav class="topnav" aria-label="ניווט ראשי">
+      <a href="index.html#topics">נושאים</a>
+      <a href="index.html#featured">מאמרים וכלים</a>
+      <a href="partners.html">הארגונים השותפים</a>
+      <a href="about.html">על הפרויקט</a>
+    </nav>
+    <div class="topbar-side">
+      <div class="lang-switch" role="group" aria-label="בחירת שפה (עברית, ערבית, אנגלית)" title="האתר יתמוך בעברית, ערבית ואנגלית; המעבר בין השפות ייבנה בשלב הפיתוח">
+        <span aria-current="true">עב</span><span lang="ar">ع</span><span lang="en">EN</span>
+      </div>
+      <a class="btn btn-teal" href="help.html" aria-current="page">קבלת עזרה</a>
+      <button class="menu-toggle" data-menu-toggle aria-controls="mobileNav" aria-expanded="false" aria-label="פתיחת תפריט">
+        <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true"><path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobileNav" aria-label="ניווט ראשי - מובייל">
+    <a href="index.html#topics">נושאים</a>
+    <a href="index.html#featured">מאמרים וכלים</a>
+    <a href="partners.html">הארגונים השותפים</a>
+    <a href="about.html">על הפרויקט</a>
+    <a href="help.html" aria-current="page">קבלת עזרה</a>
+  </nav>
+</header>
+<!-- SHELL:HEADER END -->
+
+<main id="main" data-page="help">
+
+  <section class="hero help-hero">
+    <div class="hero-air" aria-hidden="true"></div>
+    <div class="container">
+      <h1>אנחנו כאן. <span class="u-amber">גם עכשיו.</span></h1>
+      <p class="lede">אם קשה לכם כרגע - אפשר לדבר עם&nbsp;מישהו <b>עוד היום</b>. בחינם, בעילום שם.</p>
+    </div>
+  </section>
+
+  <section class="emergency" aria-label="הנחיה למצב חירום">
+    <div class="container">
+      <p><svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 4h3.5l1.7 4.3-2.2 1.8a13.5 13.5 0 0 0 5.9 5.9l1.8-2.2L20 15.5V19a2 2 0 0 1-2.2 2A16.5 16.5 0 0 1 3 6.2 2 2 0 0 1 5 4Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>במצב של סכנה מיידית חייגו <b class="e-num">101</b> - מוקד מד״א</p>
+      <a class="e-call" href="tel:101">חיוג 101</a>
+    </div>
+  </section>
+
+  <section class="section" id="now">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">בחינם · בעילום שם</span>
+        <h2>עזרה זמינה <em class="accent">עכשיו</em></h2>
+        <p>שלושת השירותים האלה פתוחים לכולם - בלי הפניה, בלי פרטים מזהים, ובלי התחייבות להמשך.</p>
+      </div>
+      <div class="card-grid">
+
+        <article class="card help-now">
+          <div class="card-body">
+            <div class="card-meta"><span class="tag">פתוח עכשיו · 24/7</span><span>טלפון · צ׳אט</span></div>
+            <h3>ער״ן - עזרה ראשונה נפשית</h3>
+            <div class="kv">
+              <span class="k">למי זה מתאים</span>
+              <p>לכל מי שרוצה אוזן קשבת ברגע זה - בכל נושא, בכל שעה.</p>
+            </div>
+            <div class="kv">
+              <span class="k">איך זה עובד</span>
+              <p>שיחה עם מתנדבות ומתנדבים מיומנים, בטלפון או בצ׳אט באתר ער״ן.</p>
+            </div>
+            <div class="help-line">
+              <span class="num">1201</span>
+              <a class="btn btn-teal" href="tel:1201">חיוג 1201</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card help-now">
+          <div class="card-body">
+            <div class="card-meta"><span class="tag">בכתב · אנונימי</span><span>צ׳אט · וואטסאפ</span></div>
+            <h3>סה״ר - סיוע והקשבה ברשת</h3>
+            <div class="kv">
+              <span class="k">למי זה מתאים</span>
+              <p>למי שקל יותר לכתוב מאשר לדבר - פותחים שיחה בכתב, בקצב שלכם.</p>
+            </div>
+            <div class="kv">
+              <span class="k">איך זה עובד</span>
+              <p>מתנדבות ומתנדבים עונים בצ׳אט באתר ובוואטסאפ, בערבים ובלילות.</p>
+            </div>
+            <div class="help-line">
+              <span class="num num-he">צ׳אט</span>
+              <a class="btn btn-line" href="#">התחלת צ׳אט</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card help-now">
+          <div class="card-body">
+            <div class="card-meta"><span class="tag">קו סיוע</span><span>טראומה על רקע לאומי</span></div>
+            <h3>נט״ל - טראומה על רקע לאומי</h3>
+            <div class="kv">
+              <span class="k">למי זה מתאים</span>
+              <p>למתמודדות ומתמודדים עם חרדה או טראומה על רקע ביטחוני - וגם לבני ובנות משפחה.</p>
+            </div>
+            <div class="kv">
+              <span class="k">איך זה עובד</span>
+              <p>קו סיוע של אנשי מקצוע ומתנדבים המתמחים בתחום, גם לשיחות המשך.</p>
+            </div>
+            <div class="help-line">
+              <span class="num num-long">1-800-363-363</span>
+              <a class="btn btn-line" href="tel:1800363363">חיוג לנט״ל</a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-line" id="doubt">
+    <div class="container">
+      <div class="section-head center">
+        <span class="eyebrow">שלושה דברים שחשוב לדעת</span>
+        <h2>לא בטוחים אם זה <em class="accent">״מספיק חמור״</em>?</h2>
+        <p>אין רף שצריך לעבור. אם משהו מכביד עליכם - זו סיבה מספיק טובה.</p>
+      </div>
+      <div class="reassure-grid">
+        <div class="reassure">
+          <span class="reassure-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14 3.5a8.7 8.7 0 1 0 0 17" stroke="#6e6e92" stroke-width="1.5" stroke-linecap="round"/><path d="M21 12h-8.5M15 9l-2.8 3L15 15" stroke="#6e6e92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </span>
+          <h3>אין סף כניסה לבקשת עזרה</h3>
+          <p>לא צריך ״סיבה מספיק טובה״ ולא אבחנה. הדלת פתוחה לכל מה שמעסיק אתכם.</p>
+        </div>
+        <div class="reassure">
+          <span class="reassure-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 7a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v6a3 3 0 0 1-3 3h-6l-4 4v-4H7a3 3 0 0 1-3-3Z" stroke="#6e6e92" stroke-width="1.5" stroke-linejoin="round"/><circle cx="9" cy="10" r="1" fill="#6e6e92"/><circle cx="12" cy="10" r="1" fill="#6e6e92"/><circle cx="15" cy="10" r="1" fill="#6e6e92"/></svg>
+          </span>
+          <h3>שיחה אחת לא מחייבת כלום</h3>
+          <p>אפשר להתקשר, לשאול, ולסיים. בלי שמות, בלי מעקב ובלי התחייבות להמשך.</p>
+        </div>
+        <div class="reassure">
+          <span class="reassure-icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="12" r="6.2" stroke="#6e6e92" stroke-width="1.5"/><circle cx="15.5" cy="12" r="6.2" stroke="#6e6e92" stroke-width="1.5"/></svg>
+          </span>
+          <h3>אפשר לפנות גם בשביל מישהו אחר</h3>
+          <p>דואגים לאדם קרוב? קווי הסיוע עוזרים גם למי שמלווים - איך להקשיב ומה אפשר להציע.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-line" id="ongoing">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">הצעד הבא</span>
+        <h2>מתי כדאי לפנות <em class="accent">לליווי מקצועי</em>?</h2>
+        <p>קווי הסיוע עוזרים ברגע. ליווי מקצועי עוזר לאורך זמן - והוא שווה מחשבה כשמזהים אחד מאלה:</p>
+      </div>
+      <div class="card-grid-2">
+        <div class="panel panel-teal">
+          <ul class="signs">
+            <li>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.6" stroke="#6e6e92" stroke-width="1.5"/><path d="M6.5 10.4 9 12.8l4.5-5" stroke="#6e6e92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>עברו שלושה שבועות או יותר - והתחושות לא מרפות.</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.6" stroke="#6e6e92" stroke-width="1.5"/><path d="M6.5 10.4 9 12.8l4.5-5" stroke="#6e6e92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>קשה לתפקד כרגיל - בעבודה, בלימודים או בבית.</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.6" stroke="#6e6e92" stroke-width="1.5"/><path d="M6.5 10.4 9 12.8l4.5-5" stroke="#6e6e92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>השינה נפגעת לאורך זמן - קושי להירדם או יקיצות חוזרות.</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true"><circle cx="10" cy="10" r="8.6" stroke="#6e6e92" stroke-width="1.5"/><path d="M6.5 10.4 9 12.8l4.5-5" stroke="#6e6e92" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>היחסים עם הקרובים נעשים מתוחים מהרגיל.</span>
+            </li>
+          </ul>
+          <p class="signs-note">וגם בלי ״סימן״ ברור - פנייה לליווי היא לא הצהרה שמשהו ״לא בסדר״ בכם. היא דרך לעבור את התקופה הזו עם מישהו לצידכם.</p>
+        </div>
+        <a class="card" href="article.html">
+          <div class="card-art art-a" aria-hidden="true">
+            <svg viewBox="0 0 400 148" fill="none">
+              <circle cx="178" cy="74" r="36" stroke="#4cc4d2" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+              <circle cx="222" cy="74" r="36" stroke="#6e6e92" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+            </svg>
+          </div>
+          <div class="card-body">
+            <div class="card-meta"><span class="tag">מאמר</span><span>3 דק׳ קריאה</span><span>·</span><span>מציאת טיפול</span></div>
+            <h3>עברו שלושה שבועות - והלחץ עדיין לא מרפה?</h3>
+            <p class="excerpt">84% מהישראלים דיווחו שטיפול שיפר את מצבם. מתי שווה לפנות לליווי מקצועי, איך מוצאים גורם מתאים - ולמה זה לא אומר שמשהו ״לא בסדר״.</p>
+            <span class="card-cta">לקריאת המאמר ←</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="search-again" style="padding-top: 8px;">
+    <div class="container">
+      <div class="again-panel">
+        <h2>אפשר גם פשוט לכתוב לנו מה עובר עליכם</h2>
+        <p>אין דרך לא נכונה להגיד את זה - נציג מידע מקצועי וארגונים שיכולים לעזור.</p>
+        <form class="search-form" action="search.html" method="get" role="search">
+          <div class="search-box">
+            <input type="text" name="q" aria-label="מה עובר עליכם? כתבו בשפה חופשית" placeholder="מה עובר עליכם?">
+            <button class="btn btn-teal" type="submit">מצאו לי מידע</button>
+          </div>
+          <p class="search-hint">החיפוש אנונימי - אפשר לכתוב בחופשיות.</p>
+        </form>
+      </div>
+      <p class="muted small after-note">האתר אינו שירות חירום ואינו מחליף טיפול.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- SHELL:FOOTER START -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <a class="brand" href="index.html"><span class="brand-name">איך את.ה<span class="brand-q">?</span></span></a>
+        <p>פרויקט מבית קולקטיב עיקר, בשיתוף הארגונים המובילים בתחום בריאות הנפש, הטראומה והחוסן בישראל.</p>
+        <div class="social-row" aria-label="רשתות חברתיות">
+          <a href="#" aria-label="אינסטגרם"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/><circle cx="17.2" cy="6.8" r="1.3" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="פייסבוק"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14 8h3V4h-3a5 5 0 0 0-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9a1 1 0 0 1 1-1Z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="יוטיוב"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="2"/><path d="M10 9.5v5l4.5-2.5L10 9.5Z" fill="currentColor"/></svg></a>
+          <a href="#" aria-label="וואטסאפ"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.7-1.2A9 9 0 1 0 12 3Z" stroke="currentColor" stroke-width="2"/><path d="M9 8.5c.5 3 3.5 6 6.5 6.5l.5-2-2-1-1 .8c-1-.5-2.3-1.8-2.8-2.8l.8-1-1-2-2 .5Z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+      <nav aria-label="ניווט - תוכן">
+        <h3>תוכן</h3>
+        <ul>
+          <li><a href="index.html#topics">נושאים נפוצים</a></li>
+          <li><a href="index.html#featured">מאמרים וכלים</a></li>
+          <li><a href="search.html">חיפוש</a></li>
+          <li><a href="help.html">קבלת עזרה</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="ניווט - הפרויקט">
+        <h3>הפרויקט</h3>
+        <ul>
+          <li><a href="about.html">על ״איך את.ה?״</a></li>
+          <li><a href="about.html#eiker">מי מאחורי הפרויקט</a></li>
+          <li><a href="partners.html">השותפים המייסדים</a></li>
+          <li><a href="https://www.icarcollective.org/he/" rel="external">האתר הרשמי של עיקר</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="ניווט - מידע">
+        <h3>מידע</h3>
+        <ul>
+          <li><a href="#">תנאי שימוש</a></li>
+          <li><a href="#">מדיניות פרטיות</a></li>
+          <li><a href="#">הצהרת נגישות</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="footer-note">
+      <span>התוכן באתר אינו מהווה אבחון, ייעוץ רפואי או תחליף לטיפול. במצב חירום חייגו 101, או פנו לער״ן בקו 1201. כל התכנים, המספרים והארגונים בעמוד זה הם תוכן הדגמה לצורך משוב עיצובי.</span>
+      <span>© 2026 קולקטיב עיקר · ״איך את.ה?״</span>
+    </div>
+  </div>
+</footer>
+<script src="js/b.js"></script>
+<!-- SHELL:FOOTER END -->
+</body>
+</html>
